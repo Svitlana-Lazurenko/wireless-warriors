@@ -1,9 +1,16 @@
-import * as tmdbApiService from './tmdb-api-service';
-import * as localeStorage from './locale-storage';
-import * as mobileMenu from './components/mobile-menu';
-import * as myModule from './components/modals';
-import * as modals from './components/switch-theme.btn';
-import * as sliderHero from './components/slider-hero';
-import * as loadmoreBtn from './components/loadmore-btn-my-library';
-import * as scrollUp from './components/scroll-up';
+import * as tmdbApi from './tmdb-api';
+
+import * as filmOfTheDay from './fetching and rendering/film-of-the-day';
+import * as filmOfTheMonth from './fetching and rendering/film-of-the-month';
+import * as filmsBySearch from './fetching and rendering/films-by-search';
+import * as filmsOfTheWeek from './fetching and rendering/films-of-the-week';
+import * as savedFilms from './fetching and rendering/saved-films';
+
 import * as loader from './components/loader';
+import * as loadmoreBtn from './components/loadmore-btn';
+import * as mobileMenu from './components/mobile-menu';
+import * as modals from './components/modals';
+import * as saveRemoveFilmsBtn from './components/save-remove-films-btn';
+import * as scrollUp from './components/scroll-up';
+import * as slider from './components/slider';
+import * as switcherBtn from './components/switcher-btn';
