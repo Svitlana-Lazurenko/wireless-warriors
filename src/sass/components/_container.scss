@@ -2,15 +2,15 @@
   padding: 0 15px;
   margin: 0 auto;
 
-  // @include mobile {
-  //   max-width: 480px;
-  // }
+  @include mobile {
+    max-width: 480px;
+  }
 
-  // @include tablet {
-  //   max-width: 768px;
-  // }
+  @include tablet {
+    max-width: 768px;
+  }
 
-  // @include desktop {
-  //   max-width: 1280px;
-  // }
+  @include desktop {
+    max-width: 1280px;
+  }
 }
