@@ -1,0 +1,9 @@
+import * as tmdbApiService from './tmdb-api-service';
+import * as localeStorage from './locale-storage';
+import * as mobileMenu from './components/mobile-menu';
+import * as myModule from './components/modals';
+import * as modals from './components/switch-theme.btn';
+import * as sliderHero from './components/slider-hero';
+import * as loadmoreBtn from './components/loadmore-btn-my-library';
+import * as scrollUp from './components/scroll-up';
+import * as loader from './components/loader';
