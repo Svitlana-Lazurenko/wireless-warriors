@@ -1,0 +1,33 @@
+$colors: (
+  // --------Accents-------------------
+  'accent-color': #f87719,
+  'accent-gradient': linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%),
+  'accent-gradient-reverse':
+    linear-gradient(141.22deg, #f84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%),
+  // ----------Dark Theme---------------
+  'primary-bg-color-dark-theme': #000000,
+  'second-bg-color-dark-theme': #111111,
+  'primary-text-color-dark-theme': #ffffff,
+  'secondary-text-color-dark-theme': #f8f8f8,
+  'tertiary-text-color-dark-theme': #b7b7b7,
+  'buttons-color-white-theme': #b7b7b7,
+  'input-color-dark-theme': #1c1c1c,
+  'shadow-color-dark-theme': rgba(255, 107, 8, 0.42),
+  // -----------White Theme--------------
+  'bg-color-white-theme': #ffffff,
+  'second-bg-color-dark-theme': #ffffff,
+  'primary-text-color-white-theme': #111111,
+  'secondary-text-color-white-theme': #282828,
+  'tertiary-text-color-white-theme': #595959,
+  'buttons-color-white-theme': #595959,
+  'input-color-white-theme': #f8f8f8,
+  'shadow-color-white-theme': rgba(0, 0, 0, 0.22),
+  // ---------Common----------------
+  'posters-text-color': #ffffff,
+  'dark-gradient':
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%)
+);
+
+@function getColor($key) {
+  @return map-get($colors, $key);
+}
