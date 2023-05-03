@@ -1,1 +1,62 @@
+// *{
+//     padding: 0;
+//     margin: 0;
+//     text-decoration: none;
+//     list-style-type: none;
+// }
 
+// body {
+//     background-color: #171717;
+//     // background-color: #000000;
+// }
+
+// .container {
+//     max-width: 480px;
+//     margin-left: auto;
+//     margin-right: auto;
+//     border: 1px solid black;
+//     padding-left: 20px;
+//     padding-right: 20px;
+// }
+
+.header {
+    max-width: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    
+    .header__logo {
+        width: 32px;
+        height: 32px;
+    }
+
+    .header__menu{
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: calc(14 / 12);
+        color: #B7B7B7;
+        background-color: #000000;
+        border: none;
+    }
+
+    .header__chenge--theme {
+        width: 38px;
+        height: 16px;
+        padding: 4px;
+        background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+        border-radius: 194px;
+        border: none;
+        display: flex;
+    }
+
+    .header__moon {
+        margin-right: 14px;
+    }
+
+    .header__sun {
+
+    }
+}
