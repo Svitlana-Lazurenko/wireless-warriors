@@ -1,4 +1,5 @@
 import * as tmdbApi from './tmdb-api';
+import * as pagination from './pagination';
 
 import * as filmOfTheDay from './fetching and rendering/film-of-the-day';
 import * as filmOfTheMonth from './fetching and rendering/film-of-the-month';
@@ -6,6 +7,7 @@ import * as filmsBySearch from './fetching and rendering/films-by-search';
 import * as filmsOfTheWeek from './fetching and rendering/films-of-the-week';
 import * as savedFilms from './fetching and rendering/saved-films';
 
+import * as form from './components/form';
 import * as loader from './components/loader';
 import * as loadmoreBtn from './components/loadmore-btn';
 import * as mobileMenu from './components/mobile-menu';
