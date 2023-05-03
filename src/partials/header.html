@@ -1,11 +1,14 @@
 <div class="container header">
-    <a href="./index.html" class="header__title">
-        <img src="./images/logo.svg" alt="logo site the Cinemania" class="header__logo ">
+    <a href="./index.html" class="header__link--logo">
+        <div class="header__block--logo">
+            <img src="./images/logo.svg" alt="logo site the Cinemania" class="header__logo">
+            <p class="header__title">Cinemania</p>
+        </div>
     </a>
 
-    <!-- <nav>
+    <nav class="header__nav">
         <ul class="header__list">
-            <li class="header__item">
+            <li class="header__item">   
                 <a href="./index.html" class="header__link">HOME</a>
             </li>
             <li class="header__item">
@@ -15,21 +18,23 @@
                 <a href="./my-library.html" class="header__link">MY LIBRARY</a>
             </li>
         </ul>
-    </nav> -->
-    <div>
-        <button type="button" class="header__menu">Menu</button>
-    </div>
+    </nav>
+
+    <button type="button" class="header__menu">Menu</button>
 
     <div class="mobileMenu">
         <include src="./partials/modals-mobile-menu/mobile-menu.html"></include>
     </div>
 
     <button type="button" class="header__chenge--theme">
-        <svg width="8px" height="8px" class="header__moon">
+        <svg width="8px" height="8px" class="header__svg header__svg--right">
             <use href="./images/icons.svg#icon-moon"></use>
         </svg>
-        <svg width="8px" height="8px" class="header__sun">
+        <svg width="8px" height="8px" class="header__svg">
             <use href="./images/icons.svg#icon-sun"></use>
+        </svg>
+        <svg width="12px" height="12px" class="header__animation">
+            <use href="./images/icons.svg#icon-circle-right"></use>
         </svg>
     </button>
 </div>
