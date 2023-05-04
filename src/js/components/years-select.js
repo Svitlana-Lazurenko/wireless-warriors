@@ -5,7 +5,6 @@ function MarkupYears () {
         for(let i = 1960; i < 2024; i++) {
             years.push(i);
         }
-        console.log(years);
         const data = years.map((data, index) => {
             return `<li class="itc-select__option" data-select="option" data-value="${index}" data-index="${index}">${data}</li>`
         }).join('');
