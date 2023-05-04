@@ -12,6 +12,29 @@
     <main>
       <include src="./partials/hero/catalog-hero.html"></include>
       <include src="./partials/main/catalog-main.html"></include>
+
+      <div class="container">
+        <form class="search-form" id="search-form">
+          <input
+            type="text"
+            name="searchQuery"
+            autocomplete="off"
+            placeholder="Search"
+          />
+          <button type="submit" class="search-button">
+            <svg width="13" height="13" class="icon">
+              <use xlink:href="./images/icons.svg#icon-search"></use>
+            </svg>
+          </button>
+        </form>
+        <div>
+          <ul class="gallery-films"></ul>
+        </div>
+        <div>
+          <ul class="paginations"></ul>
+        </div>
+        </div>
+
     </main>
     <footer><include src="./partials/footer.html"></include></footer>
     <script type="module" src="./js/index.js"></script>
