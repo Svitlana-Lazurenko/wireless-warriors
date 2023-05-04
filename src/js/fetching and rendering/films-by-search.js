@@ -10,11 +10,16 @@ async function fetchThemoviedbSearch(keyWord, page) {
 
 export { fetchThemoviedbSearch };
 
+function randomInteger(min, max) {
+    let rand = min + Math.random() * (max - min);
+    return Math.round(rand);
+}
+
 // async function markup() { 
 //     try {
-//         const collection = await fetchThemoviedbDay('simpson', 1);
+//         const collection = await fetchThemoviedbSearch('simpson', 1);
 
-//         console.log(collection.results);
+//         console.log(collection.results[randomInteger(0, 20)]);
 //     } catch (error){
 //         console.error(error);
 //     }
