@@ -9,3 +9,15 @@ async function fetchThemoviedbWeek() {
 }
 
 export { fetchThemoviedbWeek };
+
+// async function markup() { 
+//     try {
+//         const collection = await fetchThemoviedbDay();
+
+//         console.log(collection.results);
+//     } catch (error){
+//         console.error(error);
+//     }
+// }
+
+// markup();
