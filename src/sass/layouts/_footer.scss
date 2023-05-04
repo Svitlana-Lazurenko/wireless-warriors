@@ -1,0 +1,45 @@
+.footer {
+  padding: 28px 42px;
+
+  text-align: center;
+  background-color: getColor('primary-bg-color-dark-theme');
+
+  @include tablet {
+    padding: 40px 143px;
+  }
+
+  @include desktop {
+    padding: 80px 399px;
+  }
+}
+
+.footer__paragraph {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: getColor('tertiary-text-color-dark-theme');
+
+  @include tablet {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+.footer__link {
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    color: getColor('accent-color');
+  }
+}
+
+.footer__heart {
+  position: relative;
+  align-self: baseline;
+  margin-left: 9px;
+  margin-right: 9px;
+}
