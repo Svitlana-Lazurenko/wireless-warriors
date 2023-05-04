@@ -10,16 +10,11 @@ async function fetchThemoviedbSearch(keyWord, page) {
 
 export { fetchThemoviedbSearch };
 
-function randomInteger(min, max) {
-    let rand = min + Math.random() * (max - min);
-    return Math.round(rand);
-}
-
 // async function markup() { 
 //     try {
 //         const collection = await fetchThemoviedbSearch('simpson', 1);
 
-//         console.log(collection.results[randomInteger(0, 20)]);
+//         console.log(collection.results);
 //     } catch (error){
 //         console.error(error);
 //     }

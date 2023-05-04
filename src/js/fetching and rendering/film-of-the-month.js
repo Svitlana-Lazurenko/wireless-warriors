@@ -10,6 +10,10 @@ async function fetchThemoviedbMonth() {
 
 export { fetchThemoviedbMonth };
 
+function randomInteger(min, max) {
+    let rand = min + Math.random() * (max - min);
+    return Math.round(rand);
+}
 
 //////// ВЫБРАТЬ ЛЮБОЙ ЭЛЕМЕНТ МАССИВА И ОТРИСОВАТЬ ФИЛЬМ МЕСЯЦА ////
 
@@ -19,7 +23,7 @@ export { fetchThemoviedbMonth };
 //     try {
 //         const collection = await fetchThemoviedbMonth();
 
-//         console.log(collection.results);
+//         console.log(collection.results[randomInteger(0,20)]);
 //     } catch (error){
 //         console.error(error);
 //     }
