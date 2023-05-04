@@ -3,8 +3,13 @@
     padding-top: 8px;
     width: 100%;
     height: 428px;
+    background-color: black;
 
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: opacity 0.5s ease-out;
 
     .mobileMenu__logo {
         margin-bottom: 40px;
@@ -20,4 +25,16 @@
         line-height: calc(16 / 14);
         color : getColor('primary-text-color-dark-theme');
     }
+
+    @include tablet {
+        display: none;
+    }
+}
+
+.openModal {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: painted;
+    top : 0;
+    left: 0;
 }
