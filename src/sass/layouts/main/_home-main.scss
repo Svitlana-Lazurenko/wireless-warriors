@@ -1,0 +1,99 @@
+:root {
+    --second-bg-color-dark-theme: #111111;
+}
+
+.weekly-trends {
+background-color: var(--second-bg-color-dark-theme);
+}
+
+.weekly-trends_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 24px;
+    @include tablet {
+        padding-top: 52px;
+    }
+    @include desktop {
+        padding-top: 80px;
+        padding-bottom: 28px;
+    }
+}
+
+.weekly-trends_title {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.19;
+
+        color: #FFFFFF;
+        @include tablet {
+            font-size: 24px;
+            line-height: 1.17;
+        }
+        @include desktop {
+            font-size: 28px;
+            line-height: 1.17;
+        }
+}
+
+.weekly-trends_link {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.19;
+        color: #F87719;
+        @include tablet {
+            font-size: 24px;
+            line-height: 1.17;
+        }
+        @include desktop {
+            font-size: 28px;
+                line-height: 1.17;
+        }
+}
+
+
+.card-container {
+    display: flex;
+    justify-content: center; 
+    
+    @include tablet {
+        justify-content: space-between  ;
+    }
+}
+
+.card {
+    max-width: 280px;
+
+    margin-bottom: 20px;
+    color: white;
+    
+        @include tablet {
+            max-width: 224px;
+    width: calc(33.33% - 20px);
+        }
+    
+        @include desktop {
+            max-width: 395px;
+
+        }
+}
+
+.card img {
+    max-width: 280px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin: 0;
+
+    @include tablet {
+        min-width: 224px;
+        height: 325px;
+    }
+
+    @include desktop {
+        min-width: 395px;
+        height: 574px;
+    }
+    
+}
