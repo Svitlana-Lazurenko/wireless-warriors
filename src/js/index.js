@@ -8,8 +8,9 @@ import * as filmTrailer from './fetching and rendering/film-trailer';
 import * as filmsBySearch from './fetching and rendering/films-by-search';
 import * as filmsOfTheWeek from './fetching and rendering/films-of-the-week';
 import * as savedFilms from './fetching and rendering/saved-films';
+import * as filmGenres from './fetching and rendering/film-genres';
+import * as filmCountries from './fetching and rendering/film-countries';
 
-import * as form from './components/form';
 import * as loader from './components/loader';
 import * as loadmoreBtn from './components/loadmore-btn';
 import * as mobileMenu from './components/mobile-menu-open-close';
@@ -18,3 +19,25 @@ import * as saveRemoveFilmsBtn from './components/save-remove-films-btn';
 import * as scrollUp from './components/scroll-up';
 import * as slider from './components/slider';
 import * as switcherBtn from './components/switcher-btn';
+
+// ========= USING LIBRARIES=================================
+
+// ========AXIOS=================
+// import axios from "axios";
+// axios.get('/users')
+//   .then(res => {
+//     console.log(res.data);
+//   });
+// const axios = require('axios/dist/node/axios.cjs');
+
+// ========LODASH DEBOUNCE============
+// var debounce = require('lodash.debounce');
+
+// ==========NOTIFLIX===============
+// https://github.com/notiflix/Notiflix#readme
+
+// =========LAZISIZES===============
+// https://www.npmjs.com/package/lazysizes
+
+// =========SWIPER===============
+// https://swiperjs.com/get-started
