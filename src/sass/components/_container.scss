@@ -14,3 +14,16 @@
     max-width: 1280px;
   }
 }
+
+.container--header {
+  display: flex;
+  align-items: center;
+  
+  @media screen and (max-width: 767px){
+    justify-content: space-between;
+  }
+
+  @include tablet {
+    justify-content: none;
+  }
+}
