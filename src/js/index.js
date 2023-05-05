@@ -10,6 +10,8 @@ import * as filmsOfTheWeek from './fetching and rendering/films-of-the-week';
 import * as savedFilms from './fetching and rendering/saved-films';
 import * as filmGenres from './fetching and rendering/film-genres';
 import * as filmCountries from './fetching and rendering/film-countries';
+import * as filmYears from './fetching and rendering/film-years';
+import * as filmName from './fetching and rendering/film-name';
 
 import * as loader from './components/loader';
 import * as loadmoreBtn from './components/loadmore-btn';
@@ -36,8 +38,11 @@ import * as switcherBtn from './components/switcher-btn';
 // ==========NOTIFLIX===============
 // https://github.com/notiflix/Notiflix#readme
 
-// =========LAZISIZES===============
+// =========LAZYSIZES===============
 // https://www.npmjs.com/package/lazysizes
 
 // =========SWIPER===============
 // https://swiperjs.com/get-started
+
+// =========TUI PAGINATION========
+// https://www.npmjs.com/package/tui-pagination
