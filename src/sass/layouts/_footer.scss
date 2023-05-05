@@ -57,3 +57,12 @@
   margin-left: 9px;
   margin-right: 9px;
 }
+
+// LIGHT-THEME
+.footer--light {
+  background-color: getColor('bg-color-white-theme');
+}
+
+.footer__paragraph--light {
+  color: getColor('primary-text-color-white-theme');
+}
