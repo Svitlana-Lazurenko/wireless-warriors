@@ -35,7 +35,6 @@
   pointer-events: none;
 }
 
-// MODAL-BUTTON-CLOSE
 .modal__button-close {
   position: absolute;
   display: flex;
@@ -46,9 +45,7 @@
   padding: 0;
   width: 16px;
   height: 16px;
-
   border: none;
-
   color: getColor('primary-text-color-dark-theme');
   background: transparent;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -62,22 +59,24 @@
   &:hover,
   &:focus {
     color: getColor('accent-color');
+    background: getColor('accent-gradient');
+    border-radius: 50%;
   }
 
   & .modal__icon-close {
     width: 16px;
     height: 16px;
-    fill: getColor('accent-color');
+    fill: var(--color1, #fff);
 
     @include tablet {
       width: 24px;
       height: 24px;
     }
+  }
 
-    .modal__button-close:focus > &,
-    .modal__button-close:hover > & {
-      fill: getColor('accent-color');
-    }
+  &:hover .modal__icon-close,
+  &:focus .modal__icon-close {
+    fill: getColor('accent-color');
   }
 }
 
