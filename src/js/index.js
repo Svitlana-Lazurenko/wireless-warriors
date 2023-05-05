@@ -11,6 +11,10 @@ import * as savedFilms from './fetching and rendering/saved-films';
 import * as savedFilms from './fetching and rendering/weekly-trends';
 import * as savedFilms from './fetching and rendering/upcoming-this-month';
 
+import * as filmGenres from './fetching and rendering/film-genres';
+import * as filmCountries from './fetching and rendering/film-countries';
+import * as filmYears from './fetching and rendering/film-years';
+import * as filmName from './fetching and rendering/film-name';
 import * as form from './components/form';
 import * as loader from './components/loader';
 import * as loadmoreBtn from './components/loadmore-btn';
