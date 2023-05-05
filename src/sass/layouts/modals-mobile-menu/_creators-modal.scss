@@ -111,14 +111,13 @@
   align-items: center;
   width: 100%;
   padding: 20px 7px;
-
-  background: linear-gradient(
-        getColor(primary-bg-color-dark-theme),
-        getColor(primary-bg-color-dark-theme)
-      )
-      padding-box,
-    getColor('accent-gradient') border-box;
-  border: 3px solid transparent;
+  // background: linear-gradient(
+  //       getColor(primary-bg-color-dark-theme),
+  //       getColor(primary-bg-color-dark-theme)
+  //     )
+  //     padding-box,
+  //   getColor('accent-gradient') border-box;
+  border: 3px solid getColor('accent-gradient');
   border-radius: 20px;
 
   @include mobile {
