@@ -59,7 +59,10 @@
   &:hover,
   &:focus {
     color: getColor('accent-color');
-    background: getColor('accent-gradient');
+    background: linear-gradient(
+      getColor('accent-gradient1-from-color'),
+      getColor('accent-gradient1-to-color')
+    );
     border-radius: 50%;
   }
 
@@ -111,14 +114,17 @@
   align-items: center;
   width: 100%;
   padding: 20px 7px;
-  // background: linear-gradient(
-  //       getColor(primary-bg-color-dark-theme),
-  //       getColor(primary-bg-color-dark-theme)
-  //     )
-  //     padding-box,
-  //   getColor('accent-gradient') border-box;
-  border: 3px solid getColor('accent-gradient');
+  background: linear-gradient(
+        getColor(primary-bg-color-dark-theme),
+        getColor(primary-bg-color-dark-theme)
+      )
+      padding-box,
+    getColor('accent-gradient1-from-color'),
+    getColor('accent-gradient1-to-color') border-box;
+  border: 1px solid transparent;
   border-radius: 20px;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @include mobile {
     flex-basis: calc((100% - 30px) / 1);
@@ -134,13 +140,18 @@
   }
 }
 
+.team__item:hover {
+  transform: scale(1.07);
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+}
+
 .team__foto-thumb {
   margin-bottom: 20px;
   width: 150px;
   height: 150px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid getColor('accent-color');
+  border: 2px solid getColor('accent-color');
 }
 
 .team__student-foto {
