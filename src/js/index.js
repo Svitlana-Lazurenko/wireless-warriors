@@ -38,8 +38,11 @@ import * as switcherBtn from './components/switcher-btn';
 // ==========NOTIFLIX===============
 // https://github.com/notiflix/Notiflix#readme
 
-// =========LAZISIZES===============
+// =========LAZYSIZES===============
 // https://www.npmjs.com/package/lazysizes
 
 // =========SWIPER===============
 // https://swiperjs.com/get-started
+
+// =========TUI PAGINATION========
+// https://www.npmjs.com/package/tui-pagination
