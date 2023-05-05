@@ -39,8 +39,11 @@ import * as yearsSelect from './components/years-select';
 // ==========NOTIFLIX===============
 // https://github.com/notiflix/Notiflix#readme
 
-// =========LAZISIZES===============
+// =========LAZYSIZES===============
 // https://www.npmjs.com/package/lazysizes
 
 // =========SWIPER===============
 // https://swiperjs.com/get-started
+
+// =========TUI PAGINATION========
+// https://www.npmjs.com/package/tui-pagination
