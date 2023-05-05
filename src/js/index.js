@@ -20,3 +20,25 @@ import * as saveRemoveFilmsBtn from './components/save-remove-films-btn';
 import * as scrollUp from './components/scroll-up';
 import * as slider from './components/slider';
 import * as switcherBtn from './components/switcher-btn';
+
+// ========= USING LIBRARIES=================================
+
+// ========AXIOS=================
+// import axios from "axios";
+// axios.get('/users')
+//   .then(res => {
+//     console.log(res.data);
+//   });
+// const axios = require('axios/dist/node/axios.cjs');
+
+// ========LODASH DEBOUNCE============
+// var debounce = require('lodash.debounce');
+
+// ==========NOTIFLIX===============
+// https://github.com/notiflix/Notiflix#readme
+
+// =========LAZISIZES===============
+// https://www.npmjs.com/package/lazysizes
+
+// =========SWIPER===============
+// https://swiperjs.com/get-started
