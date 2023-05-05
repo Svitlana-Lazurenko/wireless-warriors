@@ -9,6 +9,7 @@ import * as filmsBySearch from './fetching and rendering/films-by-search';
 import * as filmsOfTheWeek from './fetching and rendering/films-of-the-week';
 import * as savedFilms from './fetching and rendering/saved-films';
 
+import * as hero from './components/hero';
 import * as form from './components/form';
 import * as loader from './components/loader';
 import * as loadmoreBtn from './components/loadmore-btn';
