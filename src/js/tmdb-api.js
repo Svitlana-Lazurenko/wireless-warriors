@@ -1,3 +1,4 @@
-//   API key df4f25ddce476816dc7867d9ac4bd1ea
+const BASE_THEMOVIEDB_URL = 'https://api.themoviedb.org/3'
+const apiKey = 'df4f25ddce476816dc7867d9ac4bd1ea';
 
-// Приклад API-запиту https://api.themoviedb.org/3/movie/550?api_key=df4f25ddce476816dc7867d9ac4bd1ea
+export {BASE_THEMOVIEDB_URL, apiKey};
