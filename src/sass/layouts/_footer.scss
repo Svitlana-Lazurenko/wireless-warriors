@@ -1,15 +1,30 @@
 .footer {
-  padding: 28px 42px;
+  padding-bottom: 28px;
+  padding-top: 28px;
 
+  display: flex;
+  justify-content: center;
   text-align: center;
   background-color: getColor('primary-bg-color-dark-theme');
 
   @include tablet {
-    padding: 40px 143px;
+    padding-bottom: 40px;
+    padding-top: 40px;
   }
 
   @include desktop {
-    padding: 80px 399px;
+    padding-bottom: 80px;
+    padding-top: 80px;
+  }
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+
+  @include tablet {
+    flex-direction: row;
   }
 }
 
