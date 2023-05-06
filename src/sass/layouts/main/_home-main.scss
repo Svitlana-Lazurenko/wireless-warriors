@@ -106,7 +106,9 @@
     }
 
 }
-
+.card img:hover {
+    cursor: pointer;
+}
 
 
 // Upcoming this mounth
@@ -139,7 +141,7 @@
 .upcoming-soon_film {
     display: flex;
     flex-direction: column;
-    color: white
+    color: #B7B7B7;
 }
 
 .upcoming-soon_text {
@@ -191,11 +193,23 @@
 .upcoming-soon_film__title {
     margin-top: 24px;
     margin-bottom: 20px;
+    font-weight: 500;
+        font-size: 20px;
+        line-height: 1.15;
+        color: #FFFFFF;
+        @include desktop {
+            margin-top: 0;
+        }
 }
 
 .upcoming-soon_votes {
     margin-top: 12px;
     margin-bottom: 12px;
+
+    font-weight: 500;
+        font-size: 16px;
+        line-height: 1.19;
+        color: #B7B7B7;
 }
 
 .upcoming-soon_popularity {
@@ -227,12 +241,18 @@
 }
 
 .upcoming-soon__votes {
-    color: blue
+    padding: 1 4 1 4;
+    color: #111111;
+    background-color: #FFFFFF;
+    border-radius: 5px;
 }
 
 .upcoming-soon__vote {
-    color: pink;
+    padding: 1 8 1 8;
+    background-color: #FFFFFF;
+    color: #111111;
     margin-left: 75px;
+    border-radius: 5px;
 
     @include tablet {
         margin-left: 80px;
@@ -246,7 +266,13 @@
     align-items: center;
     text-transform: uppercase;
     color: #FFFFFF;
-    margin-left: 77px;
+    margin-left: 85px;
+    @include tablet {
+        margin-left: 77px;
+    }
+    @include desktop {
+        margin-left: 87px;
+    }
 }
 
 .upcoming-soon_popularity2 {
@@ -254,7 +280,17 @@
 }
 
 .upcoming-soon__genr {
-    margin-left: 107px;
+    margin-left: 115px;
+    font-weight: 500;
+        font-size: 16px;
+        line-height: 1.17;
+        color: #FFFFFF;
+        @include tablet {
+            margin-left: 107px;
+        }
+        @include desktop {
+            margin-left: 117px;
+        }
 }
 
 .popularity-data_container {
@@ -268,11 +304,19 @@
 }
 
 .release-data__container {
-    color: red
+    font-weight: 500;
+        font-size: 16px;
+        line-height: 1.17;
+        color: #B7B7B7;
 }
 
 .upcoming-soon_date {
     margin-left: 57px;
+    font-weight: 500;
+        font-size: 16px;
+        line-height: 1.17;
+        text-transform: uppercase;
+        color: #F87719;
 
     @include tablet {
         margin-left: 58px;
@@ -305,7 +349,13 @@
     transform: translateY(2px);
     background: linear-gradient(141.22deg, #F84119 9.4%, #FFC226 91.91%);
 }
-.upcoming-soon_button:hover {
+.upcoming-soon_button:hover,
+.upcoming-soon_button:focus {
     background: white;
     color:#F87719;
 }
+
+
+
+
+
