@@ -1,9 +1,10 @@
 $colors: (
   // --------Accents-------------------
   'accent-color': #f87719,
-  'accent-gradient': linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%),
-  'accent-gradient-reverse':
-    linear-gradient(141.22deg, #f84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%),
+  'accent-gradient1-from-color': #ffc226,
+  'accent-gradient1-to-color': #f84119,
+  'accent-gradient2-from-color': #f84119,
+  'accent-gradient2-to-color': rgba(248, 159, 25, 0.68),
   // ----------Dark Theme---------------
   'primary-bg-color-dark-theme': #000000,
   'second-bg-color-dark-theme': #111111,
@@ -24,8 +25,10 @@ $colors: (
   'shadow-color-white-theme': rgba(0, 0, 0, 0.22),
   // ---------Common----------------
   'posters-text-color': #ffffff,
-  'dark-gradient':
-    linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%)
+  'dark-gradient1': rgba(0, 0, 0, 0),
+  'dark-gradient2': rgba(0, 0, 0, 0.9),
+  'overlay-dark-theme': rgba(255, 255, 255, 0.2),
+  'overlay-white-theme': rgba(0, 0, 0, 0.2)
 );
 
 @function getColor($key) {
