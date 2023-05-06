@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://Svitlana-Lazurenko.github.io/wireless-warriors",
   "scripts": {
-    "start": "parcel src/*.html -p 3758",
+    "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /wireless-warriors/"
   },
   "repository": {
