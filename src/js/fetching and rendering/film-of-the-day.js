@@ -1,23 +1,29 @@
-import { BASE_THEMOVIEDB_URL, apiKey } from "../tmdb-api";
-import axios from "axios";
+const axios = require('axios').default;
 
-async function fetchThemoviedbDay() {
-    const response = await axios(`${BASE_THEMOVIEDB_URL}/trending/movie/day?api_key=${apiKey}`)
-    const newCollection = await response.data;
-
-    return newCollection;
+class ApiThemoviedb {
+  constructor() {
+    this.base_url = 'https://api.themoviedb.org/3';
+    this.api_key = 'df4f25ddce476816dc7867d9ac4bd1ea';
+    this.media_type = 'movie';
+    this.time_window = 'day';
+  }
+  async getRequestData() {
+    return await axios.get(
+      `${this.base_url}/trending/${this.media_type}/${this.time_window}`,
+      {
+        params: {
+          api_key: this.api_key,
+        },
+      }
+    );
+  }
+  async getRequestVideos(idMovie) {
+    return await axios.get(`${this.base_url}/movie/${idMovie}/videos`, {
+      params: {
+        api_key: this.api_key,
+      },
+    });
+  }
 }
 
-export { fetchThemoviedbDay };
-
-// async function markup() { 
-//     try {
-//         const collection = await fetchThemoviedbDay();
-
-//         console.log(collection.results);
-//     } catch (error){
-//         console.error(error);
-//     }
-// }
-
-// markup();
+export { ApiThemoviedb };
