@@ -16,4 +16,13 @@
   border: none;
 
   cursor: pointer;
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 1.14;
+  }
+  @include desktop {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
