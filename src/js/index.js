@@ -19,6 +19,7 @@ import * as saveRemoveFilmsBtn from './components/save-remove-films-btn';
 import * as scrollUp from './components/scroll-up';
 import * as slider from './components/slider';
 import * as switcherBtn from './components/switcher-btn';
+import * as yearsSelect from './components/years-select';
 
 // ========= USING LIBRARIES=================================
 
