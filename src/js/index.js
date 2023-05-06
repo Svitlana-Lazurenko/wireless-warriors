@@ -14,7 +14,7 @@ import * as filmYears from './fetching and rendering/film-years';
 import * as filmName from './fetching and rendering/film-name';
 
 import * as hero from './components/hero';
-import * as form from './components/form';
+
 import * as loader from './components/loader';
 import * as loadmoreBtn from './components/loadmore-btn';
 import * as mobileMenu from './components/mobile-menu-open-close';

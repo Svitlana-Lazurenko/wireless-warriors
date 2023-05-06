@@ -38,7 +38,7 @@
   }
   &__description {
     margin-bottom: 20px;
-
+    font-weight: 400;
     font-family: 'Roboto';
     font-size: 14px;
     line-height: 1.14;
@@ -46,11 +46,11 @@
     color: getColor('secondary-text-color-dark-theme');
   }
   &__button-trailer {
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.17;
+  }
 
-    color: #111111;
+  &__rating-stars {
+    width: 96px;
+    height: 16px;
+    margin-bottom: 16px;
   }
 }

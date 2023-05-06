@@ -1,0 +1,19 @@
+.btn {
+  padding: 12px 24px;
+
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+
+  background: linear-gradient(
+    141.22deg,
+    getColor('accent-gradient1-from-color') 9.4%,
+    getColor('accent-gradient1-to-color') 91.91%
+  );
+  border-radius: 74px;
+  color: #111111;
+  border: none;
+
+  cursor: pointer;
+}
