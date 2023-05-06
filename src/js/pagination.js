@@ -8,6 +8,7 @@ const paginationPage = document.querySelector('#pagination');
 
 export function createPagination(totalItems, visiblePages) {
   const options = {
+    page: 1,
     itemsPerPage: 20,
     totalItems: totalItems,
     visiblePages: visiblePages < 5 ? visiblePages : TUI_VISIBLE_PAGES,

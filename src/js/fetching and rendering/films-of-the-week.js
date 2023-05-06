@@ -9,14 +9,38 @@ const img = 'https://image.tmdb.org/t/p/w500/';
 async function fetchThemoviedbWeek() {
   const response = await axios(`${BASE_THEMOVIEDB_URL}/trending/movie/week?api_key=${apiKey}`);
   const newCollection = await response.data;
-  pagination = createPagination(response.data.total_results, response.data.total_pages);
 
-  incrementPage(response.data.page);
+  pagination = createPagination(
+    response.data.total_results,
+    response.data.total_pages,
+    response.data.page
+  );
+
+  let page = response.data.page;
+  page = pagination.getCurrentPage();
+  pagination.reset(response.data.total_pages);
+  getPagination(page);
+
+  console.log(page);
+
   return newCollection;
 }
 
-function incrementPage(page) {
-  return (page += 1);
+async function getPagination(page) {
+  try {
+    // await paganation.on('afterMove', event => {
+    //   const currentPage = event.page;
+    //   console.log(currentPage);
+    // });
+    await pagination.on('beforeMove', ({ page }) => {
+      ul.innerHTML = '';
+
+      fetchThemoviedbWeek();
+      loadMoviesWeek();
+    });
+  } catch (error) {
+    onFetchError(error);
+  }
 }
 
 async function loadMoviesWeek() {
