@@ -96,16 +96,20 @@
   margin-bottom: 20px;
 
   text-align: center;
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 20px;
+  line-height: 23px;
   color: getColor('primary-text-color-dark-theme');
 
   @include tablet {
     margin-bottom: 40px;
+    font-size: 24px;
+    line-height: 28px;
   }
 
   @include desktop {
     margin-bottom: 60px;
+    font-size: 24px;
+    line-height: 32px;
   }
 }
 
@@ -195,10 +199,20 @@
 .team__student-name {
   margin-bottom: 10px;
   font-size: 20px;
-  line-height: 23px;
+  line-height: 24px;
 
   text-transform: uppercase;
   color: getColor('primary-text-color-dark-theme');
+
+  @include tablet {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  @include desktop {
+    font-size: 24px;
+    line-height: 28px;
+  }
 }
 
 .team__student-name--light {
