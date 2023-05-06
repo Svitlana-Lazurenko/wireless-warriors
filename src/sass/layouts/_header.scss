@@ -1,0 +1,174 @@
+.header {
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  @include tablet {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}
+
+.header__section {
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 767px) {
+    justify-content: space-between;
+  }
+}
+
+.header__link--logo {
+  @include tablet {
+    margin-right: 59px;
+  }
+
+  @include desktop {
+    margin-right: 307px;
+  }
+}
+
+.header__block--logo {
+  @include tablet {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.header__logo {
+  width: 32px;
+  height: 32px;
+
+  @include tablet {
+    display: block;
+    width: 48px;
+    height: 48px;
+    margin-right: 8px;
+  }
+}
+
+.header__title {
+  display: none;
+
+  @include tablet {
+    display: block;
+    font-size: 24px;
+    line-height: calc(28 / 24);
+    color: getColor('primary-text-color-dark-theme');
+  }
+}
+
+.header__nav {
+  display: none;
+
+  @include tablet {
+    display: block;
+    margin-right: auto;
+  }
+}
+
+.header__list {
+  display: flex;
+  gap: 32px;
+}
+
+.header__link {
+  @include tablet {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: calc(16 / 14);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: getColor('buttons-color-dark-theme');
+  }
+}
+
+.header__menu {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  color: getColor('tertiary-text-color-dark-theme');
+  background-color: rgba(28, 28, 28, 0);
+  border: none;
+
+  @media screen and (min-width: 767px) {
+    display: none;
+  }
+}
+
+.header__change {
+  cursor: pointer;
+  width: 38px;
+  height: 16px;
+  padding: 4px;
+  background: getColor('accent-gradient');
+  border-radius: 194px;
+  border: none;
+  display: flex;
+  position: relative;
+
+  @include tablet {
+    width: 54px;
+    height: 20px;
+    padding: 5px;
+  }
+
+  @include desktop {
+    width: 60px;
+    height: 24px;
+    padding: 4px, 5px, 4px, 6px;
+  }
+}
+
+.header__svg {
+  fill: white;
+
+  @include tablet {
+    width: 10px;
+    height: 10px;
+  }
+
+  @include desktop {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+.header__svg--right {
+  margin-right: 14px;
+
+  @include tablet {
+    margin-right: 24px;
+  }
+}
+
+.header__animation {
+  transform: translateX(0);
+  transition: transform 0.5s ease-out;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+
+  @include tablet {
+    width: 16px;
+    height: 16px;
+  }
+
+  @include desktop {
+    width: 18px;
+    height: 18px;
+    top: 3px;
+    right: 3px;
+  }
+}
+
+.changeTheme {
+  @media screen and (max-width: 767px) {
+    transform: rotate(180deg) translateX(22px);
+  }
+
+  @include tablet {
+    transform: rotate(180deg) translateX(34px);
+  }
+}
