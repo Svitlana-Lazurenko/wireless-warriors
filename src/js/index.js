@@ -8,10 +8,8 @@ import * as filmTrailer from './fetching and rendering/film-trailer';
 import * as filmsBySearch from './fetching and rendering/films-by-search';
 import * as filmsOfTheWeek from './fetching and rendering/films-of-the-week';
 import * as savedFilms from './fetching and rendering/saved-films';
-import * as filmGenres from './fetching and rendering/film-genres';
-import * as filmCountries from './fetching and rendering/film-countries';
-import * as filmYears from './fetching and rendering/film-years';
-import * as filmName from './fetching and rendering/film-name';
+import * as filmsOfTheWeek from './fetching and rendering/upcoming-this-month';
+import * as savedFilms from './fetching and rendering/weekly-trends';
 
 import * as hero from './components/hero';
 
@@ -23,6 +21,8 @@ import * as saveRemoveFilmsBtn from './components/save-remove-films-btn';
 import * as scrollUp from './components/scroll-up';
 import * as slider from './components/slider';
 import * as switcherBtn from './components/switcher-btn';
+import * as animateBtnChahgeTheme from './components/change-theme';
+import * as yearsSelect from './components/years-select';
 
 // ========= USING LIBRARIES=================================
 
