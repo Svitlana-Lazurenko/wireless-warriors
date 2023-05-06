@@ -24,12 +24,3 @@ export function createPagination(totalItems, visiblePages) {
 
   return pagination;
 }
-
-// paganation.on('beforeMove', event => {
-//   const currentPage = event.page;
-
-//   if (currentPage === 10) {
-//     return false;
-//     // return true;
-//   }
-// });
