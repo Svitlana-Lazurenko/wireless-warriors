@@ -1,0 +1,311 @@
+//  Weekly-trends movies
+
+:root {
+    --second-bg-color-dark-theme: #111111;
+}
+
+.weekly-trends {
+    background-color: var(--second-bg-color-dark-theme);
+}
+
+.weekly-trends_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 24px;
+
+    @include tablet {
+        padding-top: 52px;
+    }
+
+    @include desktop {
+        padding-top: 80px;
+        padding-bottom: 28px;
+    }
+}
+
+.weekly-trends_title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.19;
+
+    color: #FFFFFF;
+
+    @include tablet {
+        font-size: 24px;
+        line-height: 1.17;
+    }
+
+    @include desktop {
+        font-size: 28px;
+        line-height: 1.17;
+    }
+}
+
+.weekly-trends_link {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.19;
+    color: #F87719;
+
+    @include tablet {
+        font-size: 24px;
+        line-height: 1.17;
+    }
+
+    @include desktop {
+        font-size: 28px;
+        line-height: 1.17;
+    }
+}
+
+
+.card-container {
+    display: flex;
+    justify-content: center;
+
+    @include tablet {
+        justify-content: space-between;
+    }
+}
+
+.card {
+    margin-bottom: 32px;
+    max-width: 280px;
+    color: white;
+
+    @include tablet {
+        margin-bottom: 44px;
+        max-width: 224px;
+        width: calc(33.33% - 20px);
+    }
+
+    @include desktop {
+        margin-bottom: 60px;
+        max-width: 395px;
+
+    }
+}
+
+.card img {
+    max-width: 280px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin: 0;
+
+    @include tablet {
+        min-width: 224px;
+        height: 325px;
+    }
+
+    @include desktop {
+        min-width: 395px;
+        height: 574px;
+    }
+
+}
+
+
+
+// Upcoming this mounth
+
+.upcoming-soon {
+    background-color: var(--second-bg-color-dark-theme);
+}
+
+.upcoming-soon_title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.19;
+
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+
+    @include tablet {
+        font-size: 24px;
+        line-height: 1.17;
+    }
+
+    @include desktop {
+        font-size: 28px;
+        line-height: 1.18
+    }
+}
+
+
+.upcoming-soon_film {
+    display: flex;
+    flex-direction: column;
+    color: white
+}
+
+.upcoming-soon_text {
+    @include tablet {
+        display: flex;
+    }
+
+    @include desktop {
+        display: block;
+    }
+}
+
+
+
+.upcoming-soon_box {
+    color: white;
+
+    @include tablet {}
+
+    @include desktop {
+        display: flex;
+
+
+
+    }
+}
+
+.upcoming-soon_box img {
+    max-width: 280px;
+    height: auto;
+    display: block;
+    margin: auto;
+
+    @include tablet {
+        min-width: 704px;
+        height: auto;
+        margin: 0;
+    }
+
+    @include desktop {
+        margin-right: 16px;
+        max-width: 805px;
+        max-height: 600px;
+
+    }
+
+}
+
+.upcoming-soon_film__title {
+    margin-top: 24px;
+    margin-bottom: 20px;
+}
+
+.upcoming-soon_votes {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.upcoming-soon_popularity {
+    margin-bottom: 12px;
+}
+
+.upcoming-soon_genres {
+    margin-bottom: 20px;
+}
+
+.upcoming-soon_about__text {
+    display: block;
+    margin-top: 16px;
+
+    font-size: 14px;
+    line-height: 1.43;
+    color: #F8F8F8;
+    @include tablet {
+        margin-right: 107px;
+    }
+    @include desktop {
+        margin-right: 0px;
+    }
+}
+
+.upcoming-soon_date {
+    color: red;
+
+}
+
+.upcoming-soon__votes {
+    color: blue
+}
+
+.upcoming-soon__vote {
+    color: pink;
+    margin-left: 75px;
+
+    @include tablet {
+        margin-left: 80px;
+    }
+}
+
+.upcoming-soon_popularity {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.19;
+    align-items: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-left: 77px;
+}
+
+.upcoming-soon_popularity2 {
+    margin-bottom: 12px;
+}
+
+.upcoming-soon__genr {
+    margin-left: 107px;
+}
+
+.popularity-data_container {
+    @include tablet {
+        margin-left: 118px;
+    }
+
+    @include desktop {
+        margin-left: 0;
+    }
+}
+
+.release-data__container {
+    color: red
+}
+
+.upcoming-soon_date {
+    margin-left: 57px;
+
+    @include tablet {
+        margin-left: 58px;
+    }
+}
+
+
+// Button Styles
+.upcoming-soon_button {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: 109px;
+    height: 38px;
+    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+    border-radius: 74px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    align-items: center;
+    text-align: center;
+    color: #111111;
+    @include tablet {
+        margin-bottom: 77px;
+    }
+}
+
+.upcoming-soon_button:active {
+    transform: translateY(2px);
+    background: linear-gradient(141.22deg, #F84119 9.4%, #FFC226 91.91%);
+}
+.upcoming-soon_button:hover {
+    background: white;
+    color:#F87719;
+}

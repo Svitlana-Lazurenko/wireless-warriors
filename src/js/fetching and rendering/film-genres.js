@@ -1,4 +1,5 @@
 import { BASE_THEMOVIEDB_URL, apiKey } from "../tmdb-api";
+import { ItcCustomSelect } from '../components/castom-select';
 import axios from "axios";
 
 async function fetchThemoviedbGenres() {
@@ -8,18 +9,19 @@ async function fetchThemoviedbGenres() {
     return newCollection;
 }
 
-export { fetchThemoviedbGenres };
+async function selectGenresAndMarkup () {
+    try {
+        const promis = await fetchThemoviedbGenres();
+        const data = promis.genres.map((data, index) => {
+            return `<li class="itc-select__option" data-select="option" data-value="${data.name}" data-index="${index}">${data.name}</li>`
+        }).join('');
 
-//////// ПОСЛЕ ВЫПОЛНЕНИЯ УДАЛИТЬ КОММЕНТЫ /////
+        document.querySelector('.itc-select__genres').insertAdjacentHTML('beforeend', data);
+        new ItcCustomSelect('#select-2');
+        document.querySelector('.itc-select__toggle').disabled = false;
+    } catch (error){
+        console.error(error);
+    }
+}
 
-// async function markup() { 
-//     try {
-//         const collection = await fetchThemoviedbGenres();
-
-//         console.log(collection.genres);
-//     } catch (error){
-//         console.error(error);
-//     }
-// }
-
-// markup();
+selectGenresAndMarkup();
