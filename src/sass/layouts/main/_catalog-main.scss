@@ -95,10 +95,10 @@
     transform: translate(-50%, -50%);
     background-position: center;
   }
-  //   .tui-ico-prev {
-  //     background-image: url('path/to/icons.svg#icon-arrow-left.svg');
-  //   }
-  //   .tui-ico-next {
-  //     background-image: url('../images/icons.svg/icon-arrow-right.svg');
-  //   }
+  .tui-ico-prev {
+    background-image: url('../images/icons.svg#icon-arrow-left.svg');
+  }
+  .tui-ico-next {
+    background-image: url('../images/icons.svg#icon-arrow-right.svg');
+  }
 }

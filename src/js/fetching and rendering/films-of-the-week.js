@@ -2,6 +2,7 @@ import { BASE_THEMOVIEDB_URL, apiKey } from '../tmdb-api';
 import axios from 'axios';
 import { fetchThemoviedbGenres } from './film-genres';
 import { createPagination } from '../pagination';
+import { makeStarsMarkup } from '../components/star-markup';
 
 const ul = document.querySelector('.gallery-films');
 const img = 'https://image.tmdb.org/t/p/w500/';
@@ -79,8 +80,8 @@ function createMarkup({ poster_path, release_date, title, vote_average, genre_id
      <img src='${img}${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
     <div class='info overlay'>
       <h2 class='info-title'>${title}</h2>
-      <p class='info-genre'>${genreNames}<span>|</span>${onlyYearFilter(release_date)}</p>
-      <p class='info-vote'>${vote_average}</p>
+      <p class='info-genre'>${genreNames}<span> | </span>${onlyYearFilter(release_date)}</p>
+      <p class='info-vote'>${makeStarsMarkup(vote_average, 'hero__rating-stars')}</p>
     </div>
     </a>
   </li>`;

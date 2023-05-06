@@ -1,7 +1,4 @@
 import { BASE_THEMOVIEDB_URL, apiKey } from '../tmdb-api';
-import axios from 'axios';
-
-import { BASE_THEMOVIEDB_URL, apiKey } from '../tmdb-api';
 import { ItcCustomSelect } from '../components/castom-select';
 import axios from 'axios';
 
