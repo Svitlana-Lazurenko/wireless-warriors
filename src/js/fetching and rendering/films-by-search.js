@@ -19,7 +19,7 @@ class PostApiService {
     this.totalResult = 0;
   }
 
-  async fetchFilms() {
+  async fetchPost() {
     const OPTIONS = new URLSearchParams({
       api_key: apiKey,
       query: this.searchQuery,
@@ -128,7 +128,7 @@ function clearCardList() {
 }
 function fetchPost() {
   postApiService
-    .fetchFilms()
+    .fetchPost()
     .then(data => {
       renderMarkup(data.results);
       // pagination(data.page, data.total_pages);
@@ -146,11 +146,9 @@ function createMarkup(data) {
   return data.reduce(
     (acc, { poster_path, title, genre_ids, release_date, vote_average }) => {
       acc += `<li class='movie__card'>
-        <div class="movie__card-thumb">
-          <a href="#" class='movie__link'>
+        <div class="movie__card-thumb"><a href="#" class='movie__link'>
             <img src='https://image.tmdb.org/t/p/original${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
-          </a>
-        </div>
+          </a></div>
           <div class='info-thumb overlay'>
             <h2 class='info-title'>${title}</h2>
               <p class='info-genre'>${getGenreName(
