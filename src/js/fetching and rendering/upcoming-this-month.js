@@ -9,7 +9,7 @@ axios
   .get(upcomongSoon)
   .then(response => {
     const movie = response.data.results[0];
-    const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+    const imageUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
 
     const newDiv = document.querySelector('.upcoming-soon_title');
     const card = document.createElement('div');
@@ -33,7 +33,7 @@ axios
       .then(results => {
         const info = results[0].data;
         const releaseDate = new Date(info.release_date).toLocaleDateString();
-        const votes = info.vote_average;
+        const votes = Math.round(info.vote_average * 10) / 10;
         const voteCount = info.vote_count;
         const popularity = Math.round(info.popularity);
         const genres = info.genres
