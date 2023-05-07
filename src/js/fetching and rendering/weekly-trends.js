@@ -56,11 +56,20 @@ axios
             genre = `${genres}, ${info.genres[1].name}`;
           }
 
+          const stars = ['\u2606', '\u2605']; // Array of star symbols (empty and filled)
+
+          // Function to convert rating to stars
+          function getStars(rating) {
+            const filledStars = Math.round(rating / 2); // Get number of filled stars
+            const emptyStars = 5 - filledStars; // Get number of empty stars
+            return stars[1].repeat(filledStars) + stars[0].repeat(emptyStars); // Combine filled and empty stars
+          }
+
           const subtitle = document.createElement('p');
           const spanRating = document.createElement('span');
-          spanRating.textContent = rating;
+          spanRating.textContent = getStars(rating);
           spanRating.classList.add('card-position-absolute__rating');
-          subtitle.textContent = ` ${genre} | ${releaseYear} | Rating:`;
+          subtitle.textContent = ` ${genre} ${releaseYear} `;
           subtitle.appendChild(spanRating);
 
           const subtitleWrapper = document.createElement('div');
@@ -138,9 +147,18 @@ mediaQuery.addListener(() => {
               genre = `${genres}, ${info.genres[1].name}`;
             }
 
+            const stars = ['\u2606', '\u2605']; // Array of star symbols (empty and filled)
+
+            // Function to convert rating to stars
+            function getStars(rating) {
+              const filledStars = Math.round(rating / 2); // Get number of filled stars
+              const emptyStars = 5 - filledStars; // Get number of empty stars
+              return stars[1].repeat(filledStars) + stars[0].repeat(emptyStars); // Combine filled and empty stars
+            }
+
             const subtitle = document.createElement('p');
             const spanRating = document.createElement('span');
-            spanRating.textContent = rating;
+            spanRating.textContent = getStars(rating);
             spanRating.classList.add('card-position-absolute__rating');
             subtitle.textContent = ` ${genre} | ${releaseYear} | Rating:`;
             subtitle.appendChild(spanRating);
