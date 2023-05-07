@@ -1,0 +1,43 @@
+.mobileMenu {
+    padding-left: 20px;
+    padding-top: 8px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #171717;
+
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-out;
+    z-index: 999;
+
+    .mobileMenu__logo {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 40px;
+    }
+
+    .mobileMenu__item + .mobileMenu__item{
+        margin-top: 24px;
+    }
+
+    .mobileMenu__link {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: calc(16 / 14);
+        color : getColor('primary-text-color-dark-theme');
+    }
+
+    @include tablet {
+        display: none;
+    }
+}
+
+.openModal {
+    visibility: visible;
+    pointer-events: painted;
+    top : 0;
+    left: 0;
+    transform: translateX(0);
+}

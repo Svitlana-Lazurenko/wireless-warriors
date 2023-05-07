@@ -1,0 +1,62 @@
+.btn {
+  text-align: center;
+}
+
+.load-more {
+  width: 134px;
+  height: 52px;
+
+  padding: 12px 24px;
+
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+
+  background: linear-gradient(
+    141.22deg,
+    getColor('accent-gradient1-from-color') 9.4%,
+    getColor('accent-gradient1-to-color') 91.91%
+  );
+  border-radius: 74px;
+  padding: 5px 10px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  border: 0;
+  padding: 12px 24px;
+  margin-bottom: 96px;
+  margin-top: 40px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  display: inline-block;
+  text-align: center;
+  color: #111111;
+  border: none;
+
+  cursor: pointer;
+
+  &.hidden {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    background: linear-gradient(
+      141.22deg,
+      getColor('primary-text-color-dark-theme') 9.4%,
+      getColor('primary-text-color-dark-theme') 91.91%
+    );
+    color: getColor('accent-color');
+  }
+
+  @include tablet {
+    font-size: 14px;
+    line-height: 1.14;
+  }
+  @include desktop {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
