@@ -1,0 +1,65 @@
+.slider-control {
+  position: absolute;
+  left: 27px;
+  bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.slider-control .swiper-pagination {
+  position: static;
+  display: flex;
+  gap: 8px;
+}
+
+.slider-control .swiper-pagination-bullets.swiper-pagination-horizontal {
+  width: auto;
+}
+
+.slider-control .swiper-pagination-bullet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+
+  --swiper-pagination-bullet-horizontal-gap: 0;
+  border: 1px solid getColor('buttons-color-dark-theme');
+
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1;
+  color: getColor('buttons-color-dark-theme');
+
+  background: transparent;
+  opacity: 1;
+
+  transition: color 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.slider-control .swiper-pagination-bullet-active {
+  background: linear-gradient(
+    141.22deg,
+    getColor('accent-gradient1-from-color') 9.4%,
+    getColor('accent-gradient1-to-color') 91.91%
+  );
+  color: getColor('primary-text-color-dark-theme');
+  border: none;
+}
+
+.slider-control .swiper-button-prev,
+.slider-control .swiper-button-next {
+  position: static;
+  width: auto;
+
+  margin: 0;
+  height: auto;
+}
+
+.slider-control .swiper-button-prev::after,
+.slider-control .swiper-button-next::after {
+  font-size: 12px;
+  color: getColor('secondary-text-color-dark-theme');
+}

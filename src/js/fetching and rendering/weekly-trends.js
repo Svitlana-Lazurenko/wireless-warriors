@@ -35,6 +35,7 @@ axios
 
       const title = document.createElement('h2');
       title.textContent = movie.title;
+      title.classList.add('card__position-absolute__title');
 
       const infoUrl = `${BASE_URL}/movie/${movie.id}?api_key=${KEY}&language=en-US`;
       const creditsUrl = `${BASE_URL}/movie/${movie.id}/credits?api_key=${KEY}`;
@@ -56,11 +57,19 @@ axios
           }
 
           const subtitle = document.createElement('p');
-          subtitle.textContent = `${releaseYear} | ${genre} | Rating: ${rating}`;
+          const spanRating = document.createElement('span');
+          spanRating.textContent = rating;
+          spanRating.classList.add('card-position-absolute__rating');
+          subtitle.textContent = ` ${genre} | ${releaseYear} | Rating:`;
+          subtitle.appendChild(spanRating);
+
+          const subtitleWrapper = document.createElement('div');
+          subtitleWrapper.classList.add('card__position-absolute');
+          subtitleWrapper.appendChild(title);
+          subtitleWrapper.appendChild(subtitle);
 
           card.appendChild(image);
-          card.appendChild(title);
-          card.appendChild(subtitle);
+          card.appendChild(subtitleWrapper);
 
           container.appendChild(card);
         })
@@ -76,7 +85,6 @@ axios
   .catch(error => {
     console.error(error);
   });
-
 const mediaQuery = window.matchMedia('(max-width: 767px)');
 mediaQuery.addListener(() => {
   const container = document.querySelector('.card-container');
@@ -97,6 +105,9 @@ mediaQuery.addListener(() => {
         const movie = movies[i];
         const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
+        const imageContainer = document.createElement('div');
+        imageContainer.classList.add('image-container');
+
         const card = document.createElement('div');
         card.classList.add('card');
 
@@ -106,6 +117,7 @@ mediaQuery.addListener(() => {
 
         const title = document.createElement('h2');
         title.textContent = movie.title;
+        title.classList.add('card__position-absolute__title');
 
         const infoUrl = `${BASE_URL}/movie/${movie.id}?api_key=${KEY}&language=en-US`;
         const creditsUrl = `${BASE_URL}/movie/${movie.id}/credits?api_key=${KEY}`;
@@ -119,12 +131,27 @@ mediaQuery.addListener(() => {
             const genres = info.genres.length > 0 ? info.genres[0].name : 'N/A';
             const rating = info.vote_average;
 
+            let genre;
+            if (mediaQuery.matches) {
+              genre = `${genres}`;
+            } else {
+              genre = `${genres}, ${info.genres[1].name}`;
+            }
+
             const subtitle = document.createElement('p');
-            subtitle.textContent = `${releaseYear} | ${genres} | Rating: ${rating}`;
+            const spanRating = document.createElement('span');
+            spanRating.textContent = rating;
+            spanRating.classList.add('card-position-absolute__rating');
+            subtitle.textContent = ` ${genre} | ${releaseYear} | Rating:`;
+            subtitle.appendChild(spanRating);
+
+            const subtitleWrapper = document.createElement('div');
+            subtitleWrapper.classList.add('card__position-absolute');
+            subtitleWrapper.appendChild(title);
+            subtitleWrapper.appendChild(subtitle);
 
             card.appendChild(image);
-            card.appendChild(title);
-            card.appendChild(subtitle);
+            card.appendChild(subtitleWrapper);
 
             container.appendChild(card);
           })
