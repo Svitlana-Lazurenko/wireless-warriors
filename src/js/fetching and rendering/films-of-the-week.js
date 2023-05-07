@@ -11,32 +11,27 @@ async function fetchThemoviedbWeek() {
   const response = await axios(`${BASE_THEMOVIEDB_URL}/trending/movie/week?api_key=${apiKey}`);
   const newCollection = await response.data;
 
-  pagination = createPagination(
-    response.data.total_results,
-    response.data.total_pages,
-    response.data.page
-  );
-
+  pagination = createPagination(response.data.total_results, response.data.total_pages);
   let page = response.data.page;
-  page = pagination.getCurrentPage();
-  pagination.reset(response.data.total_pages);
-  getPagination(page);
-
   console.log(page);
 
   return newCollection;
 }
 
-async function getPagination(page) {
+async function getPagination(e) {
   try {
     // await paganation.on('afterMove', event => {
     //   const currentPage = event.page;
     //   console.log(currentPage);
     // });
-    await pagination.on('beforeMove', ({ page }) => {
+    await pagination.on('beforeMove', e => {
       ul.innerHTML = '';
 
       fetchThemoviedbWeek();
+
+      page = pagination.getCurrentPage();
+      pagination.reset(response.data.total_pages);
+
       loadMoviesWeek();
     });
   } catch (error) {
@@ -76,6 +71,7 @@ function createMarkup({ poster_path, release_date, title, vote_average, genre_id
   const genreNames = getGenresName(genre_ids, genresList);
   return `
    <li class='movie__card'>
+    <div class='movie__card-thumb'>
    <a href="" class='movie__link'>
      <img src='${img}${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
     <div class='info overlay'>
@@ -84,6 +80,7 @@ function createMarkup({ poster_path, release_date, title, vote_average, genre_id
       <p class='info-vote'>${makeStarsMarkup(vote_average, 'hero__rating-stars')}</p>
     </div>
     </a>
+    </div>
   </li>`;
 }
 
