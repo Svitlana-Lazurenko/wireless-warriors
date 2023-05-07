@@ -23,6 +23,18 @@ function addMarkup(data) {
   initSwiper();
 }
 
+// function addRunLineAnim() {
+//   const titlesRef = document.querySelectorAll('.hero__title');
+
+//   titlesRef.forEach(title => {
+//     if (title.offsetWidth < title.scrollWidth) {
+//       title.classList.add('title-running-line');
+//     }
+//   });
+
+//   console.log(titlesRef);
+// }
+
 // async function test() {
 //   const value = await api.getRequestData();
 //   console.log(value.data.results[2]);
