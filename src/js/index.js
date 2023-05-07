@@ -11,6 +11,8 @@ import * as savedFilms from './fetching and rendering/saved-films';
 import * as filmsOfTheWeek from './fetching and rendering/upcoming-this-month';
 import * as savedFilms from './fetching and rendering/weekly-trends';
 
+import * as hero from './components/hero';
+
 import * as loader from './components/loader';
 import * as loadmoreBtn from './components/loadmore-btn';
 import * as mobileMenu from './components/mobile-menu-open-close';
@@ -19,6 +21,7 @@ import * as saveRemoveFilmsBtn from './components/save-remove-films-btn';
 import * as scrollUp from './components/scroll-up';
 import * as slider from './components/slider';
 import * as switcherBtn from './components/switcher-btn';
+import * as animateBtnChahgeTheme from './components/change-theme';
 import * as yearsSelect from './components/years-select';
 
 // ========= USING LIBRARIES=================================
