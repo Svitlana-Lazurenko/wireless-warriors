@@ -49,3 +49,6 @@ import * as yearsSelect from './components/years-select';
 
 // =========TUI PAGINATION========
 // https://www.npmjs.com/package/tui-pagination
+
+// =========AXIOS MOCK ADAPTER=============
+// https://github.com/ctimmerm/axios-mock-adapter#readme
