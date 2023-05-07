@@ -5,9 +5,9 @@
     gap: 15px;
 }
 
-.movie__card{
-    width: 280px;
-    height: 100%;
+.card__item {
+    width: 395px;
+    height: 574px;
     position: relative;
     overflow: hidden;
 
@@ -20,13 +20,13 @@
     transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.movie__card:hover,
-.movie__card:focus {
+.card__item:hover,
+.card__item:focus {
     box-shadow: 0px 1px 14px #f7df0d;
     border: 1px solid #f7df0d;
 }
 
-.movie__card-thumb {
+.card-thumb {
     position: relative;
     display: flex;
 }
@@ -35,13 +35,25 @@
     position: absolute;
     margin: 0;
     padding: 15px;
-    bottom: 0;
+    bottom: -30px;
     width: 100%;
-    color: tomato;
-
+    font-weight: 700;
+    font-size: 14px;
+    color: yellow;
+    display: flex;
+    align-items: center;
+}
+.info-title{
+    margin-bottom: 15px;
 }
 
-.card__title--black {
+.info-genre
+.info-vote {
     line-height: 1.17;
     text-transform: uppercase;
+}
+
+.catalog__rating-stars {
+    width: 100px;
+    margin-left: 26px;
 }

@@ -139,27 +139,30 @@ function onError(err) {
   console.error(err);
   clearCardList();
   Notify.failure(
-    `❌ Sorry, there are no images matching your search query. Please try again.`
+    `❌ Sorry, there are no films matching your search query. Please try again.`
   );
 }
 function createMarkup(data) {
   return data.reduce(
     (acc, { poster_path, title, genre_ids, release_date, vote_average }) => {
-      acc += `<li class='movie__card'>
-        <div class="movie__card-thumb"><a href="#" class='movie__link'>
+      acc += `<li class="card__item">
+      <div class="card-thumb">
+        <a href="#" class="movie__link">
             <img src='https://image.tmdb.org/t/p/original${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
-          </a></div>
-          <div class='info-thumb overlay'>
-            <h2 class='info-title'>${title}</h2>
-              <p class='info-genre'>${getGenreName(
+          </a>
+      </div>
+          <div class="info-thumb overlay">
+            <div class="info-thumb__text"><h2 class="info-title">${title}</h2>
+              <p class="info-genre">${getGenreName(
                 genre_ids
-              )}<span>|</span>${onlyYearFilter(release_date)}</p>
-                <p class='info-vote'>${makeStarsMarkup(
-                  vote_average,
-                  'catalog__rating-stars'
-                )}</p>
+              )}<span>|</span>${onlyYearFilter(release_date)}</p></div>
+              <div class="info-thumb__vote"><p class="info-vote">${makeStarsMarkup(
+                vote_average,
+                'catalog__rating-stars'
+              )}</p></div>
+                
           </div>
-              </li>`;
+          </li> `;
       return acc;
     },
     ''
