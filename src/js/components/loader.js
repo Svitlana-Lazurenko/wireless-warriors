@@ -1,4 +1,4 @@
-// import { Spinner } from 'spin.js';
+import { Spinner } from 'spin.js';
 
 const opts = {
   lines: 11,
