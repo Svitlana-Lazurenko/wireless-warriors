@@ -8,6 +8,7 @@ import * as filmTrailer from './fetching and rendering/film-trailer';
 import * as filmsBySearch from './fetching and rendering/films-by-search';
 import * as filmsOfTheWeek from './fetching and rendering/films-of-the-week';
 import * as savedFilms from './fetching and rendering/saved-films';
+import * as filmCounties from './fetching and rendering/film-countries';
 import * as filmsOfTheWeek from './fetching and rendering/upcoming-this-month';
 import * as savedFilms from './fetching and rendering/weekly-trends';
 
