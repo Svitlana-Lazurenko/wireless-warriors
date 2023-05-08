@@ -1,25 +1,55 @@
 import { ApiThemoviedb } from '../fetching and rendering/film-of-the-day';
-import { createMarkup } from '../fetching and rendering/hero-create-markup';
+import { HeroMarkUp } from '../fetching and rendering/hero-create-markup';
 import { initSwiper } from './slider';
+import { ResizePage } from './resize-page';
+import { changingSizeElement } from './dynamic-resizing';
+import debounce from 'lodash.debounce';
 
 const apiThemoviedb = new ApiThemoviedb();
+const resizePage = new ResizePage(window.innerWidth);
 
-const sliderWrapRef = document.querySelector('.hero__wrap');
+const heroRef = document.querySelector('.hero');
 
-getApiData();
+window.addEventListener(
+  'resize',
+  debounce(resizePage.handleResize.bind(resizePage), 300)
+);
+
+checkIsHero();
+
+function checkIsHero() {
+  heroRef && getApiData();
+}
 
 async function getApiData() {
   try {
     const response = await apiThemoviedb.getRequestData();
-    addMarkup(response.data.results);
+    addSliderMarkup(response.data.results);
   } catch (error) {
-    console.log(error);
+    checkError(error);
   }
 }
 
-function addMarkup(data) {
-  const markup = createMarkup(data.slice(0, 5));
-  sliderWrapRef.insertAdjacentHTML('beforeend', markup);
+function checkError(error) {
+  if (error.response.status === 404) {
+    addStaticMarkup();
+    return;
+  }
+  console.error(error.message);
+}
+
+function addStaticMarkup() {
+  heroRef.insertAdjacentHTML('beforeend', HeroMarkUp.createStaticHero());
+}
+
+function addSliderMarkup(data) {
+  heroRef.insertAdjacentHTML('beforeend', HeroMarkUp.createBaseSlider());
+  const sliderWrap = document.querySelector('.hero__wrap');
+  sliderWrap.insertAdjacentHTML(
+    'beforeend',
+    HeroMarkUp.createSlides(data.slice(0, 5))
+  );
+  changingSizeElement();
   initSwiper();
 }
 

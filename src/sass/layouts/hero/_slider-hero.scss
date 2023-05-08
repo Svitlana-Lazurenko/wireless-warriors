@@ -5,12 +5,28 @@
   display: flex;
   align-items: center;
   gap: 11px;
+  @include tablet {
+    gap: 17px;
+    left: 41px;
+    bottom: 36px;
+  }
+  @include desktop {
+    gap: 22px;
+    left: 144px;
+    bottom: 60px;
+  }
 }
 
 .slider-control .swiper-pagination {
   position: static;
   display: flex;
   gap: 8px;
+  @include tablet {
+    gap: 12px;
+  }
+  @include desktop {
+    gap: 16px;
+  }
 }
 
 .slider-control .swiper-pagination-bullets.swiper-pagination-horizontal {
@@ -37,7 +53,20 @@
   background: transparent;
   opacity: 1;
 
-  transition: color 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: color 300ms linear;
+
+  @include tablet {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+    line-height: 1.17;
+  }
+  @include desktop {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 1;
+  }
 }
 .slider-control .swiper-pagination-bullet-active {
   background: linear-gradient(
@@ -62,4 +91,10 @@
 .slider-control .swiper-button-next::after {
   font-size: 12px;
   color: getColor('secondary-text-color-dark-theme');
+  @include tablet {
+    font-size: 13px;
+  }
+  @include desktop {
+    font-size: 14px;
+  }
 }
