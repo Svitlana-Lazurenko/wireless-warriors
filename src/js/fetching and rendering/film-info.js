@@ -2,6 +2,9 @@ import { BASE_THEMOVIEDB_URL, apiKey } from '../tmdb-api';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 //
+
+export let movieInfo = {};
+
 const filmInfoRefs = {
   body: document.querySelector('body'),
   btnCloseModalMovie: document.querySelector('.js-btn-close-modal'),
@@ -9,8 +12,9 @@ const filmInfoRefs = {
   backdropMovie: document.querySelector('.js-backdrop-movie'),
 };
 
+const cardsList = document.querySelector('.js-cards');
+
 if (document.querySelector('.js-cards')) {
-  const cardsList = document.querySelector('.js-cards');
   cardsList.addEventListener('click', onCardClickOpenModal);
 }
 
@@ -40,6 +44,7 @@ let idMovie = undefined;
 
 // Open modal window
 async function onCardClickOpenModal(event) {
+  //   event.preventDefault();
   const cardEl = event.target.closest('.card');
   idMovie = cardEl?.dataset?.id;
 
@@ -47,14 +52,19 @@ async function onCardClickOpenModal(event) {
     return;
   }
   filmInfoRefs.cardMovie.innerHTML = '';
+
   Notiflix.Loading.circle();
+
   filmInfoRefs.backdropMovie.classList.remove('is-hidden');
   filmInfoRefs.body.classList.add('stop-scroll');
+
   const response = await fetchData(idMovie);
+
   movieInfo = getOneMovieInfo(response.data);
+
   renderModalMovieInfo(movieInfo);
+
   Notiflix.Loading.remove();
-  //   cardMovie.display = 'false';
 }
 
 // Close  modal window
@@ -74,13 +84,14 @@ async function fetchData(idMovie) {
   };
   try {
     const response = await axios.get(API_URL, options);
+    console.log(response.data);
     return response;
   } catch (error) {
     console.log(error);
   }
 }
 
-// Receive data for one movie
+// // Receive data for one movie
 function getOneMovieInfo({
   id,
   poster_path,
