@@ -1,25 +1,21 @@
 .itc-select {
     position: relative;
-    width: 100%;
   }
   
   .itc-select__toggle {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
     padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    font-style: italic;
-    line-height: 1.4;
+    color: #ccc;
     background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 0.3125rem;
     cursor: pointer;
     user-select: none;
+    border-color: #fff;
   }
   
-  .itc-select__toggle::after {
+  .itc-select__toggle::after { //псевдо элемент стрелка
+  //  fill: #ccc;
     flex-shrink: 0;
     width: 0.75rem;
     height: 0.75rem;
@@ -38,6 +34,8 @@
   }
   
   .itc-select__dropdown {
+// width: 95px;
+// min-height: 40px;
     position: absolute;
     top: 2.5rem;
     right: 0;
@@ -67,7 +65,10 @@
   
   .itc-select__option {
     padding: 0.375rem 0.75rem;
-  }
+    color: #ccc;
+    // width: 173px;
+    // height: 48px;
+    }
   
   .itc-select__option_selected {
     display: flex;
@@ -90,3 +91,9 @@
     cursor: pointer;
     transition: 0.2s background-color ease-in-out;
   }
+
+  .itc-select__year {
+    width: 95px;
+    height: 40px;
+  }
+
