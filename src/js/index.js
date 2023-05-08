@@ -4,7 +4,6 @@ import * as pagination from './pagination';
 import * as filmInfo from './fetching and rendering/film-info';
 import * as filmOfTheMonth from './fetching and rendering/film-of-the-month';
 import * as filmTrailer from './fetching and rendering/film-trailer';
-import * as filmsBySearch from './fetching and rendering/films-by-search';
 import * as filmsOfTheWeek from './fetching and rendering/films-of-the-week';
 import * as savedFilms from './fetching and rendering/saved-films';
 import * as filmCounties from './fetching and rendering/film-countries';
@@ -22,6 +21,8 @@ import * as scrollUp from './components/scroll-up';
 import * as switcherBtn from './components/switcher-btn';
 import * as animateBtnChahgeTheme from './components/change-theme';
 import * as yearsSelect from './components/years-select';
+import * as filmsBySearch from './fetching and rendering/films-by-search';
+
 
 // ========= USING LIBRARIES=================================
 
