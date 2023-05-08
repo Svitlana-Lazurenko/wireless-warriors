@@ -13,6 +13,7 @@ import * as savedFilms from './fetching and rendering/weekly-trends';
 
 import * as hero from './components/hero';
 
+import * as filmInfo from './fetching and rendering/film-info';
 import * as loader from './components/loader';
 import * as loadmoreBtn from './components/loadmore-btn';
 import * as mobileMenu from './components/mobile-menu-open-close';
@@ -23,7 +24,6 @@ import * as slider from './components/slider';
 import * as switcherBtn from './components/switcher-btn';
 import * as animateBtnChahgeTheme from './components/change-theme';
 import * as yearsSelect from './components/years-select';
-import * as filmInfo from './fetching and rendering/film-info';
 
 // ========= USING LIBRARIES=================================
 
