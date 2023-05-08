@@ -1,7 +1,6 @@
 import { BASE_THEMOVIEDB_URL, apiKey } from '../tmdb-api';
 import axios from 'axios';
 import Notiflix from 'notiflix';
-//
 
 const filmInfoRefs = {
   body: document.querySelector('body'),
@@ -12,11 +11,20 @@ const filmInfoRefs = {
   mainCardsEls: document.querySelector('.js-cards'),
 };
 
-// if (document.querySelector('.js-cards')) {
-//   filmInfoRefs.mainCardsEls.addEventListener('click', onCardClickOpenModal);
-// } else {
-//   filmInfoRefs.catalogEls.addEventListener('click', onCardClickOpenModal);
-// }
+filmInfoRefs.btnCloseModalMovie.addEventListener('click', closeButtonModal);
+
+function closeButtonModal () {
+  test.classList.remove('openModalFilm');
+  test.classList.add('modal-film');
+}
+
+const test = document.querySelector('.modal-film');
+
+if (document.querySelector('.js-cards')) {
+  filmInfoRefs.mainCardsEls.addEventListener('click', onCardClickOpenModal);
+} else {
+  filmInfoRefs.catalogEls.addEventListener('click', onCardClickOpenModal);
+}
 
 if (document.querySelector('.js-cards')) {
   filmInfoRefs.mainCardsEls.addEventListener('click', onCardClickOpenModal);
@@ -26,12 +34,12 @@ if (document.querySelector('.js-cards-library')) {
   filmInfoRefs.catalogEls.addEventListener('click', onCardClickOpenModal);
 }
 
-if (filmInfoRefs.btnCloseModalMovie) {
-  filmInfoRefs.btnCloseModalMovie.addEventListener(
-    'click',
-    onCloseModalClick()
-  );
-}
+// if (filmInfoRefs.btnCloseModalMovie) {
+//   filmInfoRefs.btnCloseModalMovie.addEventListener(
+//     'click',
+//     onCloseModalClick()
+//   );
+// }
 
 document.addEventListener('keydown', onEscKeyDownModal);
 
@@ -53,13 +61,15 @@ if (filmInfoRefs.backdropMovie) {
 
 let idMovie = undefined;
 
-// const trendingMoviesUrl = `${BASE_THEMOVIEDB_URL}/trending/movie/week?api_key=${apiKey}`;
+const trendingMoviesUrl = `${BASE_THEMOVIEDB_URL}/trending/movie/week?api_key=${apiKey}`;
 
 // Open modal window
 async function onCardClickOpenModal(event) {
   //   event.preventDefault();
   if (event.target.nodeName === 'LI' || 'DIV' || 'IMG') {
     // const cardEl = event.target.closest('.card');
+    test.classList.remove('modal-film');
+    test.classList.add('openModalFilm');
     idMovie = event.target.parentNode.dataset.id;
     console.log(idMovie);
     if (idMovie === undefined) {
@@ -68,9 +78,6 @@ async function onCardClickOpenModal(event) {
     filmInfoRefs.cardMovie.innerHTML = '';
 
     Notiflix.Loading.circle();
-
-    filmInfoRefs.backdropMovie.classList.remove('is-hidden');
-    filmInfoRefs.body.classList.add('stop-scroll');
 
     const response = await fetchData(idMovie);
 
@@ -83,10 +90,10 @@ async function onCardClickOpenModal(event) {
 }
 
 // Close  modal window
-function onCloseModalClick() {
-  filmInfoRefs.backdropMovie.classList.add('is-hidden');
-  filmInfoRefs.body.classList.remove('stop-scroll');
-}
+// function onCloseModalClick() {
+//   filmInfoRefs.backdropMovie.classList.add('is-hidden');
+//   filmInfoRefs.body.classList.remove('stop-scroll');
+// }
 
 // Fetch data
 async function fetchData(idMovie) {
@@ -137,7 +144,7 @@ function getOneMovieInfo({
     voteAverage: vote_average.toFixed(1),
     voteCount: vote_count,
   };
-
+  console.log(movieInfo);
   return movieInfo;
 }
 

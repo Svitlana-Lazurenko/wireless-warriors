@@ -2,6 +2,33 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.modal-film {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 1250ms linear;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.openModalFilm {
+  overflow: visible;
+  opacity: 1;
+}
+
+.backdrop-movie {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+}
+
 .backdrop-movie {
   position: fixed;
   top: 0;
@@ -18,17 +45,7 @@ body {
   overflow: hidden;
 }
 
-.backdrop-movie.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.backdrop-movie.is-hidden .modal-movie {
-  transform: translate(-50%, -50%) scale(0.8);
-}
-
 .modal-movie {
-  // display: none;
   position: absolute;
   top: 50%;
   left: 50%;
