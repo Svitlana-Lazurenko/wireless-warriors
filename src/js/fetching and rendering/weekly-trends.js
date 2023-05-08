@@ -30,6 +30,7 @@ axios
 
       const card = document.createElement('div');
       card.classList.add('card');
+      card.setAttribute('data-id', movie.id);
 
       const image = document.createElement('img');
       image.src = imageUrl;
