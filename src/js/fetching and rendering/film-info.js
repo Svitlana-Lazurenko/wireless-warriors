@@ -47,9 +47,10 @@ let idMovie = undefined;
 // Open modal window
 async function onCardClickOpenModal(event) {
   //   event.preventDefault();
-  if (event.target.nodeName === 'LI' || 'DIV' || 'IMG') {
+  if (event.target.nodeName === 'LI' || 'DIV') {
     const cardEl = event.target.closest('.card');
-    idMovie = cardEl?.dataset?.id;
+    idMovie = event.target.parentNode.dataset.id;
+    console.log(idMovie);
     if (idMovie === undefined) {
       return;
     }

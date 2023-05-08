@@ -82,10 +82,9 @@ function createMarkup(
 ) {
   const genreNames = getGenresName(genre_ids, genresList);
   return `
-   <li class='movie__card' data-id=${id}>
-   <div class='movie__link'>
-     <img src='${img}${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
-    <div class='info overlay'>
+   <li class='movie__card'>
+   <div class='movie__link' data-id=${id}>
+    <img src='${img}${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
       <h2 class='info-title'>${title}</h2>
       <p class='info-genre'>${genreNames}<span> | </span>${onlyYearFilter(
     release_date
@@ -94,7 +93,6 @@ function createMarkup(
         vote_average,
         'hero__rating-stars'
       )}</p>
-    </div>
     </div>
   </li>`;
 }
