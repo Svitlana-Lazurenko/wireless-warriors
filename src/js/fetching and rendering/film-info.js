@@ -6,7 +6,7 @@ const filmInfoRefs = {
   body: document.querySelector('body'),
   btnCloseModalMovie: document.querySelector('.js-btn-close-modal'),
   cardMovie: document.querySelector('.js-modal-card'),
-  backdropMovie: document.querySelector('.js-backdrop-movie'),
+  backdropMovie: document.querySelector('.modal-film'),
   catalogEls: document.querySelector('.gallery-films'),
   mainCardsEls: document.querySelector('.js-cards'),
 };
