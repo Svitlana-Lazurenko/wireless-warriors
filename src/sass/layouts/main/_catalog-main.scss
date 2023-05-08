@@ -1,23 +1,40 @@
 .catalog__form {
-
-  margin: 0 auto;
-  width: 264px;
+  display: flex;
  
   justify-content: center;
   gap: 10px;
-  
+  @media screen and (max-width: 767px){
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 
   @include tablet {
-    display: flex;
     width: 280px;
-      min-height: 44px;
+    min-height: 44px;
   };
 
   @include desktop {
       width: 398px;
-  min-height: 48px;
+    min-height: 48px;
   };
 };
+
+.itc-select__toggle {
+  height: 40px;
+  border-radius: 8px;
+}
+
+.btn-year {
+  width: 95px;
+}
+
+.btn-genres {
+  width: 173px;
+}
+
+.btn-counrties {
+  width: 220px;
+}
 
 .catalog__form-input {
   display: flex;
