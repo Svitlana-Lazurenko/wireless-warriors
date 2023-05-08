@@ -11,9 +11,11 @@
     background-color: #fff;
     cursor: pointer;
     user-select: none;
+    border-color: #fff;
   }
   
   .itc-select__toggle::after { //псевдо элемент стрелка
+  //  fill: #ccc;
     flex-shrink: 0;
     width: 0.75rem;
     height: 0.75rem;
