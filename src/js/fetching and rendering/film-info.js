@@ -155,7 +155,7 @@ function renderModalMovieInfo(movieInfo) {
     src="${poster}"
     alt="${title}"
     data-id="${id}"
-    />
+    /></div>
 <div class="modal-card__thumb-right">
   <p class="thumb-right__title">${title}</p>
   <div class="thumb-right__details">
