@@ -1,0 +1,41 @@
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+  top: 0;
+  position: fixed;
+  z-index: 3000000000000;
+}
+
+.modal-trailer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  padding: 60px;
+  width: calc(100% - 40px);
+  height: 90vh;
+
+  border-radius: 10px;
+  background-color: getColor('primary-bg-color-dark-theme');
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  border-radius: 20px;
+
+  text-align: center;
+  overflow-y: auto;
+  z-index: 3000000000000;
+
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.noScroll {
+  overflow: hidden;
+}
