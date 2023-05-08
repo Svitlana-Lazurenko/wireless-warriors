@@ -83,7 +83,7 @@ function createMarkup(
   const genreNames = getGenresName(genre_ids, genresList);
   return `
    <li class='movie__card' data-id=${id}>
-   <a href="" class='movie__link'>
+   <div class='movie__link'>
      <img src='${img}${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
     <div class='info overlay'>
       <h2 class='info-title'>${title}</h2>
@@ -95,7 +95,7 @@ function createMarkup(
         'hero__rating-stars'
       )}</p>
     </div>
-    </a>
+    </div>
   </li>`;
 }
 
