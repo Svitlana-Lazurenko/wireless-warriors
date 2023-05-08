@@ -1,27 +1,19 @@
 import { BASE_THEMOVIEDB_URL, apiKey } from '../tmdb-api';
 import axios from 'axios';
 import { fetchThemoviedbGenres } from './film-genres';
-import { createPagination } from '../pagination';
+// import { createPagination } from '../pagination';
 import { makeStarsMarkup } from '../components/star-markup';
 
 const ul = document.querySelector('.gallery__films');
 const img = 'https://image.tmdb.org/t/p/w500/';
-
-const paginationPage = document.querySelector('#pagination');
-paginationPage.addEventListener('click', getPagination);
 
 async function fetchThemoviedbWeek(page = 1) {
   const response = await axios(`${BASE_THEMOVIEDB_URL}/trending/movie/week?api_key=${apiKey}`);
   const newCollection = await response.data;
 
   page = response.data.page;
-  incrementPage(page);
 
-  pagination = createPagination(
-    response.data.total_results,
-    response.data.total_pages,
-    response.data.page
-  );
+  incrementPage(page);
 
   return newCollection;
 }
@@ -30,21 +22,19 @@ function incrementPage(page) {
   return (page += 1);
 }
 
-function getPagination(event) {
-  try {
-    event.preventDefault();
+// function getPagination() {
+//   try {
+//     pagination.on('afterMove', ({ page }) => {
+//       ul.innerHTML = '';
 
-    pagination.on('afterMove', ({ page }) => {
-      ul.innerHTML = '';
-
-      fetchThemoviedbWeek(page).then(data => {
-        ul.innerHTML = updateMoviesList(data.results);
-      });
-    });
-  } catch (error) {
-    onFetchError(error);
-  }
-}
+//       fetchThemoviedbWeek(page).then(data => {
+//         ul.innerHTML = updateMoviesList(data.results);
+//       });
+//     });
+//   } catch (error) {
+//     onFetchError(error);
+//   }
+// }
 
 async function loadMoviesWeek() {
   try {
