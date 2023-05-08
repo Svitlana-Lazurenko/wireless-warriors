@@ -10,13 +10,15 @@ const filmInfoRefs = {
   btnCloseModalMovie: document.querySelector('.js-btn-close-modal'),
   cardMovie: document.querySelector('.js-modal-card'),
   backdropMovie: document.querySelector('.js-backdrop-movie'),
+  cardEl: document.querySelector('.gallery-films'),
 };
 
 const cardsList = document.querySelector('.js-cards');
 
-if (document.querySelector('.js-cards')) {
-  cardsList.addEventListener('click', onCardClickOpenModal);
-}
+// if (document.querySelector('.js-cards')) {
+//   cardsList.addEventListener('click', onCardClickOpenModal);
+// }
+filmInfoRefs.cardEl.addEventListener('click', onCardClickOpenModal);
 
 if (filmInfoRefs.btnCloseModalMovie) {
   filmInfoRefs.btnCloseModalMovie.addEventListener('click', onCloseModalClick);
@@ -45,26 +47,27 @@ let idMovie = undefined;
 // Open modal window
 async function onCardClickOpenModal(event) {
   //   event.preventDefault();
-  const cardEl = event.target.closest('.card');
-  idMovie = cardEl?.dataset?.id;
+  if (event.target.nodeName === 'LI' || 'DIV' || 'IMG') {
+    const cardEl = event.target.closest('.card');
+    idMovie = cardEl?.dataset?.id;
+    if (idMovie === undefined) {
+      return;
+    }
+    filmInfoRefs.cardMovie.innerHTML = '';
 
-  if (idMovie === undefined) {
-    return;
+    Notiflix.Loading.circle();
+
+    filmInfoRefs.backdropMovie.classList.remove('is-hidden');
+    filmInfoRefs.body.classList.add('stop-scroll');
+
+    const response = await fetchData(idMovie);
+
+    movieInfo = getOneMovieInfo(response.data);
+
+    renderModalMovieInfo(movieInfo);
+
+    Notiflix.Loading.remove();
   }
-  filmInfoRefs.cardMovie.innerHTML = '';
-
-  Notiflix.Loading.circle();
-
-  filmInfoRefs.backdropMovie.classList.remove('is-hidden');
-  filmInfoRefs.body.classList.add('stop-scroll');
-
-  const response = await fetchData(idMovie);
-
-  movieInfo = getOneMovieInfo(response.data);
-
-  renderModalMovieInfo(movieInfo);
-
-  Notiflix.Loading.remove();
 }
 
 // Close  modal window
