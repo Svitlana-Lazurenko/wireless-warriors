@@ -38,14 +38,14 @@ document.addEventListener('keydown', onEscKeyDownModal);
 
 function onEscKeyDownModal(event) {
   if (event.code === 'Escape') {
-    onCloseModalClick();
+    closeButtonModal();
   }
 }
 
 if (filmInfoRefs.backdropMovie) {
   filmInfoRefs.backdropMovie.addEventListener('click', event => {
     if (event.target === filmInfoRefs.backdropMovie) {
-      onCloseModalClick();
+      closeButtonModal();
     }
   });
 }
