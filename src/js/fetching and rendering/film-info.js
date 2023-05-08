@@ -13,7 +13,7 @@ const filmInfoRefs = {
 
 filmInfoRefs.btnCloseModalMovie.addEventListener('click', closeButtonModal);
 
-function closeButtonModal () {
+function closeButtonModal() {
   test.classList.remove('openModalFilm');
   test.classList.add('modal-film');
 }
@@ -54,14 +54,11 @@ if (filmInfoRefs.backdropMovie) {
 
 let idMovie = undefined;
 
-const trendingMoviesUrl = `${BASE_THEMOVIEDB_URL}/trending/movie/week?api_key=${apiKey}`;
-
 // Open modal window
 async function onCardClickOpenModal(event) {
   //   event.preventDefault();
   console.log('dsaadsd');
   if (event.target.nodeName === 'LI' || 'DIV' || 'IMG') {
-
     idMovie = event.target.parentNode.dataset.id;
     console.log(idMovie);
 
