@@ -5,7 +5,7 @@ import { makeStarsMarkup } from '../components/star-markup';
 import { fetchThemoviedbGenres } from '../fetching and rendering/film-genres';
 import { pagination } from '../pagination';
 
-export default class PostApiService {
+class PostApiService {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
@@ -30,18 +30,18 @@ export default class PostApiService {
   set query(newQuery) {
     this.searchQuery = newQuery;
   }
-  get pageCurrent() {
-    return this.page;
-  }
-  set pageCurrent(newPageCurrent) {
-    this.page = newPageCurrent;
-  }
+  // get pageCurrent() {
+  //   return this.page;
+  // }
+  // set pageCurrent(newPageCurrent) {
+  //   this.page = newPageCurrent;
+  // }
   incrementPage() {
     this.page += 1;
   }
-  decrementPage() {
-    this.page -= 1;
-  }
+  // decrementPage() {
+  //   this.page -= 1;
+  // }
 
   resetPage() {
     this.page = 1;
@@ -56,7 +56,6 @@ const refs = {
 const postApiService = new PostApiService();
 
 refs.form.addEventListener('submit', onSearch);
-// refs.pagination.addEventListener('click', onBtnPagination);
 
 function onSearch(e) {
   e.preventDefault();
@@ -80,7 +79,7 @@ function createMarkup(
       </div>
           <div class="info overlay">
             <div class="info-thumb__text"><h2 class="info__title">${title}</h2>
-              <p class="info__genre">${genreNames}<span>|</span>${onlyYearFilter(
+              <p class="info__genre">${genreNames}<span> | </span>${onlyYearFilter(
     release_date
   )}</p></div>
               <div class="info-thumb__vote"><p class="info__vote">${makeStarsMarkup(
@@ -149,67 +148,3 @@ function onError(err) {
 function clearCardList() {
   refs.gallery.innerHTML = '';
 }
-// function onBtnPagination(e) {
-//   const { target, currentTarget } = e;
-
-//   if (target === currentTarget || target.textContent === '') {
-//     return;
-//   }
-
-//   if (target.textContent === '🡺') {
-//     postApiService.incrementPage();
-//     fetchResultsFilms();
-//     return;
-//   }
-
-//   if (target.textContent === '🡸') {
-//     postApiService.decrementPage();
-//     fetchResultsFilms();
-//     return;
-//   }
-
-//   postApiService.pageCurrent = Number(target.textContent);
-//   fetchResultsFilms(postApiService.pageCurrent);
-// }
-// function pagination(page, pages) {
-//   let markup = '';
-//   postApiService.pageCurrent = page;
-//   const beforeTwoPage = page - 2;
-//   const beforeOnePage = page - 1;
-//   const afterTwoPage = page + 2;
-//   const afterOnePage = page + 1;
-
-//   // &#129144; <
-//   // &#129146; >
-
-//   if (page > 1) {
-//     markup +=
-//       '<li class="pagination__item pagination__item--arrow">&#129144</li>';
-//     markup += '<li class="pagination__item">1</li>';
-//   }
-//   if (page > 4) {
-//     markup += '<li class="pagination__item pagination__item--dots">...</li>';
-//   }
-//   if (page > 3) {
-//     markup += `<li class="pagination__item">${beforeTwoPage}</li>`;
-//   }
-//   if (page > 2) {
-//     markup += `<li class="pagination__item">${beforeOnePage}</li>`;
-//   }
-//   markup += `<li class="pagination__item pagination__item--current-page">${postApiService.pageCurrent}</li>`;
-//   if (pages - 1 > postApiService.pageCurrent) {
-//     markup += `<li class="pagination__item">${afterOnePage}</li>`;
-//   }
-//   if (pages - 2 > postApiService.pageCurrent) {
-//     markup += `<li class="pagination__item">${afterTwoPage}</li>`;
-//   }
-//   if (pages - 3 > postApiService.pageCurrent) {
-//     markup += '<li class="pagination__item pagination__item--dots">...</li>';
-//   }
-//   if (pages > postApiService.pageCurrent) {
-//     markup += `<li class="pagination__item">${pages}</li>`;
-//     markup += `<li class="pagination__item pagination__item--arrow">&#129146</li>`;
-//   }
-
-//   refs.pagination.innerHTML = markup;
-// }
