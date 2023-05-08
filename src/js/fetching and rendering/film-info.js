@@ -2,6 +2,8 @@ import { BASE_THEMOVIEDB_URL, apiKey } from '../tmdb-api';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
+export let movieInfo = {};
+
 const filmInfoRefs = {
   body: document.querySelector('body'),
   btnCloseModalMovie: document.querySelector('.js-btn-close-modal'),
@@ -58,10 +60,8 @@ let idMovie = undefined;
 // Open modal window
 async function onCardClickOpenModal(event) {
   //   event.preventDefault();
-  console.log('dsaadsd');
   if (event.target.nodeName === 'LI' || 'DIV' || 'IMG') {
     idMovie = event.target.parentNode.dataset.id;
-    console.log(idMovie);
 
     test.classList.remove('modal-film');
     test.classList.add('openModalFilm');
@@ -79,8 +79,8 @@ async function onCardClickOpenModal(event) {
     movieInfo = getOneMovieInfo(response.data);
 
     renderModalMovieInfo(movieInfo);
-
     Notiflix.Loading.remove();
+    addEventListenersOnButtons();
   }
 }
 
@@ -94,7 +94,6 @@ async function fetchData(idMovie) {
   };
   try {
     const response = await axios.get(API_URL, options);
-    console.log(response.data);
     return response;
   } catch (error) {
     console.log(error);
@@ -178,7 +177,7 @@ function renderModalMovieInfo(movieInfo) {
   <p class="thumb-right__overview">${overview}</p>
 
   <div class="modal-card__btn-wrap">
-    <button class="modal-card__library-btn js-add-library-btn" data-id="${id}" data-name="library-btn">
+    <button class="modal-card__library-btn js-add-library-btn" data-id="${id}" data-name="library">
       Add to library
     </button>
   </div>
