@@ -1,6 +1,6 @@
 .footer {
   padding-bottom: 28px;
-  padding-top: 40px;
+  padding-top: 28px;
 
   display: flex;
   justify-content: center;
@@ -9,12 +9,12 @@
 
   @include tablet {
     padding-bottom: 40px;
-    padding-top: 60px;
+    padding-top: 40px;
   }
 
   @include desktop {
     padding-bottom: 80px;
-    padding-top: 96px;
+    padding-top: 80px;
   }
 }
 
