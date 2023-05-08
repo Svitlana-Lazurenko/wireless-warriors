@@ -3,8 +3,6 @@ import axios from 'axios';
 import Notiflix from 'notiflix';
 //
 
-export let movieInfo = {};
-
 const filmInfoRefs = {
   body: document.querySelector('body'),
   btnCloseModalMovie: document.querySelector('.js-btn-close-modal'),
@@ -29,7 +27,10 @@ if (document.querySelector('.js-cards-library')) {
 }
 
 if (filmInfoRefs.btnCloseModalMovie) {
-  filmInfoRefs.btnCloseModalMovie.addEventListener('click', onCloseModalClick);
+  filmInfoRefs.btnCloseModalMovie.addEventListener(
+    'click',
+    onCloseModalClick()
+  );
 }
 
 document.addEventListener('keydown', onEscKeyDownModal);
