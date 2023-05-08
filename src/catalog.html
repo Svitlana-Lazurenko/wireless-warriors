@@ -9,13 +9,23 @@
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
   <body>
-    <header><include src="./partials/header.html"></include></header>
+    <header class="header">
+      <include src="./partials/header.html"></include>
+    </header>
     <main>
       <include src="./partials/hero/home-catalog-hero.html"></include>
       <include src="./partials/main/catalog-main.html"></include>
     </main>
-    <footer><include src="./partials/footer.html"></include></footer>
-
+    <footer>
+      <include src="./partials/footer.html"></include>
+      <button type="button" data-modal-open="modal-2">
+        TEST TRAILER MODAL
+      </button>
+      <include
+        src="./partials/modals-mobile-menu/creators-modal.html"
+      ></include>
+      <include src="./partials/modals-mobile-menu/trailer-modal.html"></include>
+    </footer>
     <script type="module" src="./js/index.js"></script>
   </body>
 </html>

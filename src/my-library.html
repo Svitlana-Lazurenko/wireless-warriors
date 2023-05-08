@@ -9,13 +9,22 @@
     <link rel="stylesheet" href="./sass/index.scss" />
   </head>
   <body>
-    <header><include src="./partials/header.html"></include></header>
+    <header class="header">
+      <include src="./partials/header.html"></include>
+    </header>
     <main>
       <include src="./partials/hero/my-library-hero.html"></include>
       <include src="./partials/main/my-library.html"></include>
+      <button class="button__scroll__up" id="button-up">up</button>
     </main>
     <footer><include src="./partials/footer.html"></include></footer>
 
+    <footer>
+      <include src="./partials/footer.html"></include>
+      <include
+        src="./partials/modals-mobile-menu/creators-modal.html"
+      ></include>
+    </footer>
     <script type="module" src="./js/index.js"></script>
   </body>
 </html>
