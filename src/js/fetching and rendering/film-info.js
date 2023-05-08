@@ -34,13 +34,6 @@ if (document.querySelector('.js-cards-library')) {
   filmInfoRefs.catalogEls.addEventListener('click', onCardClickOpenModal);
 }
 
-// if (filmInfoRefs.btnCloseModalMovie) {
-//   filmInfoRefs.btnCloseModalMovie.addEventListener(
-//     'click',
-//     onCloseModalClick()
-//   );
-// }
-
 document.addEventListener('keydown', onEscKeyDownModal);
 
 function onEscKeyDownModal(event) {
@@ -66,12 +59,14 @@ const trendingMoviesUrl = `${BASE_THEMOVIEDB_URL}/trending/movie/week?api_key=${
 // Open modal window
 async function onCardClickOpenModal(event) {
   //   event.preventDefault();
+  console.log('dsaadsd');
   if (event.target.nodeName === 'LI' || 'DIV' || 'IMG') {
-    // const cardEl = event.target.closest('.card');
-    test.classList.remove('modal-film');
-    test.classList.add('openModalFilm');
+
     idMovie = event.target.parentNode.dataset.id;
     console.log(idMovie);
+
+    test.classList.remove('modal-film');
+    test.classList.add('openModalFilm');
     if (idMovie === undefined) {
       return;
     }
@@ -89,13 +84,6 @@ async function onCardClickOpenModal(event) {
   }
 }
 
-// Close  modal window
-// function onCloseModalClick() {
-//   filmInfoRefs.backdropMovie.classList.add('is-hidden');
-//   filmInfoRefs.body.classList.remove('stop-scroll');
-// }
-
-// Fetch data
 async function fetchData(idMovie) {
   const API_URL = `https://api.themoviedb.org/3/movie/${idMovie}`;
   const options = {
