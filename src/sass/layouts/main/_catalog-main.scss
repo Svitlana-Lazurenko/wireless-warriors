@@ -27,7 +27,7 @@
   background-color: inherit;
 
 
-  // padding: 10px 142px 10px 20px;
+  padding: 10px;
  
   min-width: 190px;
   height: 40px;
@@ -41,7 +41,7 @@
   font-size: 14px;
   line-height: calc(16 / 14);
 
-  text-align: center;
+  // text-align: center;
   color: #000;
 
   cursor: pointer;
@@ -70,7 +70,7 @@
       &:hover,
       &:focus,
       &:not(:placeholder-shown) {
-        padding: 12px 20px 12px 20px;
+        // padding: 12px 20px 12px 20px;
       };
     };
 
@@ -85,18 +85,19 @@
       &:hover,
       &:focus,
       &:not(:placeholder-shown) {
-        padding: 12px 260px 12px 24px;
+        // padding: 12px 260px 12px 24px;
       };
     };
 };
 
-.div-flex{
-  display: flex;
-  justify-content: space-between;
+// .div-flex{
+//   display: flex;
  
-  margin-top: 10px;
+//   justify-content: space-between;
  
-};
+//   // margin-top: 10px;
+ 
+// };
 
 
 
