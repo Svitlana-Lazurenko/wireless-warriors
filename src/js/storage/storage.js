@@ -1,4 +1,3 @@
-export const STORAGE_KEY_LIBRARY = 'myLibrary';
 export const STORAGE_KEY_THEME = 'whiteTheme';
 
 export const save = (key, value) => {
