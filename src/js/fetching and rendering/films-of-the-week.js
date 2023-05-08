@@ -4,35 +4,42 @@ import { fetchThemoviedbGenres } from './film-genres';
 import { createPagination } from '../pagination';
 import { makeStarsMarkup } from '../components/star-markup';
 
-const ul = document.querySelector('.gallery-films');
+const ul = document.querySelector('.gallery__films');
 const img = 'https://image.tmdb.org/t/p/w500/';
 
-async function fetchThemoviedbWeek() {
+const paginationPage = document.querySelector('#pagination');
+paginationPage.addEventListener('click', getPagination);
+
+async function fetchThemoviedbWeek(page = 1) {
   const response = await axios(`${BASE_THEMOVIEDB_URL}/trending/movie/week?api_key=${apiKey}`);
   const newCollection = await response.data;
 
-  pagination = createPagination(response.data.total_results, response.data.total_pages);
-  let page = response.data.page;
-  console.log(page);
+  page = response.data.page;
+  incrementPage(page);
+
+  pagination = createPagination(
+    response.data.total_results,
+    response.data.total_pages,
+    response.data.page
+  );
 
   return newCollection;
 }
 
-async function getPagination(e) {
+function incrementPage(page) {
+  return (page += 1);
+}
+
+function getPagination(event) {
   try {
-    // await paganation.on('afterMove', event => {
-    //   const currentPage = event.page;
-    //   console.log(currentPage);
-    // });
-    await pagination.on('beforeMove', e => {
+    event.preventDefault();
+
+    pagination.on('afterMove', ({ page }) => {
       ul.innerHTML = '';
 
-      fetchThemoviedbWeek();
-
-      page = pagination.getCurrentPage();
-      pagination.reset(response.data.total_pages);
-
-      loadMoviesWeek();
+      fetchThemoviedbWeek(page).then(data => {
+        ul.innerHTML = updateMoviesList(data.results);
+      });
     });
   } catch (error) {
     onFetchError(error);
@@ -43,6 +50,7 @@ async function loadMoviesWeek() {
   try {
     const { results } = await fetchThemoviedbWeek();
     const { genres } = await fetchThemoviedbGenres();
+
     let genresList = {};
     genres
       .map(({ id, name }) => {
@@ -74,13 +82,18 @@ function createMarkup({ poster_path, release_date, title, vote_average, genre_id
     <div class='movie__card-thumb'>
    <a href="" class='movie__link'>
      <img src='${img}${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
-    <div class='info overlay'>
-      <h2 class='info-title'>${title}</h2>
-      <p class='info-genre'>${genreNames}<span> | </span>${onlyYearFilter(release_date)}</p>
-      <p class='info-vote'>${makeStarsMarkup(vote_average, 'hero__rating-stars')}</p>
+     </a>
     </div>
-    </a>
+     <div class='info overlay'>
+     <div class='info-thumb__text'>
+      <h2 class='info__title'>${title}</h2>
+      <p class='info__genre'>${genreNames}<span> | </span>${onlyYearFilter(release_date)}</p>
+      </div>
+      <div class='info-thumb__vote'>
+      <p class='info__vote'>${makeStarsMarkup(vote_average, 'hero__rating-stars')}</p>
+      </div>
     </div>
+   
   </li>`;
 }
 
