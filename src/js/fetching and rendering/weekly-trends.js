@@ -13,7 +13,7 @@ axios
     const newDiv = document.querySelector('.weekly-trends_box');
     const container = document.createElement('div');
     newDiv.after(container);
-    container.classList.add('card-container', 'container');
+    container.classList.add('card-container', 'container', 'js-cards');
 
     // Determine the number of cards to show based on the screen width
     const mediaQuery = window.matchMedia('(max-width: 767px)');
