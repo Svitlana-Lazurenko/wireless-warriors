@@ -53,7 +53,6 @@ async function onCardClickOpenModal(event) {
   if (idMovie === undefined) {
     return;
   }
-
   filmInfoRefs.cardMovie.innerHTML = '';
   Notiflix.Loading.circle();
   filmInfoRefs.backdropMovie.classList.remove('is-hidden');
