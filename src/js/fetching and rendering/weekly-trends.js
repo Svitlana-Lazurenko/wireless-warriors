@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { makeStarsMarkup } from '../components/star-markup';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const KEY = '61a74e45dda65dc7d6d2b2ec92323e86';
@@ -44,7 +45,6 @@ axios
       Promise.all([axios.get(infoUrl), axios.get(creditsUrl)])
         .then(results => {
           const info = results[0].data;
-          const credits = results[1].data;
 
           const releaseYear = new Date(info.release_date).getFullYear();
           const genres = info.genres.length > 0 ? info.genres[0].name : 'N/A';
@@ -59,9 +59,9 @@ axios
 
           const subtitle = document.createElement('p');
           const spanRating = document.createElement('span');
-          spanRating.textContent = rating;
+          spanRating.innerHTML = makeStarsMarkup(rating, 'upcoming-soon__star');
           spanRating.classList.add('card-position-absolute__rating');
-          subtitle.textContent = ` ${genre} | ${releaseYear} | Rating:`;
+          subtitle.textContent = ` ${genre} | ${releaseYear} `;
           subtitle.appendChild(spanRating);
 
           const subtitleWrapper = document.createElement('div');
@@ -126,7 +126,6 @@ mediaQuery.addListener(() => {
         Promise.all([axios.get(infoUrl), axios.get(creditsUrl)])
           .then(results => {
             const info = results[0].data;
-            const credits = results[1].data;
 
             const releaseYear = new Date(info.release_date).getFullYear();
             const genres = info.genres.length > 0 ? info.genres[0].name : 'N/A';
@@ -141,9 +140,12 @@ mediaQuery.addListener(() => {
 
             const subtitle = document.createElement('p');
             const spanRating = document.createElement('span');
-            spanRating.textContent = rating;
+            spanRating.innerHTML = makeStarsMarkup(
+              rating,
+              'upcoming-soon__star'
+            );
             spanRating.classList.add('card-position-absolute__rating');
-            subtitle.textContent = ` ${genre} | ${releaseYear} | Rating:`;
+            subtitle.textContent = ` ${genre} | ${releaseYear}`;
             subtitle.appendChild(spanRating);
 
             const subtitleWrapper = document.createElement('div');
