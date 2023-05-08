@@ -1,5 +1,9 @@
 .btn {
   text-align: center;
+  margin-top: 24px;
+  @include tablet{
+    margin-top: 40px;
+  }
 }
 
 .load-more {
@@ -25,8 +29,6 @@
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   border: 0;
   padding: 12px 24px;
-  margin-bottom: 96px;
-  margin-top: 40px;
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
