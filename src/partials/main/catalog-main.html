@@ -176,8 +176,8 @@ d="M106.5 9.75h-8.063L96 2.25l-2.438 7.5H85.5l6.563 4.5-2.532 7.5L96 17.062l6.46
   </symbol>
 </svg>
 
-<section class="container">
-  <div >
+<section >
+  <div class="container search-flex">
     <form class="search-form" id="search-form">
       <input
       class="catalog__form-input"
@@ -186,8 +186,8 @@ d="M106.5 9.75h-8.063L96 2.25l-2.438 7.5H85.5l6.563 4.5-2.532 7.5L96 17.062l6.46
         autocomplete="off"
         placeholder="Film"
       />
-      <div class="div-flex">
-      <div class="itc-select" id="select-1">
+    <div class="div-flex" >
+      <div class="itc-select" id="select-1" >
     <!-- Кнопка для открытия выпадающего списка -->
     <button type="button" class="itc-select__toggle" name="genre" value="" data-select="toggle" data-index="-1">Year</button>
     <!-- Выпадающий список -->
@@ -226,8 +226,20 @@ d="M106.5 9.75h-8.063L96 2.25l-2.438 7.5H85.5l6.563 4.5-2.532 7.5L96 17.062l6.46
 </form>
 
 <div class="container">
-  <ul class="gallery-films">
-  
+  <ul class="gallery__films">
+    <li class='movie__card'>
+        <a href="" class='movie__link'>
+          <img src='https://image.tmdb.org/t/p/w500/' alt='попа' loading='lazy' class='movie__image' width='395' height='574'/>
+         <div class='info overlay'>
+           <h2 class='info-title'>${title}</h2>
+           <p class='info-genre'>${genreNames}<span> | </span>${onlyYearFilter(release_date)}</p>
+           <p class='info-vote'>${makeStarsMarkup(vote_average, 'hero__rating-stars')}</p>
+         </div>
+         </a>
+       </li>
+        </div>
+    </a>
+  </li>
   </ul>
 </div>
 
