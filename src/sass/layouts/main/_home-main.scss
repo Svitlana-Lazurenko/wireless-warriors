@@ -116,6 +116,15 @@
         text-transform: uppercase;
         color: #FFFFFF;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        @include tablet {
+            font-size: 11px;
+            line-height: 1.5;
+        }
+        @include desktop {
+            margin-bottom: 10px;
+            font-size: 20px;
+            line-height: 1.15;
+        }
 }
 .card__position-absolute p {
     font-weight: 500;
@@ -123,23 +132,22 @@
         line-height: 1.67;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         color: #B7B7B7;
+                @include tablet {
+                        font-size: 11px;
+                        line-height: 1.5;
+                    }
+                
+                    @include desktop {
+                        font-size: 20px;
+                        line-height: 1.15;
+                    }
 }
-.card-position-absolute__rating {
-background: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 18px;
-}
+
 .card img {
     max-width: 280px;
     height: auto;
     display: block;
     margin: 0 auto;
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    
 
     @include tablet {
         min-width: 224px;
@@ -155,7 +163,36 @@ background: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91
 .card img:hover {
     cursor: pointer;
 }
+.upcoming-soon__star {
+    margin: 0;
 
+    padding: 0;
+    line-height: 0;
+    width: 100px;
+    height: 15px;
+    @include desktop {
+        
+    }
+
+}
+
+.card__position-absolute p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include tablet {
+        align-items: flex-start;
+    }
+    @include desktop {
+        justify-content: normal;
+        align-items: baseline;
+    }
+}
+.card-position-absolute__rating {
+    @include desktop {
+        margin-left: 42px;
+    }
+}
 
 // Upcoming this mounth
 
@@ -223,7 +260,8 @@ background: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91
 
     @include tablet {
         min-width: 704px;
-        height: auto;
+        height: 400px;
+        object-fit: cover;
         margin: 0;
     }
 
