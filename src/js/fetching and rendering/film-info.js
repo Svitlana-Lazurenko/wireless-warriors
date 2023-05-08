@@ -18,7 +18,6 @@ if (filmInfoRefs.btnCloseModalMovie) {
   filmInfoRefs.btnCloseModalMovie.addEventListener('click', onCloseModalClick);
 }
 
-// filmInfoRefs.btnCloseModalMovie.addEventListener('click', onCloseModalClick);
 document.addEventListener('keydown', onEscKeyDownModal);
 
 function onEscKeyDownModal(event) {
@@ -26,12 +25,6 @@ function onEscKeyDownModal(event) {
     onCloseModalClick();
   }
 }
-
-// filmInfoRefs.backdropMovie.addEventListener('click', event => {
-//   if (event.target === filmInfoRefs.backdropMovie) {
-//     onCloseModalClick();
-//   }
-// });
 
 if (filmInfoRefs.backdropMovie) {
   filmInfoRefs.backdropMovie.addEventListener('click', event => {
@@ -61,6 +54,7 @@ async function onCardClickOpenModal(event) {
   movieInfo = getOneMovieInfo(response.data);
   renderModalMovieInfo(movieInfo);
   Notiflix.Loading.remove();
+  //   cardMovie.display = 'false';
 }
 
 // Close  modal window
