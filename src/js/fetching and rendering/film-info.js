@@ -16,6 +16,7 @@ filmInfoRefs.btnCloseModalMovie.addEventListener('click', closeButtonModal);
 function closeButtonModal() {
   test.classList.remove('openModalFilm');
   test.classList.add('modal-film');
+  filmInfoRefs.body.classList.remove('stop-scroll');
 }
 
 const test = document.querySelector('.modal-film');
@@ -70,6 +71,8 @@ async function onCardClickOpenModal(event) {
     filmInfoRefs.cardMovie.innerHTML = '';
 
     Notiflix.Loading.circle();
+
+    filmInfoRefs.body.classList.add('stop-scroll');
 
     const response = await fetchData(idMovie);
 
