@@ -14,7 +14,11 @@ if (document.querySelector('.js-cards')) {
   cardsList.addEventListener('click', onCardClickOpenModal);
 }
 
-filmInfoRefs.btnCloseModalMovie.addEventListener('click', onCloseModalClick);
+if (filmInfoRefs.btnCloseModalMovie) {
+  filmInfoRefs.btnCloseModalMovie.addEventListener('click', onCloseModalClick);
+}
+
+// filmInfoRefs.btnCloseModalMovie.addEventListener('click', onCloseModalClick);
 document.addEventListener('keydown', onEscKeyDownModal);
 
 function onEscKeyDownModal(event) {
@@ -23,11 +27,19 @@ function onEscKeyDownModal(event) {
   }
 }
 
-filmInfoRefs.backdropMovie.addEventListener('click', event => {
-  if (event.target === filmInfoRefs.backdropMovie) {
-    onCloseModalClick();
-  }
-});
+// filmInfoRefs.backdropMovie.addEventListener('click', event => {
+//   if (event.target === filmInfoRefs.backdropMovie) {
+//     onCloseModalClick();
+//   }
+// });
+
+if (filmInfoRefs.backdropMovie) {
+  filmInfoRefs.backdropMovie.addEventListener('click', event => {
+    if (event.target === filmInfoRefs.backdropMovie) {
+      onCloseModalClick();
+    }
+  });
+}
 
 // ---MAIN-FUNCTIONS---
 
