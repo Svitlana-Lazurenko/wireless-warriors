@@ -321,7 +321,7 @@ body {
   }
 }
 
-.modal-card__queue-btn {
+.modal-card__library-btn {
   padding: 12px 24px;
   color: #ffffff;
   border: 1px solid transparent;
@@ -344,8 +344,8 @@ body {
   }
 }
 
-.modal-card__queue-btn:hover,
-.modal-card__queue-btn:focus {
+.modal-card__library-btn:hover,
+.modal-card__library-btn:focus {
   color: #f87719;
   border: 1px solid transparent;
   background: linear-gradient(#ffffff, #ffffff) padding-box;
