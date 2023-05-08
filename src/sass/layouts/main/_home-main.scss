@@ -259,7 +259,7 @@
     margin: auto;
 
     @include tablet {
-        min-width: 704px;
+        min-width: 737px;
         height: 400px;
         object-fit: cover;
         margin: 0;
@@ -267,8 +267,8 @@
 
     @include desktop {
         margin-right: 16px;
-        max-width: 805px;
-        max-height: 600px;
+        min-width: 805px;
+        height: 458px;
 
     }
 
@@ -438,7 +438,12 @@
     background: white;
     color:#F87719;
 }
-
+.upcoming-soon_title {
+    margin-bottom: 24px;
+    @include desktop {
+        margin-bottom: 28px;
+    }
+}
 
 
 
