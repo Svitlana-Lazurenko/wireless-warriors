@@ -10,15 +10,23 @@ const filmInfoRefs = {
   btnCloseModalMovie: document.querySelector('.js-btn-close-modal'),
   cardMovie: document.querySelector('.js-modal-card'),
   backdropMovie: document.querySelector('.js-backdrop-movie'),
-  cardEl: document.querySelector('.gallery-films'),
+  catalogEls: document.querySelector('.gallery-films'),
+  mainCardsEls: document.querySelector('.js-cards'),
 };
 
-const cardsList = document.querySelector('.js-cards');
-
 // if (document.querySelector('.js-cards')) {
-//   cardsList.addEventListener('click', onCardClickOpenModal);
+//   filmInfoRefs.mainCardsEls.addEventListener('click', onCardClickOpenModal);
+// } else {
+//   filmInfoRefs.catalogEls.addEventListener('click', onCardClickOpenModal);
 // }
-filmInfoRefs.cardEl.addEventListener('click', onCardClickOpenModal);
+
+if (document.querySelector('.js-cards')) {
+  filmInfoRefs.mainCardsEls.addEventListener('click', onCardClickOpenModal);
+}
+
+if (document.querySelector('.js-cards-library')) {
+  filmInfoRefs.catalogEls.addEventListener('click', onCardClickOpenModal);
+}
 
 if (filmInfoRefs.btnCloseModalMovie) {
   filmInfoRefs.btnCloseModalMovie.addEventListener('click', onCloseModalClick);
@@ -44,11 +52,13 @@ if (filmInfoRefs.backdropMovie) {
 
 let idMovie = undefined;
 
+// const trendingMoviesUrl = `${BASE_THEMOVIEDB_URL}/trending/movie/week?api_key=${apiKey}`;
+
 // Open modal window
 async function onCardClickOpenModal(event) {
   //   event.preventDefault();
-  if (event.target.nodeName === 'LI' || 'DIV') {
-    const cardEl = event.target.closest('.card');
+  if (event.target.nodeName === 'LI' || 'DIV' || 'IMG') {
+    // const cardEl = event.target.closest('.card');
     idMovie = event.target.parentNode.dataset.id;
     console.log(idMovie);
     if (idMovie === undefined) {
