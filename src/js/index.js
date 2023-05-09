@@ -1,6 +1,7 @@
 import * as tmdbApi from './tmdb-api';
 import * as pagination from './pagination';
 
+import * as filmInfo from './fetching and rendering/film-info';
 import * as mobileMenu from './components/mobile-menu-open-close';
 import * as filmOfTheMonth from './fetching and rendering/film-of-the-month';
 import * as filmTrailer from './fetching and rendering/film-trailer';
@@ -16,7 +17,6 @@ import * as loadmoreBtn from './components/loadmore-btn';
 import * as modals from './components/modals-open-close';
 import * as savedFilms from './fetching and rendering/weekly-trends';
 import * as animateBtnChahgeTheme from './components/change-theme';
-import * as filmInfo from './fetching and rendering/film-info';
 import * as saveRemoveFilmsBtn from './components/save-remove-films-btn';
 import * as scrollUp from './components/scroll-up';
 import * as switcherBtn from './components/switcher-btn';
