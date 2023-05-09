@@ -4,9 +4,9 @@ import { fetchThemoviedbGenres } from './film-genres';
 import { createPagination } from '../pagination';
 import { makeStarsMarkup } from '../components/star-markup';
 
-const ul = document.querySelector('.gallery-films');
+const ul = document.querySelector('.gallery__films');
 const img = 'https://image.tmdb.org/t/p/w500/';
-
+console.log('test');
 async function fetchThemoviedbWeek() {
   const response = await axios(
     `${BASE_THEMOVIEDB_URL}/trending/movie/week?api_key=${apiKey}`
@@ -61,7 +61,6 @@ async function loadMoviesWeek() {
       (markup, result) => markup + createMarkup(result, genresList),
       ''
     );
-
     updateMoviesList(markup);
 
     return;

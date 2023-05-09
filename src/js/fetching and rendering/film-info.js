@@ -10,17 +10,16 @@ const filmInfoRefs = {
   btnCloseModalMovie: document.querySelector('.js-btn-close-modal'),
   cardMovie: document.querySelector('.js-modal-card'),
   backdropMovie: document.querySelector('.modal-film'),
-  catalogEls: document.querySelector('.gallery-films'),
+  catalogEls: document.querySelector('.gallery__films'),
   mainCardsEls: document.querySelector('.js-cards'),
 };
 
 filmInfoRefs.btnCloseModalMovie.addEventListener('click', closeButtonModal);
 
-function closeButtonModal(event) {
+function closeButtonModal() {
   test.classList.remove('openModalFilm');
   test.classList.add('modal-film');
   filmInfoRefs.body.classList.remove('stop-scroll');
-  event.preventDefault();
 }
 
 const test = document.querySelector('.modal-film');
@@ -85,7 +84,7 @@ async function onCardClickOpenModal(event) {
 
     renderModalMovieInfo(movieInfo);
     Notiflix.Loading.remove();
-    addEventListenersOnButtons();
+    // addEventListenersOnButtons();
   }
 }
 
