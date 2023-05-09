@@ -61,7 +61,6 @@ async function loadMoviesWeek() {
       (markup, result) => markup + createMarkup(result, genresList),
       ''
     );
-
     updateMoviesList(markup);
 
     return;
@@ -69,7 +68,7 @@ async function loadMoviesWeek() {
     onFetchError(error);
   }
 }
-
+console.log('sd12edslksaddk;kas;fsanflanslffsnlaslnf');
 function onlyYearFilter(release_date) {
   return !release_date
     ? 'Unknown Year'
