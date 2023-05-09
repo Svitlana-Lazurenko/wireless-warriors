@@ -4,11 +4,13 @@ import { fetchThemoviedbGenres } from './film-genres';
 import { createPagination } from '../pagination';
 import { makeStarsMarkup } from '../components/star-markup';
 
-const ul = document.querySelector('.gallery-films');
+const ul = document.querySelector('.gallery__films');
 const img = 'https://image.tmdb.org/t/p/w500/';
-
+console.log('test');
 async function fetchThemoviedbWeek() {
-  const response = await axios(`${BASE_THEMOVIEDB_URL}/trending/movie/week?api_key=${apiKey}`);
+  const response = await axios(
+    `${BASE_THEMOVIEDB_URL}/trending/movie/week?api_key=${apiKey}`
+  );
   const newCollection = await response.data;
 
   pagination = createPagination(
@@ -59,7 +61,6 @@ async function loadMoviesWeek() {
       (markup, result) => markup + createMarkup(result, genresList),
       ''
     );
-
     updateMoviesList(markup);
 
     return;
@@ -69,21 +70,29 @@ async function loadMoviesWeek() {
 }
 
 function onlyYearFilter(release_date) {
-  return !release_date ? 'Unknown Year' : release_date.split('').slice(0, 4).join('');
+  return !release_date
+    ? 'Unknown Year'
+    : release_date.split('').slice(0, 4).join('');
 }
 
-function createMarkup({ poster_path, release_date, title, vote_average, genre_ids }, genresList) {
+function createMarkup(
+  { id, poster_path, release_date, title, vote_average, genre_ids },
+  genresList
+) {
   const genreNames = getGenresName(genre_ids, genresList);
   return `
    <li class='movie__card'>
-   <a href="" class='movie__link'>
-     <img src='${img}${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
-    <div class='info overlay'>
+   <div class='movie__link' data-id=${id}>
+    <img src='${img}${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
       <h2 class='info-title'>${title}</h2>
-      <p class='info-genre'>${genreNames}<span> | </span>${onlyYearFilter(release_date)}</p>
-      <p class='info-vote'>${makeStarsMarkup(vote_average, 'hero__rating-stars')}</p>
+      <p class='info-genre'>${genreNames}<span> | </span>${onlyYearFilter(
+    release_date
+  )}</p>
+      <p class='info-vote'>${makeStarsMarkup(
+        vote_average,
+        'hero__rating-stars'
+      )}</p>
     </div>
-    </a>
   </li>`;
 }
 
