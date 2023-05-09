@@ -1,7 +1,7 @@
 import * as tmdbApi from './tmdb-api';
 import * as pagination from './pagination';
 
-// import * as filmInfo from './fetching and rendering/film-info';
+import * as filmInfo from './fetching and rendering/film-info';
 import * as mobileMenu from './components/mobile-menu-open-close';
 import * as filmOfTheMonth from './fetching and rendering/film-of-the-month';
 import * as filmTrailer from './fetching and rendering/film-trailer';
