@@ -1,4 +1,3 @@
-export const STORAGE_KEY_LIBRARY = 'myLibrary';
 export const STORAGE_KEY_THEME = 'whiteTheme';
 
 export const save = (key, value) => {
@@ -42,3 +41,12 @@ export const removeStore = key => {
 export const clearLocal = () => {
   localStorage.clear();
 };
+
+// export const load = (key) => {
+//     try {
+//       const data = localStorage.getItem(key);
+//       return data === null ? undefined : JSON.parse(data);
+//     } catch (err) {
+//       console.error("Parse error", err.message);
+//     }
+// };

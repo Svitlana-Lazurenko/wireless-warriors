@@ -21,3 +21,10 @@
 .button__scroll__up--show {
   bottom: 20px;
 }
+
+.library {
+  margin-top: 24px;
+  @include tablet {
+    margin-top: 40px;
+  }
+}
