@@ -6,7 +6,7 @@ import { makeStarsMarkup } from '../components/star-markup';
 
 const ul = document.querySelector('.gallery-films');
 const img = 'https://image.tmdb.org/t/p/w500/';
-
+console.log('test');
 async function fetchThemoviedbWeek() {
   const response = await axios(
     `${BASE_THEMOVIEDB_URL}/trending/movie/week?api_key=${apiKey}`
@@ -68,7 +68,7 @@ async function loadMoviesWeek() {
     onFetchError(error);
   }
 }
-console.log('sd12edslksaddk;kas;fsanflanslffsnlaslnf');
+
 function onlyYearFilter(release_date) {
   return !release_date
     ? 'Unknown Year'
