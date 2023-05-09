@@ -141,9 +141,6 @@ function onError(err) {
   renderMarkup(
     '<h2 class="title-error">OOPS...<br> We are very sorry!<br> We don’t have any results due to your search.</h2>'
   );
-  // Notify.failure(
-  //   `❌ Sorry, there are no films matching your search query. Please try again.`
-  // );
 }
 function clearCardList() {
   refs.gallery.innerHTML = '';
