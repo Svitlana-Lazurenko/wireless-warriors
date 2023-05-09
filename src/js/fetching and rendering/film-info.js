@@ -16,11 +16,10 @@ const filmInfoRefs = {
 
 filmInfoRefs.btnCloseModalMovie.addEventListener('click', closeButtonModal);
 
-function closeButtonModal(event) {
+function closeButtonModal() {
   test.classList.remove('openModalFilm');
   test.classList.add('modal-film');
   filmInfoRefs.body.classList.remove('stop-scroll');
-  event.preventDefault();
 }
 
 const test = document.querySelector('.modal-film');
@@ -85,7 +84,7 @@ async function onCardClickOpenModal(event) {
 
     renderModalMovieInfo(movieInfo);
     Notiflix.Loading.remove();
-    addEventListenersOnButtons();
+    // addEventListenersOnButtons();
   }
 }
 
