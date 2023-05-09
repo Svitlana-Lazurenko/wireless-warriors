@@ -107,6 +107,7 @@ const init = async () => {
   }
 };
 
-if (location.pathname === '/index.html') {
-  init();
-}
+// if (location.pathname === '/index.html') {
+//   init();
+// }
+init();
