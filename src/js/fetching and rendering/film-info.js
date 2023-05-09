@@ -166,7 +166,7 @@ function renderModalMovieInfo(movieInfo) {
     <ul class="thumb-right__value-details">
       <li class="thumb-right__value-item">
         <span class="thumb-right__vote">${voteAverage}</span>
-        <span class="thumb-right__delimiter">/</span>
+        <span class="thumb-right__delimiter"><span>&nbsp</span>/<span>&nbsp</span></span>
         <span class="thumb-right__votes">${voteCount}</span>
       </li>
       <li class="thumb-right__value-item">${popularity}</li>
