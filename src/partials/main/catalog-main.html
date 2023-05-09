@@ -107,8 +107,7 @@
     <path
       stroke="url(#d)"
       stroke-linejoin="round"
-
-d="M106.5 9.75h-8.063L96 2.25l-2.438 7.5H85.5l6.563 4.5-2.532 7.5L96 17.062l6.469 4.688-2.531-7.5 6.562-4.5Z"
+      d="M106.5 9.75h-8.063L96 2.25l-2.438 7.5H85.5l6.563 4.5-2.532 7.5L96 17.062l6.469 4.688-2.531-7.5 6.562-4.5Z"
     ></path>
     <path
       stroke="url(#e)"
@@ -175,50 +174,56 @@ d="M106.5 9.75h-8.063L96 2.25l-2.438 7.5H85.5l6.563 4.5-2.532 7.5L96 17.062l6.46
   </symbol>
 </svg>
 
-
-<section >
+<section>
   <div class="container">
     <form class="catalog__form" id="search-form">
       <input
-      class="catalog__form-input"
+        class="catalog__form-input"
         type="text"
         name="searchQuery"
         autocomplete="off"
         placeholder="Film"
       />
 
-<!-- <div class="itc-select" id="select-1">
+      <!-- <div class="itc-select" id="select-1">
  <button type="button" class="itc-select__toggle btn-year" name="genre" value="" data-select="toggle" data-index="-1">Year</button>
-   
+    
     <div class="itc-select__dropdown">
         <ul class="itc-select__year">
   </div>
 
-  <div class="itc-select" id="select-2">
-   
+<div class="itc-select" id="select-2">  
   <button type="button" class="itc-select__toggle btn-genres" name="genre" value="" data-select="toggle" data-index="-1">Genre</button>
-    
     <div class="itc-select__dropdown">
-      <ul class="itc-select__genres"></ul>
+    <ul class="itc-select__genres">
+    </ul>
+  </div>
+</div>
+
+<div class="itc-select" id="select-3">
+    <button type="button" class="itc-select__toggle" name="country" value="" data-select="toggle" data-index="-1">Country</button>
+        <div class="itc-select__dropdown">
+        <ul class="itc-select__countries">
+        </ul>
     </div>
+</div> -->
+      <include
+        src="./partials/modals-mobile-menu/film-info-modal.html"
+      ></include>
 
-    <div class="itc-select" id="select-3">
-      
-     <button type="button" class="itc-select__toggle btn-counrties" name="country" value="" data-select="toggle" data-index="-1">Country</button>
- 
-      <div class="itc-select__dropdown">
-        <ul class="itc-select__countries"></ul>
+      <div>
+        <ul class="gallery-films"></ul>
       </div>
-    </div> -->
+      <div id="pagination" class="tui-pagination"></div>
 
-    <button type="submit" class="search-button">
-  <svg width="13" height="13" class="icon">
-    <use xlink:href="./images/icons.svg#icon-search"></use>
-  </svg>
-</button>
-</form>
+      <button type="submit" class="search-button">
+        <svg width="13" height="13" class="icon">
+          <use xlink:href="./images/icons.svg#icon-search"></use>
+        </svg>
+      </button>
+    </form>
 
-<div class="container">
+    <!-- <div class="container">
   <ul class="gallery__films">
         </div>
     </a>
@@ -232,4 +237,7 @@ d="M106.5 9.75h-8.063L96 2.25l-2.438 7.5H85.5l6.563 4.5-2.532 7.5L96 17.062l6.46
     <div id="pagination" class="tui-pagination"></div>
   </div>
 </div>
+</section>
+    </form> -->
+  </div>
 </section>
