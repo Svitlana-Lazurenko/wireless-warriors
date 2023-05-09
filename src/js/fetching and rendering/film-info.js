@@ -61,7 +61,11 @@ let idMovie = undefined;
 
 // Open modal window
 async function onCardClickOpenModal(event) {
-  if (event.target.nodeName === 'LI' || 'DIV' || 'IMG') {
+  if (
+    event.target.nodeName === 'LI' ||
+    event.target.nodeName === 'DIV' ||
+    event.target.nodeName === 'IMG'
+  ) {
     idMovie = event.target.parentNode.dataset.id;
 
     test.classList.remove('modal-film');
