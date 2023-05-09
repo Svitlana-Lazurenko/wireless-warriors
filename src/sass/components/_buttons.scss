@@ -270,18 +270,18 @@ line-height: 16px;
 transition: all 250ms linear;
 &:hover, &:focus {
   box-shadow:1px 1px 14px rgba(1, 1, 1, 0.25); 
-  background: var(--primary-text-color);
+  background: #ffffff;
   border-color: getColor(accent-color);
   border-width: 1px;
   transition: all 250ms linear;
 }
 &:hover .icon__search--color{
   fill: getColor(accent-color); 
-  transition: all 250ms linear;
+  // transition: all 250ms linear;
 }
 &:focus .icon__search--color{
   fill: getColor(accent-color); 
-  transition: all 250ms linear;
+  // transition: all 250ms linear;
 }
 }
 
@@ -301,7 +301,10 @@ width: 12px;
   height: 20px;
   width: 20px;
  }
- 
+ &:focus, &:hover {
+  fill: getColor(accent-color); 
+  transition: all 250ms linear;
+}
 }
 
 
