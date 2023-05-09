@@ -34,13 +34,17 @@ function saveToLibrary() {
 export default function addEventListenersOnButtons() {
   const libraryButton = document.querySelector('.js-add-library-btn');
   libraryButton.blur();
+  const filmId = document.querySelector('.js-modal-card img').dataset.id;
+  const currentLocalStorageContent = JSON.parse(
+    localStorage.getItem(STORAGE_KEY_LIBRARY)
+  );
+  libraryButton.addEventListener('click', onLibraryModalButton);
 
-  if (checkInLibraryStore()) {
+  if (checkInLibraryStore(filmId, currentLocalStorageContent)) {
     libraryButton.textContent = 'Remove from library';
   } else {
     libraryButton.textContent = 'Add to library';
   }
-  libraryButton.addEventListener('click', onLibraryModalButton);
 }
 
 function checkInLibraryStore() {
@@ -64,22 +68,24 @@ function onLibraryModalButton(event) {
   const currentButton = event.currentTarget.textContent;
 
   if (currentButton === 'Add to library') {
-    saveToLibrary();
+    saveToLibrary(movieInfo);
     event.currentTarget.textContent = 'Remove from library';
-    event.currentTarget.setAttribute('class', 'js-add-library-btn');
+    event.currentTarget.setAttribute(
+      'modal-card__remove-library-btn js-add-library-btn'
+    );
     event.currentTarget.blur();
   } else {
     removeFromLibrary();
     event.currentTarget.textContent = 'Add to library';
     event.currentTarget.setAttribute(
-      'class',
       'modal-card__library-btn js-add-library-btn'
     );
     event.currentTarget.blur();
   }
 }
 
-function removeFromLibrary() {
+function removeFromLibrary(event) {
+  event.preventDefault();
   const filmId = document.querySelector('.js-modal-card img').dataset.id;
   const films = localStorage.getItem('myLibrary');
   const parsedFilms = JSON.parse(films);
