@@ -174,18 +174,29 @@
   </symbol>
 </svg>
 
-<section>
+<section class="section">
   <div class="container">
+    <h1 class="section-title visually-hidden">Search gallery films</h1>
     <form class="catalog__form" id="search-form">
       <input
-        class="catalog__form-input"
         type="text"
         name="searchQuery"
         autocomplete="off"
-        placeholder="Film"
+        placeholder="Search"
       />
+      <button type="submit">Search</button>
+    </form>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <ul class="gallery__films"></ul>
+  </div>
+</section>
+<ul id="pagination" class="tui-pagination"></ul>
+<include src="./partials/modals-mobile-menu/film-info-modal.html"></include>
 
-      <!-- <div class="itc-select" id="select-1">
+<!-- <div class="itc-select" id="select-1">
  <button type="button" class="itc-select__toggle btn-year" name="genre" value="" data-select="toggle" data-index="-1">Year</button>
     
     <div class="itc-select__dropdown">
@@ -207,37 +218,3 @@
         </ul>
     </div>
 </div> -->
-      <include
-        src="./partials/modals-mobile-menu/film-info-modal.html"
-      ></include>
-
-      <div>
-        <ul class="gallery-films"></ul>
-      </div>
-      <div id="pagination" class="tui-pagination"></div>
-
-      <button type="submit" class="search-button">
-        <svg width="13" height="13" class="icon">
-          <use xlink:href="./images/icons.svg#icon-search"></use>
-        </svg>
-      </button>
-    </form>
-
-    <!-- <div class="container">
-  <ul class="gallery__films">
-        </div>
-    </a>
-  </li>
-  </ul>
-</div>
-
-<div class="container">
-  <ul class="paginations"></ul>
-</div>
-    <div id="pagination" class="tui-pagination"></div>
-  </div>
-</div>
-</section>
-    </form> -->
-  </div>
-</section>
