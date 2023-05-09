@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  background-color: getColor('primary-bg-color-dark-theme');
+  background-color: getColor('second-bg-color-dark-theme');
 
   @include tablet {
     padding-bottom: 40px;
