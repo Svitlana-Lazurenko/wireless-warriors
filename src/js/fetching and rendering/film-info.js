@@ -1,6 +1,7 @@
 import { BASE_THEMOVIEDB_URL, apiKey } from '../tmdb-api';
 import axios from 'axios';
 import Notiflix from 'notiflix';
+import addEventListenersOnButtons from '../components/save-remove-films-btn';
 
 export let movieInfo = {};
 
