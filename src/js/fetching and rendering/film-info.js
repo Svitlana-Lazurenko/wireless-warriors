@@ -15,10 +15,11 @@ const filmInfoRefs = {
 
 filmInfoRefs.btnCloseModalMovie.addEventListener('click', closeButtonModal);
 
-function closeButtonModal() {
+function closeButtonModal(event) {
   test.classList.remove('openModalFilm');
   test.classList.add('modal-film');
   filmInfoRefs.body.classList.remove('stop-scroll');
+  event.preventDefault();
 }
 
 const test = document.querySelector('.modal-film');
@@ -59,7 +60,6 @@ let idMovie = undefined;
 
 // Open modal window
 async function onCardClickOpenModal(event) {
-  //   event.preventDefault();
   if (event.target.nodeName === 'LI' || 'DIV' || 'IMG') {
     idMovie = event.target.parentNode.dataset.id;
 
