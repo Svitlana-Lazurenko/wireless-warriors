@@ -11,7 +11,7 @@ const filmInfoRefs = {
   cardMovie: document.querySelector('.js-modal-card'),
   backdropMovie: document.querySelector('.modal-film'),
   catalogEls: document.querySelector('.gallery__films'),
-  homeCardsEls: document.querySelector('.js-cards'),
+  homeCardsEls: document.querySelector('.card-container'),
 };
 
 filmInfoRefs.btnCloseModalMovie.addEventListener('click', closeButtonModal);
