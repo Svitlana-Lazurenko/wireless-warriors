@@ -14,7 +14,15 @@ const createCard = async (movie, mediaQuery) => {
 
   const card = document.createElement('li');
   card.classList.add('card');
-
+  // card.addEventListener('click', async () => {
+  //   try {
+  //     const infoUrl = `${BASE_URL}/movie/${movie.id}?api_key=${KEY}&language=en-US`;
+  //     const response = await axios.get(infoUrl);
+  //     console.log(response.data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // });
   const image = document.createElement('img');
   image.src = imageUrl;
   image.alt = movie.title;
@@ -107,7 +115,6 @@ const init = async () => {
   }
 };
 
-// if (location.pathname === '/index.html') {
-//   init();
-// }
-init();
+if (document.querySelector('.weekly-trends')) {
+  init();
+}
