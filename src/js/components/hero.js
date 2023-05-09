@@ -4,11 +4,14 @@ import { initSwiper } from './slider';
 import { ResizePage } from './resize-page';
 import { changingSizeElement } from './dynamic-resizing';
 import debounce from 'lodash.debounce';
+import { fetchThemoviedbTralier } from '../../js/fetching and rendering/film-trailer';
 
 const apiThemoviedb = new ApiThemoviedb();
 const resizePage = new ResizePage(window.innerWidth);
 
 const heroRef = document.querySelector('.hero');
+
+heroRef.addEventListener('click', onButtonTrailerClick);
 
 window.addEventListener(
   'resize',
@@ -51,6 +54,28 @@ function addSliderMarkup(data) {
   );
   changingSizeElement();
   initSwiper();
+}
+
+function onButtonTrailerClick(e) {
+  const element = e.target;
+  if (element.tagName === 'BUTTON') {
+    getTrailerRequest(element.dataset.id);
+  }
+}
+
+async function getTrailerRequest(id) {
+  try {
+    const response = await fetchThemoviedbTralier(id);
+    findingKey(response);
+  } catch (error) {
+    // openErrorModal();
+  }
+}
+
+function findingKey(response) {
+  const keyVideo = response.results.find(
+    result => result.name === 'Official Trailer'
+  ).key;
 }
 
 // async function test() {

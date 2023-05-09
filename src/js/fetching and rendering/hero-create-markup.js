@@ -28,7 +28,7 @@ class HeroMarkUp {
     return data.reduce(
       (acc, { title, vote_average, overview, backdrop_path, id }) => {
         const slideBg = `background-image: url(https://image.tmdb.org/t/p/original/${backdrop_path})`;
-        return (acc += `<div class="swiper-slide hero__slide" data-id="${id}">
+        return (acc += `<div class="swiper-slide hero__slide" >
                           <div class="hero__bg" style="${slideBg}"></div>
                           <div class="hero__frame"></div>
                           <div class="hero__content">
@@ -39,7 +39,7 @@ class HeroMarkUp {
                             )}  
                             <p class="hero__description">${overview}</p>
                           </div>
-                          <button class="hero-btn hero__btn-trailer" type="button">Watch trailer</button>
+                          <button class="hero-btn hero__btn-trailer" type="button" data-id="${id}" data-modal-open="modal-2">Watch trailer</button>
                         </div>`);
       },
       ''

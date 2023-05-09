@@ -19,13 +19,6 @@ class ApiThemoviedb {
       }
     );
   }
-  async getRequestVideos(idMovie) {
-    return await axios.get(`${this.base_url}/movie/${idMovie}/videos`, {
-      params: {
-        api_key: this.api_key,
-      },
-    });
-  }
 }
 
 function requestSimulation() {
