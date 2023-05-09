@@ -31,11 +31,14 @@ export const load = key => {
   }
 };
 
-//
 export const removeStore = key => {
   try {
     localStorage.removeItem(key);
   } catch (err) {
     console.error('Get state error: ', err.message);
   }
+};
+
+export const clearLocal = () => {
+  localStorage.clear();
 };
