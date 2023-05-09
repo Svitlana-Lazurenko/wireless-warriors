@@ -1,450 +1,437 @@
 //  Weekly-trends movies
 
 :root {
-    --second-bg-color-dark-theme: #111111;
+  --second-bg-color-dark-theme: #111111;
 }
 
 .weekly-trends {
-    background-color: var(--second-bg-color-dark-theme);
+  background-color: var(--second-bg-color-dark-theme);
 }
 
 .weekly-trends_box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 24px;
 
-    @include tablet {
-        padding-top: 52px;
-    }
+  @include tablet {
+    padding-top: 52px;
+  }
 
-    @include desktop {
-        padding-top: 80px;
-        padding-bottom: 28px;
-    }
+  @include desktop {
+    padding-top: 80px;
+    padding-bottom: 28px;
+  }
 }
 
 .weekly-trends_title {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.19;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
 
-    color: #FFFFFF;
+  color: #ffffff;
 
-    @include tablet {
-        font-size: 24px;
-        line-height: 1.17;
-    }
+  @include tablet {
+    font-size: 24px;
+    line-height: 1.17;
+  }
 
-    @include desktop {
-        font-size: 28px;
-        line-height: 1.17;
-    }
+  @include desktop {
+    font-size: 28px;
+    line-height: 1.17;
+  }
 }
 
 .weekly-trends_link {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.19;
-    color: #F87719;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
+  color: #f87719;
 
-    @include tablet {
-        font-size: 24px;
-        line-height: 1.17;
-    }
+  @include tablet {
+    font-size: 24px;
+    line-height: 1.17;
+  }
 
-    @include desktop {
-        font-size: 28px;
-        line-height: 1.17;
-    }
+  @include desktop {
+    font-size: 28px;
+    line-height: 1.17;
+  }
 }
 
-
 .card-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
-    @include tablet {
-        justify-content: space-between;
-    }
+  @include tablet {
+    justify-content: space-between;
+  }
 }
 
 .card {
-    position: relative;
-    margin-bottom: 32px;
-    max-width: 280px;
-    color: white;
+  position: relative;
+  margin-bottom: 32px;
+  max-width: 280px;
+  color: white;
 
-    @include tablet {
-        margin-bottom: 44px;
-        max-width: 224px;
-        width: calc(33.33% - 20px);
-    }
+  @include tablet {
+    margin-bottom: 44px;
+    max-width: 224px;
+    width: calc(33.33% - 20px);
+  }
 
-    @include desktop {
-        margin-bottom: 60px;
-        max-width: 395px;
-
-    }
+  @include desktop {
+    margin-bottom: 60px;
+    max-width: 395px;
+  }
 }
 .card::before {
-    z-index: 1;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%);
-    z-index: 1;
+  z-index: 1;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 63.48%,
+    rgba(0, 0, 0, 0.9) 92.16%
+  );
+  z-index: 1;
 }
 .card__position-absolute {
-    z-index: 2;
-    position: absolute;
-    left: 12;
-    bottom: 12;
-    @include desktop {
-        left:20;
-        bottom: 20;
-    }
+  z-index: 2;
+  position: absolute;
+  left: 12;
+  bottom: 12;
+  @include desktop {
+    left: 20;
+    bottom: 20;
+  }
 }
 .card__position-absolute h2 {
-    font-weight: 500;
-        font-size: 12px;
-        line-height: 1.67;
-        text-transform: uppercase;
-        color: #FFFFFF;
-        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        @include tablet {
-            font-size: 11px;
-            line-height: 1.5;
-        }
-        @include desktop {
-            margin-bottom: 10px;
-            font-size: 20px;
-            line-height: 1.15;
-        }
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.67;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  @include tablet {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  @include desktop {
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 1.15;
+  }
 }
 .card__position-absolute p {
-    font-weight: 500;
-        font-size: 12px;
-        line-height: 1.67;
-        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        color: #B7B7B7;
-                @include tablet {
-                        font-size: 11px;
-                        line-height: 1.5;
-                    }
-                
-                    @include desktop {
-                        font-size: 20px;
-                        line-height: 1.15;
-                    }
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.67;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #b7b7b7;
+  @include tablet {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  @include desktop {
+    font-size: 20px;
+    line-height: 1.15;
+  }
 }
 
 .card img {
-    max-width: 280px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+  max-width: 280px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 
-    @include tablet {
-        min-width: 224px;
-        height: 325px;
-    }
+  @include tablet {
+    min-width: 224px;
+    height: 325px;
+  }
 
-    @include desktop {
-        min-width: 395px;
-        height: 574px;
-    }
-
+  @include desktop {
+    min-width: 395px;
+    height: 574px;
+  }
 }
 .card img:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .upcoming-soon__star {
-    margin: 0;
+  margin: 0;
 
-    padding: 0;
-    line-height: 0;
-    width: 100px;
-    height: 15px;
-    @include desktop {
-        
-    }
-
+  padding: 0;
+  line-height: 0;
+  width: 100px;
+  height: 15px;
+  @include desktop {
+  }
 }
 
 .card__position-absolute p {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    @include tablet {
-        align-items: flex-start;
-    }
-    @include desktop {
-        justify-content: normal;
-        align-items: baseline;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include tablet {
+    align-items: flex-start;
+  }
+  @include desktop {
+    justify-content: normal;
+    align-items: baseline;
+  }
 }
 .card-position-absolute__rating {
-    @include desktop {
-        margin-left: 42px;
-    }
+  @include desktop {
+    margin-left: 42px;
+  }
 }
 
 // Upcoming this mounth
 
 .upcoming-soon {
-    background-color: var(--second-bg-color-dark-theme);
+  background-color: var(--second-bg-color-dark-theme);
+  padding-bottom: 20px;
 }
 
 .upcoming-soon_title {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.19;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
 
-    text-transform: uppercase;
+  text-transform: uppercase;
 
-    color: #FFFFFF;
+  color: #ffffff;
 
-    @include tablet {
-        font-size: 24px;
-        line-height: 1.17;
-    }
+  @include tablet {
+    font-size: 24px;
+    line-height: 1.17;
+  }
 
-    @include desktop {
-        font-size: 28px;
-        line-height: 1.18
-    }
+  @include desktop {
+    font-size: 28px;
+    line-height: 1.18;
+  }
 }
 
-
 .upcoming-soon_film {
-    display: flex;
-    flex-direction: column;
-    color: #B7B7B7;
+  display: flex;
+  flex-direction: column;
+  color: #b7b7b7;
 }
 
 .upcoming-soon_text {
-    @include tablet {
-        display: flex;
-    }
+  @include tablet {
+    display: flex;
+  }
 
-    @include desktop {
-        display: block;
-    }
+  @include desktop {
+    display: block;
+  }
 }
 
-
-
 .upcoming-soon_box {
-    color: white;
+  color: white;
 
-    @include tablet {}
+  @include tablet {
+  }
 
-    @include desktop {
-        display: flex;
-
-
-
-    }
+  @include desktop {
+    display: flex;
+  }
 }
 
 .upcoming-soon_box img {
-    max-width: 280px;
-    height: auto;
-    display: block;
-    margin: auto;
+  max-width: 280px;
+  height: auto;
+  display: block;
+  margin: auto;
 
-    @include tablet {
-        min-width: 737px;
-        height: 400px;
-        object-fit: cover;
-        margin: 0;
-    }
+  @include tablet {
+    min-width: 737px;
+    height: 400px;
+    object-fit: cover;
+    margin: 0;
+  }
 
-    @include desktop {
-        margin-right: 16px;
-        min-width: 805px;
-        height: 458px;
-
-    }
-
+  @include desktop {
+    margin-right: 16px;
+    min-width: 805px;
+    height: 458px;
+  }
 }
 
 .upcoming-soon_film__title {
-    margin-top: 24px;
-    margin-bottom: 20px;
-    font-weight: 500;
-        font-size: 20px;
-        line-height: 1.15;
-        color: #FFFFFF;
-        @include desktop {
-            margin-top: 0;
-        }
+  margin-top: 24px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  color: #ffffff;
+  @include desktop {
+    margin-top: 0;
+  }
 }
 
 .upcoming-soon_votes {
-    margin-top: 12px;
-    margin-bottom: 12px;
+  margin-top: 12px;
+  margin-bottom: 12px;
 
-    font-weight: 500;
-        font-size: 16px;
-        line-height: 1.19;
-        color: #B7B7B7;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
+  color: #b7b7b7;
 }
 
 .upcoming-soon_popularity {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 .upcoming-soon_genres {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .upcoming-soon_about__text {
-    display: block;
-    margin-top: 16px;
+  display: block;
+  margin-top: 16px;
 
-    font-size: 14px;
-    line-height: 1.43;
-    color: #F8F8F8;
-    @include tablet {
-        margin-right: 107px;
-    }
-    @include desktop {
-        margin-right: 0px;
-    }
+  font-size: 14px;
+  line-height: 1.43;
+  color: #f8f8f8;
+  @include tablet {
+    margin-right: 107px;
+  }
+  @include desktop {
+    margin-right: 0px;
+  }
 }
 
 .upcoming-soon_date {
-    color: red;
-
+  color: red;
 }
 
 .upcoming-soon__votes {
-    padding: 1 4 1 4;
-    color: #111111;
-    background-color: #FFFFFF;
-    border-radius: 5px;
+  padding: 1 4 1 4;
+  color: #111111;
+  background-color: #ffffff;
+  border-radius: 5px;
 }
 
 .upcoming-soon__vote {
-    padding: 1 8 1 8;
-    background-color: #FFFFFF;
-    color: #111111;
-    margin-left: 75px;
-    border-radius: 5px;
+  padding: 1 8 1 8;
+  background-color: #ffffff;
+  color: #111111;
+  margin-left: 75px;
+  border-radius: 5px;
 
-    @include tablet {
-        margin-left: 80px;
-    }
+  @include tablet {
+    margin-left: 80px;
+  }
 }
 
 .upcoming-soon_popularity {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.19;
-    align-items: center;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    margin-left: 85px;
-    @include tablet {
-        margin-left: 77px;
-    }
-    @include desktop {
-        margin-left: 87px;
-    }
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
+  align-items: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-left: 85px;
+  @include tablet {
+    margin-left: 77px;
+  }
+  @include desktop {
+    margin-left: 87px;
+  }
 }
 
 .upcoming-soon_popularity2 {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 .upcoming-soon__genr {
-    margin-left: 115px;
-    font-weight: 500;
-        font-size: 16px;
-        line-height: 1.17;
-        color: #FFFFFF;
-        @include tablet {
-            margin-left: 107px;
-        }
-        @include desktop {
-            margin-left: 117px;
-        }
+  margin-left: 115px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.17;
+  color: #ffffff;
+  @include tablet {
+    margin-left: 107px;
+  }
+  @include desktop {
+    margin-left: 117px;
+  }
 }
 
 .popularity-data_container {
-    @include tablet {
-        margin-left: 118px;
-    }
+  @include tablet {
+    margin-left: 118px;
+  }
 
-    @include desktop {
-        margin-left: 0;
-    }
+  @include desktop {
+    margin-left: 0;
+  }
 }
 
 .release-data__container {
-    font-weight: 500;
-        font-size: 16px;
-        line-height: 1.17;
-        color: #B7B7B7;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.17;
+  color: #b7b7b7;
 }
 
 .upcoming-soon_date {
-    margin-left: 57px;
-    font-weight: 500;
-        font-size: 16px;
-        line-height: 1.17;
-        text-transform: uppercase;
-        color: #F87719;
+  margin-left: 57px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.17;
+  text-transform: uppercase;
+  color: #f87719;
 
-    @include tablet {
-        margin-left: 58px;
-    }
+  @include tablet {
+    margin-left: 58px;
+  }
 }
-
 
 // Button Styles
 .upcoming-soon_button {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    width: 109px;
-    height: 38px;
-    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
-    border-radius: 74px;
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.17;
-    align-items: center;
-    text-align: center;
-    color: #111111;
-    @include tablet {
-        margin-bottom: 77px;
-    }
+  margin-top: 20px;
+  margin-bottom: 40px;
+  width: 109px;
+  height: 38px;
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  border-radius: 74px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  align-items: center;
+  text-align: center;
+  color: #111111;
+  @include tablet {
+    margin-bottom: 77px;
+  }
 }
 
 .upcoming-soon_button:active {
-    transform: translateY(2px);
-    background: linear-gradient(141.22deg, #F84119 9.4%, #FFC226 91.91%);
+  transform: translateY(2px);
+  background: linear-gradient(141.22deg, #f84119 9.4%, #ffc226 91.91%);
 }
 .upcoming-soon_button:hover,
 .upcoming-soon_button:focus {
-    background: white;
-    color:#F87719;
+  background: white;
+  color: #f87719;
 }
 .upcoming-soon_title {
-    margin-bottom: 24px;
-    @include desktop {
-        margin-bottom: 28px;
-    }
+  margin-bottom: 24px;
+  @include desktop {
+    margin-bottom: 28px;
+  }
 }
-
-
-
-
