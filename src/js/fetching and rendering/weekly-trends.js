@@ -13,7 +13,7 @@ const createCard = async (movie, mediaQuery) => {
   imageContainer.classList.add('image-container');
 
   const card = document.createElement('li');
-  card.classList.add('card', 'js-cards');
+  card.classList.add('card');
   // card.addEventListener('click', async () => {
   //   try {
   //     const infoUrl = `${BASE_URL}/movie/${movie.id}?api_key=${KEY}&language=en-US`;
@@ -95,7 +95,7 @@ const init = async () => {
     const newDiv = document.querySelector('.weekly-trends_box');
     const container = document.createElement('ul');
     newDiv.after(container);
-    container.classList.add('card-container', 'container');
+    container.classList.add('card-container', 'container', 'js-cards');
 
     const mediaQuery = window.matchMedia('(max-width: 767px)');
     await renderCards(movies, container, mediaQuery);
