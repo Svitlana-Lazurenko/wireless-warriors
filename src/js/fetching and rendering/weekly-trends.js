@@ -13,7 +13,7 @@ const createCard = async (movie, mediaQuery) => {
   imageContainer.classList.add('image-container');
 
   const card = document.createElement('li');
-  card.classList.add('card');
+  card.classList.add('card', 'js-cards');
   // card.addEventListener('click', async () => {
   //   try {
   //     const infoUrl = `${BASE_URL}/movie/${movie.id}?api_key=${KEY}&language=en-US`;
