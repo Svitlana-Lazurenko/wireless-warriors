@@ -3,6 +3,7 @@ import { makeStarsMarkup } from '../components/star-markup';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const KEY = '61a74e45dda65dc7d6d2b2ec92323e86';
+// const KEY = 'df4f25ddce476816dc7867d9ac4bd1ea';
 
 const trendingUrl = `${BASE_URL}/trending/movie/week?api_key=${KEY}`;
 
@@ -14,7 +15,7 @@ axios
     const newDiv = document.querySelector('.weekly-trends_box');
     const container = document.createElement('div');
     newDiv.after(container);
-    container.classList.add('card-container', 'container');
+    container.classList.add('card-container', 'container', 'js-cards');
 
     // Determine the number of cards to show based on the screen width
     const mediaQuery = window.matchMedia('(max-width: 767px)');
@@ -29,6 +30,7 @@ axios
 
       const card = document.createElement('div');
       card.classList.add('card');
+      card.setAttribute('data-id', movie.id);
 
       const image = document.createElement('img');
       image.src = imageUrl;
