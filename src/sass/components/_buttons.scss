@@ -245,7 +245,18 @@ line-height: 16px;
   @extend %btn--color--addmodal;
 }
 
-
+.white-theme .addmodal__btn{
+  color:var(--light-theme-color-text);
+  background: #ffffff ;
+}
+.white-theme .addmodal__btn:hover{
+  color:getColor(accent-color);
+  background:  #111111 ;
+}
+.white-theme .addmodal__btn:focus{
+  color:getColor(accent-color);
+  background:  #111111 ;
+}
 
 
 .btnicon__search--base{
@@ -286,7 +297,7 @@ transition: all 250ms linear;
 
 .icon__search{
   // надає залежність bg кнопки від теми
-  fill: var(--primary-text-color); 
+  fill: #ffffff; 
   // transition: all 250ms linear;
 display:block;
 height: 12px;
@@ -305,5 +316,7 @@ width: 12px;
   transition: all 250ms linear;
 }
 }
-
+.white-theme .icon__search{
+  fill: var(--light-theme-color-text);
+}
 
