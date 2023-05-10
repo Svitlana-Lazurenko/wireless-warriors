@@ -70,7 +70,6 @@ function createMarkup(
   { id, poster_path, title, genre_ids, release_date, vote_average },
   genresList
 ) {
-  const img = 'https://image.tmdb.org/t/p/w500/';
   const genreNames = getGenresName(genre_ids, genresList);
   return `<li class="movie__card">
       <div class='movie__link' data-id=${id}">
