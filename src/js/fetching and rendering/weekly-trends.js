@@ -14,7 +14,9 @@ const createCard = async (movie, mediaQuery) => {
 
   const card = document.createElement('li');
   card.classList.add('card');
-  // Create Modal Window
+  const modalContainer = document.createElement('div');
+  modalContainer.classList.add('modal-container');
+
   card.addEventListener('click', async () => {
     try {
       const infoUrl = `${BASE_URL}/movie/${movie.id}?api_key=${KEY}&language=en-US`;
@@ -28,7 +30,9 @@ const createCard = async (movie, mediaQuery) => {
   class="btn-close js-btn-close-modal"
   data-modal-close
   arial-label="Close"
-></button>
+>     <svg class="btn-close__icon" width="14" height="14">
+    <use href="icons.adfc4680.svg#icon-close"></use>
+  </svg>    </button>
 <div class="modal-card js-modal-card">
   <div class="modal-card__thumb-left">
         <img class="modal-card__img" src="https://image.tmdb.org/t/p/w500${
@@ -69,16 +73,33 @@ const createCard = async (movie, mediaQuery) => {
 
       const modal = createModal(modalContent);
       document.body.appendChild(modal);
+
+      // Добавляем обработчик события keyup на документ
+      document.addEventListener('keyup', event => {
+        if (event.key === 'Escape') {
+          modal.remove();
+        }
+      });
     } catch (error) {
       console.error(error);
     }
   });
 
+  document.addEventListener('click', event => {
+    const closeButton = event.target.closest('.js-btn-close-modal');
+    if (closeButton) {
+      const modal = closeButton.closest('.modal');
+      modal.remove();
+    }
+  });
+
   function createModal(content) {
-    const body = document.body;
-    body.appendChild(content);
-    return body;
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+    modal.appendChild(content);
+    return modal;
   }
+
   const image = document.createElement('img');
   image.src = imageUrl;
   image.alt = movie.title;
