@@ -1,6 +1,8 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import axios from 'axios';
+import { makeStarsMarkup } from './components/star-markup';
+import { fetchThemoviedbGenres } from './fetching and rendering/film-genres';
 
 const form = document.querySelector('.catalog__form');
 const pagination = document.querySelector('#pagination');
@@ -12,9 +14,7 @@ const instance = new Pagination(pagination, {
   visiblePages: 3,
   page: 1,
 });
-// console.log(instance.getCurrentPage());
-// let currentPage = instance.getCurrentPage();
-// currentPage === 1;
+const genres = fetchThemoviedbGenres();
 let name = '';
 // let genre = '';
 // let country = '';
@@ -47,6 +47,11 @@ async function fetchThemoviedbName(page, name) {
 
 function renderThemoviedbWeek(page) {
   console.log(fetchThemoviedbWeek(page));
+  fetchThemoviedbName(page)
+    .then(data => {
+      createMarkup(data, genres);
+    })
+    .catch(error => console.log(error));
 }
 
 function renderThemoviedbName(page, name) {
@@ -67,6 +72,17 @@ function onSearchDefault(event) {
   // form.reset();
 }
 
+// function onSearchExtensions(event) {
+//   event.preventDefault();
+//   const {
+// ---------------взнати значення name кожного селекту форми та передати їх сюди-------------------
+//     elements: { searchQuery },
+//   } = event.currentTarget;
+//   name = searchQuery.value.trim();
+//   console.log(fetchThemoviedbName(1, name));
+//   form.reset();
+// }
+
 instance.on('beforeMove', function (eventData) {
   if (name === '') {
     console.log(instance.getCurrentPage());
@@ -83,25 +99,47 @@ instance.on('beforeMove', function (eventData) {
   }
 });
 
-// function onSearchExtensions(event) {
-//   event.preventDefault();
-//   const {
-// ---------------взнати значення name кожного селекту форми та передати їх сюди-------------------
-//     elements: { searchQuery },
-//   } = event.currentTarget;
-//   name = searchQuery.value.trim();
-//   console.log(fetchThemoviedbName(1, name));
-//   form.reset();
-// }
-
 // instance.on('beforeMove', function (eventData) {
 //   console.log(fetchThemoviedbParams(eventData.page));
 //   return confirm('Go to page ' + eventData.page + '?');
 // });
-// ------------------------------
-// function renderMarkup(markup) {
-//   if (markup !== undefined)
-//     refs.gallery.insertAdjacentHTML('beforeend', markup);
+
+// function createMarkup {
+
 // }
-// трай-кетч
-// total page
+
+function createMarkup(
+  { id, poster_path, release_date, title, vote_average, genre_ids },
+  genresList
+) {
+  const genreNames = getGenresName(genre_ids, genresList);
+  return `
+   <li class='movie__card'>
+   <div class='movie__link' data-id=${id}>
+    <img src='${img}${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
+      <h2 class='info-title'>${title}</h2>
+      <p class='info-genre'>${genreNames}<span> | </span>${onlyYearFilter(
+    release_date
+  )}</p>
+      <p class='info-vote'>${makeStarsMarkup(
+        vote_average,
+        'hero__rating-stars'
+      )}</p>
+    </div>
+  </li>`;
+}
+
+function getGenresName(genre_ids, genresList) {
+  try {
+    const genreIds = genre_ids.map(id => genresList[id]).join(' , ');
+    return genreIds;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function onlyYearFilter(release_date) {
+  return !release_date
+    ? 'Unknown Year'
+    : release_date.split('').slice(0, 4).join('');
+}
