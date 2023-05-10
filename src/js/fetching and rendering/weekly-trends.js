@@ -74,7 +74,6 @@ const createCard = async (movie, mediaQuery) => {
       const modal = createModal(modalContent);
       document.body.appendChild(modal);
 
-      // Добавляем обработчик события keyup на документ
       document.addEventListener('keyup', event => {
         if (event.key === 'Escape') {
           modal.remove();
