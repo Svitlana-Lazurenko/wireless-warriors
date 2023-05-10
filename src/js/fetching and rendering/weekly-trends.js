@@ -14,9 +14,7 @@ const createCard = async (movie, mediaQuery) => {
 
   const card = document.createElement('li');
   card.classList.add('card');
-  const modalContainer = document.createElement('div');
-  modalContainer.classList.add('modal-container');
-
+  // Create Modal Window
   card.addEventListener('click', async () => {
     try {
       const infoUrl = `${BASE_URL}/movie/${movie.id}?api_key=${KEY}&language=en-US`;
@@ -77,17 +75,9 @@ const createCard = async (movie, mediaQuery) => {
   });
 
   function createModal(content) {
-    const modal = document.createElement('div');
-    modal.classList.add('modal');
-    const closeButton = document.createElement('button');
-    closeButton.classList.add('close-button');
-    closeButton.innerHTML = '&times;';
-    closeButton.addEventListener('click', () => {
-      modal.remove();
-    });
-    modal.appendChild(closeButton);
-    modal.appendChild(content);
-    return modal;
+    const body = document.body;
+    body.appendChild(content);
+    return body;
   }
   const image = document.createElement('img');
   image.src = imageUrl;
@@ -163,7 +153,7 @@ const init = async () => {
     const newDiv = document.querySelector('.weekly-trends_box');
     const container = document.createElement('ul');
     newDiv.after(container);
-    container.classList.add('card-container', 'container', 'js-cards');
+    container.classList.add('card-container', 'container');
 
     const mediaQuery = window.matchMedia('(max-width: 767px)');
     await renderCards(movies, container, mediaQuery);
@@ -186,61 +176,3 @@ const init = async () => {
 if (document.querySelector('.weekly-trends')) {
   init();
 }
-
-const createModal = movie => {
-  const modal = document.createElement('div');
-  modal.classList.add('modal');
-
-  const modalContent = document.createElement('div');
-  modalContent.classList.add('modal-content');
-
-  const modalHeader = document.createElement('div');
-  modalHeader.classList.add('modal-header');
-
-  const modalTitle = document.createElement('h2');
-  modalTitle.textContent = movie.title;
-
-  const modalClose = document.createElement('span');
-  modalClose.classList.add('close');
-  modalClose.textContent = '×';
-
-  modalHeader.appendChild(modalTitle);
-  modalHeader.appendChild(modalClose);
-
-  const modalBody = document.createElement('div');
-  modalBody.classList.add('modal-body');
-
-  const modalImage = document.createElement('img');
-  modalImage.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-  modalImage.alt = movie.title;
-
-  const modalInfo = document.createElement('div');
-  modalInfo.classList.add('modal-info');
-
-  const modalRating = document.createElement('p');
-  modalRating.innerHTML = makeStarsMarkup(
-    movie.vote_average,
-    'upcoming-soon__star'
-  );
-  modalRating.classList.add('modal-rating');
-
-  const modalDescription = document.createElement('p');
-  modalDescription.textContent = movie.overview;
-
-  modalInfo.appendChild(modalRating);
-  modalInfo.appendChild(modalDescription);
-
-  modalBody.appendChild(modalImage);
-  modalBody.appendChild(modalInfo);
-
-  modalContent.appendChild(modalHeader);
-  modalContent.appendChild(modalBody);
-
-  modal.appendChild(modalContent);
-
-  return modal;
-};
-
-// pullssdsd
-// asdas
-// asdasd
