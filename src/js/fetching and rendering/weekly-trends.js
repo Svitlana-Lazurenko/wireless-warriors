@@ -163,7 +163,7 @@ const init = async () => {
     const newDiv = document.querySelector('.weekly-trends_box');
     const container = document.createElement('ul');
     newDiv.after(container);
-    container.classList.add('card-container', 'container');
+    container.classList.add('card-container', 'container', 'js-cards');
 
     const mediaQuery = window.matchMedia('(max-width: 767px)');
     await renderCards(movies, container, mediaQuery);
