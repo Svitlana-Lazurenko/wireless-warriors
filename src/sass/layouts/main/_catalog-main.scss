@@ -225,8 +225,8 @@ color: getColor('tertiary-text-color-dark-theme');
 }
 .movie__card:hover,
 .movie__card:focus {
-  box-shadow: 1px 1px 14px 4px #ff6b086b;
-  // border: 1px solid #f7df0d;
+  box-shadow: 1px 1px 14px 4px #ff6b0891;
+  // border: 1px solid #ff6b0891;
 }
 
 .movie__link {
@@ -376,11 +376,11 @@ line-height: 28px;
 
   @include tablet {
     width: 66px;
-height: 10px;
+
   };
 
   @include desktop {
     width: 106px;
-    height: 18px;
+    
   };
 };
