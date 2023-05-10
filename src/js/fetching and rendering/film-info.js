@@ -189,3 +189,4 @@ function renderModalMovieInfo(movieInfo) {
 
   filmInfoRefs.cardMovie.insertAdjacentHTML('beforeend', markup);
 }
+export { renderModalMovieInfo };

@@ -1,48 +1,57 @@
 <div class="container">
-    <section class="header__section">
-        <a href="./index.html" class="header__link--logo">
-            <div class="header__block--logo">
-                <img src="./images/logo.svg" alt="logo site the Cinemania" class="header__logo">
-                <p class="header__title">Cinemania</p>
-            </div>
-        </a>
-    
-        <nav class="header__nav">
-            <ul class="header__list">
-                <li class="header__item">   
-                    <a href="./index.html" class="header__link" id="home">HOME</a>
-                </li>
-                <li class="header__item">
-                    <a href="./catalog.html" class="header__link" id="catalog">CATALOG</a>
-                </li>
-                <li class="header__item">
-                    <a href="./my-library.html" class="header__link" id="library">MY LIBRARY</a>
-                </li>
-            </ul>
-        </nav>
-    
-        <button type="button" class="header__menu">Menu</button>
-    
-        <div class="mobileMenu">
-            <include src="./partials/modals-mobile-menu/mobile-menu.html"></include>
-        </div>
-    
-        <div>
-            <label>
-                <input type="checkbox" name="theme" class="header__input visually-hidden">
-                <div class="header__change">
-                    <svg width="8px" height="8px" class="header__svg header__svg--right">
-                        <use href="./images/icons.svg#icon-moon"></use>
-                    </svg>
-                    <svg width="8px" height="8px" class="header__svg">
-                        <use href="./images/icons.svg#icon-sun"></use>
-                    </svg>
-                    <svg width="12px" height="12px" class="header__animation">
-                        <use href="./images/icons.svg#icon-circle-right"></use>
-                    </svg>
-                </div>
-            </label>
-        </div>
-    </section>
-</div>
+  <section class="header__section">
+    <a href="./index.html" class="header__link--logo">
+      <div class="header__block--logo">
+        <img
+          src="./images/logo.svg"
+          alt="logo site the Cinemania"
+          class="header__logo"
+        />
+        <p class="header__title">Cinemania</p>
+      </div>
+    </a>
 
+    <nav class="header__nav">
+      <ul class="header__list">
+        <li class="header__item">
+          <a href="./index.html" class="header__link" id="home">HOME</a>
+        </li>
+        <li class="header__item">
+          <a href="./catalog.html" class="header__link" id="catalog">CATALOG</a>
+        </li>
+        <li class="header__item">
+          <a href="./my-library.html" class="header__link" id="library"
+            >MY LIBRARY</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <button type="button" class="header__menu">Menu</button>
+
+    <div class="mobileMenu">
+      <include src="./partials/modals-mobile-menu/mobile-menu.html"></include>
+    </div>
+
+    <div class="change-theme">
+      <label>
+        <input
+          type="checkbox"
+          name="theme"
+          class="header__input visually-hidden"
+        />
+        <div class="header__change">
+          <svg width="8px" height="8px" class="header__svg header__svg--right">
+            <use href="./images/icons.svg#icon-moon"></use>
+          </svg>
+          <svg width="8px" height="8px" class="header__svg">
+            <use href="./images/icons.svg#icon-sun"></use>
+          </svg>
+          <svg width="12px" height="12px" class="header__animation">
+            <use href="./images/icons.svg#icon-circle-right"></use>
+          </svg>
+        </div>
+      </label>
+    </div>
+  </section>
+</div>
