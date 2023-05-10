@@ -50,7 +50,7 @@ function onlyYearFilter(release_date) {
       : release_date.split('').slice(0, 4).join('');
 }
 
-function updateMoviesList(markup) {
+function updateMoviesList(markup = '') {
     if (markup !== undefined) {
         filmList.innerHTML = markup;
     }

@@ -14,7 +14,7 @@ const filmList = document.querySelector('.gallery__films');
 const MY_LIBRARY_KEY = 'myLibrary:)';
 const arrayMyFilms = load(MY_LIBRARY_KEY);
 let btn = null;
-
+console.log(document.querySelector('.modal-card__library-btn'));
 filmList.addEventListener('click', getFilmID);
 
 function getFilmID () {

@@ -4,7 +4,7 @@ import { BASE_THEMOVIEDB_URL, apiKey } from '../tmdb-api';
 import { makeStarsMarkup } from '../components/star-markup';
 import { fetchThemoviedbGenres } from '../fetching and rendering/film-genres';
 import { pagination } from '../pagination';
-
+console.log(document.location);
 if(document.location.href.includes('catalog.html')) {
   class PostApiService {
     constructor() {
@@ -71,40 +71,22 @@ if(document.location.href.includes('catalog.html')) {
     { id, poster_path, title, genre_ids, release_date, vote_average },
     genresList
   ) {
-    const img = 'https://image.tmdb.org/t/p/w500/';
     const genreNames = getGenresName(genre_ids, genresList);
-    return `<li class='movie__card'>
-     <div class='movie__link' data-id=${id}>
-      <img src='${img}${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
-        <h2 class='info-title'>${title}</h2>
-        <p class='info-genre'>${genreNames}<span> | </span>${onlyYearFilter(
+    return `<li class="movie__card">
+        <div class='movie__link' data-id=${id}">
+              <img src='https://image.tmdb.org/t/p/original${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
+        </div>
+            <div class="info overlay">
+              <div class="info-thumb__text"><h2 class="info__title">${title}</h2>
+                <p class="info__genre">${genreNames}<span> | </span>${onlyYearFilter(
       release_date
-    )}</p>
-        <p class='info-vote'>${makeStarsMarkup(
-          vote_average,
-          'hero__rating-stars'
-        )}</p>
-      </div>
-    </li>`;
-  
-    // return `<li class="movie__card">
-    //     <div class="movie__card-thumb">
-    //       <a href="#" class="movie__link">
-    //           <img src='https://image.tmdb.org/t/p/original${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
-    //         </a>
-    //     </div>
-    //         <div class="info overlay">
-    //           <div class="info-thumb__text"><h2 class="info__title">${title}</h2>
-    //             <p class="info__genre">${genreNames}<span> | </span>${onlyYearFilter(
-    //   release_date
-    // )}</p></div>
-    //             <div class="info-thumb__vote"><p class="info__vote">${makeStarsMarkup(
-    //               vote_average,
-    //               'catalog__rating-stars'
-    //             )}</p></div>
-  
-    //         </div>
-    //         </li>`;
+    )}</p></div>
+                <div class="info-thumb__vote"><p class="info__vote">${makeStarsMarkup(
+                  vote_average,
+                  'catalog__rating-stars'
+                )}</p></div>
+            </div>
+            </li>`;
   }
   function renderMarkup(markup) {
     if (markup !== undefined)
