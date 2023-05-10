@@ -14,15 +14,71 @@ const createCard = async (movie, mediaQuery) => {
 
   const card = document.createElement('li');
   card.classList.add('card');
-  // card.addEventListener('click', async () => {
-  //   try {
-  //     const infoUrl = `${BASE_URL}/movie/${movie.id}?api_key=${KEY}&language=en-US`;
-  //     const response = await axios.get(infoUrl);
-  //     console.log(response.data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // });
+  // Create Modal Window
+  card.addEventListener('click', async () => {
+    try {
+      const infoUrl = `${BASE_URL}/movie/${movie.id}?api_key=${KEY}&language=en-US`;
+      const response = await axios.get(infoUrl);
+      const movieData = response.data;
+
+      const modalContent = document.createElement('div');
+      modalContent.classList.add('modal-content');
+      modalContent.innerHTML = `
+     <div class="backdrop-movie openModalFilm">   <div class="modal-movie"><button
+  class="btn-close js-btn-close-modal"
+  data-modal-close
+  arial-label="Close"
+></button>
+<div class="modal-card js-modal-card">
+  <div class="modal-card__thumb-left">
+        <img class="modal-card__img" src="https://image.tmdb.org/t/p/w500${
+          movieData.poster_path
+        }" alt="${movieData.title}" />
+      </div>
+      <div class="modal-card__thumb-right">
+        <p class="thumb-right__title">${movieData.title}</p>
+        <div class="thumb-right__details">
+          <ul class="thumb-right__name-details">
+            <li class="thumb-right__name-item">Vote / Votes</li>
+            <li class="thumb-right__name-item">Popularity</li>
+            <li class="thumb-right__name-item">Genre</li>
+          </ul>
+          <ul class="thumb-right__value-details">
+            <li class="thumb-right__value-item">
+              <span class="thumb-right__vote">${movieData.vote_average}</span>
+              <span class="thumb-right__delimiter"><span>&nbsp</span>/<span>&nbsp</span></span>
+              <span class="thumb-right__votes">${movieData.vote_count}</span>
+            </li>
+            <li class="thumb-right__value-item">${movieData.popularity}</li>
+            <li class="thumb-right__value-item">${movieData.genres
+              .map(genre => genre.name)
+              .join(', ')}</li>
+          </ul>
+        </div>
+        <p class="thumb-right__about">About</p>
+        <p class="thumb-right__overview">${movieData.overview}</p>
+        <div class="modal-card__btn-wrap">
+          <button class="modal-card__library-btn js-add-library-btn" data-id="${
+            movieData.id
+          }" data-name="library">Add to library</button>
+        </div>
+      </div>
+</div>
+</div>   </div>
+    `;
+
+      const modal = createModal(modalContent);
+      document.body.appendChild(modal);
+    } catch (error) {
+      console.error(error);
+    }
+  });
+
+  function createModal(content) {
+    const body = document.body;
+    body.appendChild(content);
+    return body;
+  }
   const image = document.createElement('img');
   image.src = imageUrl;
   image.alt = movie.title;
@@ -49,8 +105,10 @@ const createCard = async (movie, mediaQuery) => {
     let genre;
     if (mediaQuery.matches) {
       genre = `${genres}`;
-    } else {
+    } else if (info.genres[1]) {
       genre = `${genres}, ${info.genres[1].name}`;
+    } else {
+      genre = `${genres}`;
     }
 
     const subtitle = document.createElement('p');
