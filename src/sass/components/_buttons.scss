@@ -139,12 +139,12 @@
 %btn--color--accent {
 border-color: getColor(accent-color);
   color:var(--accent-btn-text-color);
-  background: var(--accent-btn-bg-color); 
+  background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%); 
       // border-color: transparent;
       transition: all 250ms linear;
   &:hover, &:focus {
     box-shadow: 1px 1px 14px rgba(1, 1, 1, 0.25);
-    background: var(--primary-text-color);
+    background:  #ffffff;
     color:getColor(accent-color);
     border-width: 1px;
     border-color: getColor(accent-color);
