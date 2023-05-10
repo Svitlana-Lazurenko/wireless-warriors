@@ -6,7 +6,15 @@ const form = document.querySelector('.catalog__form');
 const pagination = document.querySelector('#pagination');
 form.addEventListener('submit', onSearchDefault);
 // form.addEventListener('submit', onSearchExtensions);
-let page = 1;
+const instance = new Pagination(pagination, {
+  totalItems: 80,
+  itemsPerPage: 4,
+  visiblePages: 3,
+  page: 1,
+});
+// console.log(instance.getCurrentPage());
+// let currentPage = instance.getCurrentPage();
+// currentPage === 1;
 let name = '';
 // let genre = '';
 // let country = '';
@@ -49,6 +57,8 @@ renderThemoviedbWeek(1);
 
 function onSearchDefault(event) {
   event.preventDefault();
+  instance.reset();
+  currentPage = 1;
   const {
     elements: { searchQuery },
   } = event.currentTarget;
@@ -57,17 +67,9 @@ function onSearchDefault(event) {
   // form.reset();
 }
 
-const instance = new Pagination(pagination, {
-  totalItems: 80,
-  itemsPerPage: 4,
-  visiblePages: 3,
-  page: 1,
-});
-
-instance.getCurrentPage();
-
 instance.on('beforeMove', function (eventData) {
   if (name === '') {
+    console.log(instance.getCurrentPage());
     renderThemoviedbWeek(eventData.page);
     return confirm('Go to page ' + eventData.page + '? week');
   }
@@ -75,6 +77,7 @@ instance.on('beforeMove', function (eventData) {
 
 instance.on('beforeMove', function (eventData) {
   if (name !== '') {
+    console.log(instance.getCurrentPage());
     renderThemoviedbName(eventData.page, name);
     return confirm('Go to page ' + eventData.page + '? name');
   }
@@ -101,3 +104,4 @@ instance.on('beforeMove', function (eventData) {
 //     refs.gallery.insertAdjacentHTML('beforeend', markup);
 // }
 // трай-кетч
+// total page
