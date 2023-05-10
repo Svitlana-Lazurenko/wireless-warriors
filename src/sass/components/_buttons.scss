@@ -288,7 +288,7 @@ transition: all 250ms linear;
 .icon__search{
   // надає залежність bg кнопки від теми
   fill: var(--primary-text-color); 
-  transition: all 250ms linear;
+  // transition: all 250ms linear;
 display:block;
 height: 12px;
 width: 12px;
