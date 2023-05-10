@@ -6,44 +6,12 @@ import { makeStarsMarkup } from '../components/star-markup';
 
 const ul = document.querySelector('.gallery__films');
 const img = 'https://image.tmdb.org/t/p/w500/';
-console.log('test');
+
 async function fetchThemoviedbWeek() {
-  const response = await axios(
-    `${BASE_THEMOVIEDB_URL}/trending/movie/week?api_key=${apiKey}`
-  );
+  const response = await axios(`${BASE_THEMOVIEDB_URL}/trending/movie/week?api_key=${apiKey}`);
   const newCollection = await response.data;
 
-  pagination = createPagination(
-    response.data.total_results,
-    response.data.total_pages,
-    response.data.page
-  );
-
-  let page = response.data.page;
-  page = pagination.getCurrentPage();
-  pagination.reset(response.data.total_pages);
-  getPagination(page);
-
-  console.log(page);
-
   return newCollection;
-}
-
-async function getPagination(page) {
-  try {
-    // await paganation.on('afterMove', event => {
-    //   const currentPage = event.page;
-    //   console.log(currentPage);
-    // });
-    await pagination.on('beforeMove', ({ page }) => {
-      ul.innerHTML = '';
-
-      fetchThemoviedbWeek();
-      loadMoviesWeek();
-    });
-  } catch (error) {
-    onFetchError(error);
-  }
 }
 
 async function loadMoviesWeek() {
@@ -70,9 +38,7 @@ async function loadMoviesWeek() {
 }
 
 function onlyYearFilter(release_date) {
-  return !release_date
-    ? 'Unknown Year'
-    : release_date.split('').slice(0, 4).join('');
+  return !release_date ? 'Unknown Year' : release_date.split('').slice(0, 4).join('');
 }
 
 function createMarkup(
@@ -81,24 +47,29 @@ function createMarkup(
 ) {
   const genreNames = getGenresName(genre_ids, genresList);
   return `
-   <li class='movie__card'>
-   <div class='movie__link' data-id=${id}>
-    <img src='${img}${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
-      <h2 class='info-title'>${title}</h2>
-      <p class='info-genre'>${genreNames}<span> | </span>${onlyYearFilter(
+   <li class="movie__card">
+        <div class='movie__link' data-id=${id}">
+              <img src='https://image.tmdb.org/t/p/original${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
+        </div>
+            <div class="info overlay">
+              <div class="info-thumb__text"><h2 class="info__title">${title}</h2>
+                <p class="info__genre">${genreNames}<span> | </span>${onlyYearFilter(
     release_date
-  )}</p>
-      <p class='info-vote'>${makeStarsMarkup(
-        vote_average,
-        'hero__rating-stars'
-      )}</p>
-    </div>
-  </li>`;
+  )}</p></div>
+                <div class="info-thumb__vote"><p class="info__vote">${makeStarsMarkup(
+                  vote_average,
+                  'catalog__rating-stars'
+                )}</p></div>
+            </div>
+            </li>`;
 }
 
 function getGenresName(genre_ids, genresList) {
   try {
-    const genreIds = genre_ids.map(id => genresList[id]).join(' , ');
+    const genreIds = genre_ids
+      .slice(0, 2)
+      .map(id => genresList[id])
+      .join(', ');
     return genreIds;
   } catch (error) {
     console.error(error);
