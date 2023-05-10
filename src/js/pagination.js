@@ -8,13 +8,14 @@ const form = document.querySelector('.catalog__form');
 const pagination = document.querySelector('#pagination');
 form.addEventListener('submit', onSearchDefault);
 // form.addEventListener('submit', onSearchExtensions);
+const genres = fetchThemoviedbGenres();
+// console.log(genres);
 const instance = new Pagination(pagination, {
   totalItems: 80,
   itemsPerPage: 4,
   visiblePages: 3,
   page: 1,
 });
-const genres = fetchThemoviedbGenres();
 let name = '';
 // let genre = '';
 // let country = '';
@@ -45,20 +46,7 @@ async function fetchThemoviedbName(page, name) {
 //   return newCollection;
 // }
 
-function renderThemoviedbWeek(page) {
-  console.log(fetchThemoviedbWeek(page));
-  fetchThemoviedbName(page)
-    .then(data => {
-      createMarkup(data, genres);
-    })
-    .catch(error => console.log(error));
-}
-
-function renderThemoviedbName(page, name) {
-  console.log(fetchThemoviedbName(page, name));
-}
-
-renderThemoviedbWeek(1);
+renderThemoviedbWeek(1, genres);
 
 function onSearchDefault(event) {
   event.preventDefault();
@@ -70,6 +58,22 @@ function onSearchDefault(event) {
   name = searchQuery.value.trim();
   renderThemoviedbName(1, name);
   // form.reset();
+}
+
+function renderThemoviedbWeek(page, genresOfFilms) {
+  // console.log(fetchThemoviedbWeek(page));
+  // console.log(genres);
+  // fetchThemoviedbWeek(page)
+  //   .then(data => {
+  //     createMarkup(data);
+  //   })
+  //   .catch(error => console.log(error));
+  const films = fetchThemoviedbWeek(page);
+  createMarkup(films, genresOfFilms);
+}
+
+function renderThemoviedbName(page, name) {
+  console.log(fetchThemoviedbName(page, name));
 }
 
 // function onSearchExtensions(event) {
@@ -108,17 +112,38 @@ instance.on('beforeMove', function (eventData) {
 
 // }
 
+// function createMarkup(
+//   { id, poster_path, release_date, title, vote_average, genre_ids },
+//   genresList
+// ) {
+//   const genreNames = getGenresName(genre_ids, genresList);
+//   return `
+//    <li class='movie__card'>
+//    <div class='movie__link' data-id=${id}>
+//     <img src='${img}${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
+//       <h2 class='info-title'>${title}</h2>
+//       <p class='info-genre'>${genreNames}<span> | </span>${onlyYearFilter(
+//     release_date
+//   )}</p>
+//       <p class='info-vote'>${makeStarsMarkup(
+//         vote_average,
+//         'hero__rating-stars'
+//       )}</p>
+//     </div>
+//   </li>`;
+// }
+
 function createMarkup(
   { id, poster_path, release_date, title, vote_average, genre_ids },
   genresList
 ) {
-  const genreNames = getGenresName(genre_ids, genresList);
+  const genresNames = getGenresName(genresList, genre_ids);
   return `
    <li class='movie__card'>
    <div class='movie__link' data-id=${id}>
-    <img src='${img}${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
+    <img src='https://image.tmdb.org/t/p/w500/${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
       <h2 class='info-title'>${title}</h2>
-      <p class='info-genre'>${genreNames}<span> | </span>${onlyYearFilter(
+      <p class='info-genre'>${genresNames}<span> | </span>${onlyYearFilter(
     release_date
   )}</p>
       <p class='info-vote'>${makeStarsMarkup(
@@ -129,10 +154,24 @@ function createMarkup(
   </li>`;
 }
 
-function getGenresName(genre_ids, genresList) {
+// function getGenresName(genre_ids, genresList) {
+//   try {
+//     const genreIds = genre_ids.map(id => genresList[id]).join(' , ');
+//     return genreIds;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+
+function getGenresName(genresList, ids) {
   try {
-    const genreIds = genre_ids.map(id => genresList[id]).join(' , ');
-    return genreIds;
+    const namesOfGenres = Object.values(genresList);
+    const commonArrayOfGenres = namesOfGenres.concat(ids);
+    const uniqueGenres = commonArrayOfGenres.filter(
+      (genre, index, array) => array.indexOf(genre) === index
+    );
+    const genresString = uniqueGenres.join(', ');
+    return genresString;
   } catch (error) {
     console.error(error);
   }
