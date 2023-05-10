@@ -79,8 +79,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 40px;
-  right: 40px;
+  top: 20px;
+  right: 0px;
   padding: 0;
   width: 16px;
   height: 16px;
@@ -95,6 +95,15 @@ body {
   .btn-close {
     width: 24px;
     height: 24px;
+    top: 24px;
+    right: 24px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .btn-close {
+    top: 40px;
+    right: 40px;
   }
 }
 
@@ -158,7 +167,6 @@ body {
   display: block;
   margin: 0;
   max-width: 248px;
-  height: 315px;
 }
 
 @media screen and (min-width: 768px) {

@@ -11,33 +11,35 @@ const filmInfoRefs = {
   cardMovie: document.querySelector('.js-modal-card'),
   backdropMovie: document.querySelector('.modal-film'),
   catalogEls: document.querySelector('.gallery__films'),
-  mainCardsEls: document.querySelector('.js-cards'),
+  homeCardsEls: document.querySelector('.card-container'),
 };
 
 filmInfoRefs.btnCloseModalMovie.addEventListener('click', closeButtonModal);
 
-function closeButtonModal(event) {
+function closeButtonModal() {
   test.classList.remove('openModalFilm');
   test.classList.add('modal-film');
   filmInfoRefs.body.classList.remove('stop-scroll');
-  event.preventDefault();
 }
 
 const test = document.querySelector('.modal-film');
 
 if (document.querySelector('.js-cards')) {
-  filmInfoRefs.mainCardsEls.addEventListener('click', onCardClickOpenModal);
+  filmInfoRefs.catalogEls.addEventListener('click', onCardClickOpenModal);
 } else {
-  filmInfoRefs.catalogEls.addEventListener('click', onCardClickOpenModal);
+  filmInfoRefs.homeCardsEls.addEventListener('click', onCardClickOpenModal);
 }
 
-if (document.querySelector('.js-cards')) {
-  filmInfoRefs.mainCardsEls.addEventListener('click', onCardClickOpenModal);
-}
+// FOR LIBRARY
+// if (document.querySelector('.js-cards-library')) {
+//   filmInfoRefs.catalogEls.addEventListener('click', onCardClickOpenModal);
+// }
 
-if (document.querySelector('.js-cards-library')) {
-  filmInfoRefs.catalogEls.addEventListener('click', onCardClickOpenModal);
-}
+// if (document.querySelector('.card')) {
+//   filmInfoRefs.homeCardsEls.addEventListener('click', onCardClickOpenModal);
+// } else {
+//   filmInfoRefs.catalogEls.addEventListener('click', onCardClickOpenModal);
+// }
 
 document.addEventListener('keydown', onEscKeyDownModal);
 
@@ -65,9 +67,20 @@ async function onCardClickOpenModal(event) {
     event.target.nodeName === 'LI' ||
     event.target.nodeName === 'DIV' ||
     event.target.nodeName === 'IMG'
-  ) {
+  )
     idMovie = event.target.parentNode.dataset.id;
 
+  //   card.addEventListener('click', async () => {
+  //     try {
+  //       const infoUrl = `${BASE_THEMOVIEDB_URL}/movie/${idMovie}?api_key=${apiKey}&language=en-US`;
+  //       const response = await axios.get(infoUrl);
+  //       console.log(response.data);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   });
+
+  {
     test.classList.remove('modal-film');
     test.classList.add('openModalFilm');
     if (idMovie === undefined) {
@@ -85,7 +98,7 @@ async function onCardClickOpenModal(event) {
 
     renderModalMovieInfo(movieInfo);
     Notiflix.Loading.remove();
-    addEventListenersOnButtons();
+    // addEventListenersOnButtons();
   }
 }
 
@@ -190,3 +203,4 @@ function renderModalMovieInfo(movieInfo) {
 
   filmInfoRefs.cardMovie.insertAdjacentHTML('beforeend', markup);
 }
+export { renderModalMovieInfo };

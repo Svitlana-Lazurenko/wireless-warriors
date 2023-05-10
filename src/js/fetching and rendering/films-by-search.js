@@ -67,15 +67,13 @@ function onSearch(e) {
 }
 
 function createMarkup(
-  { poster_path, title, genre_ids, release_date, vote_average },
+  { id, poster_path, title, genre_ids, release_date, vote_average },
   genresList
 ) {
   const genreNames = getGenresName(genre_ids, genresList);
   return `<li class="movie__card">
-      <div class="movie__card-thumb">
-        <a href="#" class="movie__link">
+      <div class='movie__link' data-id=${id}">
             <img src='https://image.tmdb.org/t/p/original${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
-          </a>
       </div>
           <div class="info overlay">
             <div class="info-thumb__text"><h2 class="info__title">${title}</h2>
@@ -86,7 +84,6 @@ function createMarkup(
                 vote_average,
                 'catalog__rating-stars'
               )}</p></div>
-                
           </div>
           </li>`;
 }

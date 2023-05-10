@@ -179,22 +179,19 @@
     <h1 class="section-title visually-hidden">Search gallery films</h1>
     <form class="catalog__form" id="search-form">
       <input
+      class="catalog__form-input"
         type="text"
         name="searchQuery"
         autocomplete="off"
         placeholder="Search"
       />
-      <button type="submit" class="btnicon__search--base">
-        <svg class="icon__search">
-          <use href="./images/icons.svg#icon-search"></use>
-        </svg>
-        </button>
+      <button type="submit">Search</button>
     </form>
   </div>
 </section>
 <section class="section">
   <div class="container">
-    <ul class="gallery__films"></ul>
+    <ul class="gallery__films js-cards"></ul>
   </div>
 </section>
 <ul id="pagination" class="tui-pagination"></ul>
