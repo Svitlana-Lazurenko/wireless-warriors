@@ -11,7 +11,7 @@ const filmInfoRefs = {
   cardMovie: document.querySelector('.js-modal-card'),
   backdropMovie: document.querySelector('.modal-film'),
   catalogEls: document.querySelector('.gallery__films'),
-  homeCardsEls: document.querySelector('.card-container'),
+  mainCardsEls: document.querySelector('.js-cards'),
 };
 
 filmInfoRefs.btnCloseModalMovie.addEventListener('click', closeButtonModal);
@@ -25,21 +25,18 @@ function closeButtonModal() {
 const test = document.querySelector('.modal-film');
 
 if (document.querySelector('.js-cards')) {
-  filmInfoRefs.catalogEls.addEventListener('click', onCardClickOpenModal);
+  filmInfoRefs.mainCardsEls.addEventListener('click', onCardClickOpenModal);
 } else {
-  filmInfoRefs.homeCardsEls.addEventListener('click', onCardClickOpenModal);
+  filmInfoRefs.catalogEls.addEventListener('click', onCardClickOpenModal);
 }
 
-// FOR LIBRARY
-// if (document.querySelector('.js-cards-library')) {
-//   filmInfoRefs.catalogEls.addEventListener('click', onCardClickOpenModal);
-// }
+if (document.querySelector('.js-cards')) {
+  filmInfoRefs.mainCardsEls.addEventListener('click', onCardClickOpenModal);
+}
 
-// if (document.querySelector('.card')) {
-//   filmInfoRefs.homeCardsEls.addEventListener('click', onCardClickOpenModal);
-// } else {
-//   filmInfoRefs.catalogEls.addEventListener('click', onCardClickOpenModal);
-// }
+if (document.querySelector('.js-cards-library')) {
+  filmInfoRefs.catalogEls.addEventListener('click', onCardClickOpenModal);
+}
 
 document.addEventListener('keydown', onEscKeyDownModal);
 
@@ -67,20 +64,9 @@ async function onCardClickOpenModal(event) {
     event.target.nodeName === 'LI' ||
     event.target.nodeName === 'DIV' ||
     event.target.nodeName === 'IMG'
-  )
+  ) {
     idMovie = event.target.parentNode.dataset.id;
 
-  //   card.addEventListener('click', async () => {
-  //     try {
-  //       const infoUrl = `${BASE_THEMOVIEDB_URL}/movie/${idMovie}?api_key=${apiKey}&language=en-US`;
-  //       const response = await axios.get(infoUrl);
-  //       console.log(response.data);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   });
-
-  {
     test.classList.remove('modal-film');
     test.classList.add('openModalFilm');
     if (idMovie === undefined) {
