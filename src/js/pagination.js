@@ -1,31 +1,3 @@
-// import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
-// import { fetchThemoviedbWeek } from './fetching and rendering/films-of-the-week';
-
-// const TUI_VISIBLE_PAGES = 5;
-
-// const paginationPage = document.querySelector('#pagination');
-
-// export function createPagination(totalItems, visiblePages) {
-//   const options = {
-//     page: 1,
-//     itemsPerPage: 20,
-//     totalItems: totalItems,
-//     visiblePages: visiblePages < 5 ? visiblePages : TUI_VISIBLE_PAGES,
-//   };
-
-//   const pagination = new Pagination(paginationPage, options);
-
-//   if (visiblePages > 1) {
-//     paginationPage.style.display = 'block';
-//   } else {
-//     paginationPage.style.display = 'none';
-//   }
-
-//   return pagination;
-// }
-
-// ==================================
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import axios from 'axios';
@@ -34,6 +6,7 @@ const form = document.querySelector('.catalog__form');
 const pagination = document.querySelector('#pagination');
 form.addEventListener('submit', onSearchDefault);
 // form.addEventListener('submit', onSearchExtensions);
+let page = 1;
 let name = '';
 // let genre = '';
 // let country = '';
@@ -80,8 +53,8 @@ function onSearchDefault(event) {
     elements: { searchQuery },
   } = event.currentTarget;
   name = searchQuery.value.trim();
-  console.log(renderThemoviedbName(1, name));
-  form.reset();
+  renderThemoviedbName(1, name);
+  // form.reset();
 }
 
 const instance = new Pagination(pagination, {
@@ -94,13 +67,17 @@ const instance = new Pagination(pagination, {
 instance.getCurrentPage();
 
 instance.on('beforeMove', function (eventData) {
-  renderThemoviedbWeek(eventData.page);
-  return confirm('Go to page ' + eventData.page + '? week');
+  if (name === '') {
+    renderThemoviedbWeek(eventData.page);
+    return confirm('Go to page ' + eventData.page + '? week');
+  }
 });
 
 instance.on('beforeMove', function (eventData) {
-  renderThemoviedbName(eventData.page, name);
-  return confirm('Go to page ' + eventData.page + '? name');
+  if (name !== '') {
+    renderThemoviedbName(eventData.page, name);
+    return confirm('Go to page ' + eventData.page + '? name');
+  }
 });
 
 // function onSearchExtensions(event) {
@@ -118,3 +95,9 @@ instance.on('beforeMove', function (eventData) {
 //   console.log(fetchThemoviedbParams(eventData.page));
 //   return confirm('Go to page ' + eventData.page + '?');
 // });
+// ------------------------------
+// function renderMarkup(markup) {
+//   if (markup !== undefined)
+//     refs.gallery.insertAdjacentHTML('beforeend', markup);
+// }
+// трай-кетч
