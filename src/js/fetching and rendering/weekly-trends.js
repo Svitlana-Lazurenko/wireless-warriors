@@ -30,7 +30,9 @@ const createCard = async (movie, mediaQuery) => {
   class="btn-close js-btn-close-modal"
   data-modal-close
   arial-label="Close"
-></button>
+>     <svg class="btn-close__icon" width="14" height="14">
+    <use href="icons.adfc4680.svg#icon-close"></use>
+  </svg>    </button>
 <div class="modal-card js-modal-card">
   <div class="modal-card__thumb-left">
         <img class="modal-card__img" src="https://image.tmdb.org/t/p/w500${
@@ -71,24 +73,33 @@ const createCard = async (movie, mediaQuery) => {
 
       const modal = createModal(modalContent);
       document.body.appendChild(modal);
+
+      // Добавляем обработчик события keyup на документ
+      document.addEventListener('keyup', event => {
+        if (event.key === 'Escape') {
+          modal.remove();
+        }
+      });
     } catch (error) {
       console.error(error);
+    }
+  });
+
+  document.addEventListener('click', event => {
+    const closeButton = event.target.closest('.js-btn-close-modal');
+    if (closeButton) {
+      const modal = closeButton.closest('.modal');
+      modal.remove();
     }
   });
 
   function createModal(content) {
     const modal = document.createElement('div');
     modal.classList.add('modal');
-    const closeButton = document.createElement('button');
-    closeButton.classList.add('close-button');
-    closeButton.innerHTML = '&times;';
-    closeButton.addEventListener('click', () => {
-      modal.remove();
-    });
-    modal.appendChild(closeButton);
     modal.appendChild(content);
     return modal;
   }
+
   const image = document.createElement('img');
   image.src = imageUrl;
   image.alt = movie.title;
@@ -186,61 +197,3 @@ const init = async () => {
 if (document.querySelector('.weekly-trends')) {
   init();
 }
-
-const createModal = movie => {
-  const modal = document.createElement('div');
-  modal.classList.add('modal');
-
-  const modalContent = document.createElement('div');
-  modalContent.classList.add('modal-content');
-
-  const modalHeader = document.createElement('div');
-  modalHeader.classList.add('modal-header');
-
-  const modalTitle = document.createElement('h2');
-  modalTitle.textContent = movie.title;
-
-  const modalClose = document.createElement('span');
-  modalClose.classList.add('close');
-  modalClose.textContent = '×';
-
-  modalHeader.appendChild(modalTitle);
-  modalHeader.appendChild(modalClose);
-
-  const modalBody = document.createElement('div');
-  modalBody.classList.add('modal-body');
-
-  const modalImage = document.createElement('img');
-  modalImage.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-  modalImage.alt = movie.title;
-
-  const modalInfo = document.createElement('div');
-  modalInfo.classList.add('modal-info');
-
-  const modalRating = document.createElement('p');
-  modalRating.innerHTML = makeStarsMarkup(
-    movie.vote_average,
-    'upcoming-soon__star'
-  );
-  modalRating.classList.add('modal-rating');
-
-  const modalDescription = document.createElement('p');
-  modalDescription.textContent = movie.overview;
-
-  modalInfo.appendChild(modalRating);
-  modalInfo.appendChild(modalDescription);
-
-  modalBody.appendChild(modalImage);
-  modalBody.appendChild(modalInfo);
-
-  modalContent.appendChild(modalHeader);
-  modalContent.appendChild(modalBody);
-
-  modal.appendChild(modalContent);
-
-  return modal;
-};
-
-// pullssdsd
-// asdas
-// asdasd
