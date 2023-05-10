@@ -2,14 +2,13 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import axios from 'axios';
 import { makeStarsMarkup } from './components/star-markup';
-import { fetchThemoviedbGenres } from './fetching and rendering/film-genres';
+// import { fetchThemoviedbGenres } from './fetching and rendering/film-genres';
 
+const listOfCards = document.querySelector('.js-cards');
 const form = document.querySelector('.catalog__form');
 const pagination = document.querySelector('#pagination');
 form.addEventListener('submit', onSearchDefault);
 // form.addEventListener('submit', onSearchExtensions);
-const genres = fetchThemoviedbGenres();
-// console.log(genres);
 const instance = new Pagination(pagination, {
   totalItems: 80,
   itemsPerPage: 4,
@@ -20,6 +19,15 @@ let name = '';
 // let genre = '';
 // let country = '';
 // let year = '';
+
+async function fetchThemoviedbGenres() {
+  const response = await axios(
+    `https://api.themoviedb.org/3//genre/movie/list?api_key=df4f25ddce476816dc7867d9ac4bd1ea&language=en-US`
+  );
+  const newCollection = await response.data;
+  console.log(newCollection);
+  return newCollection;
+}
 
 async function fetchThemoviedbWeek(page) {
   const response = await axios(
@@ -46,6 +54,20 @@ async function fetchThemoviedbName(page, name) {
 //   return newCollection;
 // }
 
+fetchThemoviedbGenres();
+// .then(data => {
+//   return data.json;
+// })
+// .then(data => {
+//   console.log(data);
+//   genres === data;
+// })
+// .catch(error => {
+//   console.error(error);
+// });
+
+const genres = [{ id: 1, name: 'Comedy' }];
+
 renderThemoviedbWeek(1, genres);
 
 function onSearchDefault(event) {
@@ -61,15 +83,9 @@ function onSearchDefault(event) {
 }
 
 function renderThemoviedbWeek(page, genresOfFilms) {
-  // console.log(fetchThemoviedbWeek(page));
-  // console.log(genres);
-  // fetchThemoviedbWeek(page)
-  //   .then(data => {
-  //     createMarkup(data);
-  //   })
-  //   .catch(error => console.log(error));
   const films = fetchThemoviedbWeek(page);
-  createMarkup(films, genresOfFilms);
+  const markup = createMarkup(films, genresOfFilms);
+  listOfCards.insertAdjacentHTML('beforeend', markup);
 }
 
 function renderThemoviedbName(page, name) {
@@ -103,6 +119,64 @@ instance.on('beforeMove', function (eventData) {
   }
 });
 
+function createMarkup(
+  { id, poster_path, release_date, title, vote_average, genre_ids },
+  genresList
+) {
+  const genresNames = getGenresName(genresList, genre_ids);
+  return `
+   <li class='movie__card'>
+   <div class='movie__link' data-id=${id}>
+    <img src='https://image.tmdb.org/t/p/w500/${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
+      <h2 class='info-title'>${title}</h2>
+      <p class='info-genre'>${genresNames}<span> | </span>${onlyYearFilter(
+    release_date
+  )}</p>
+      <p class='info-vote'>${makeStarsMarkup(
+        vote_average,
+        'hero__rating-stars'
+      )}</p>
+    </div>
+  </li>`;
+}
+
+function getGenresName(genresList, ids) {
+  console.log(genresList);
+  try {
+    let arrayOfGenres = [];
+    for (const object of genresList) {
+      if (ids.includes(object['id'])) {
+        arrayOfGenres.push(object.name);
+      }
+    }
+
+    const commonArrayOfGenres = arrayOfGenres.concat(ids);
+    const genres = commonArrayOfGenres.filter(
+      (genre, index, array) => array.indexOf(genre) === index
+    );
+    const genresString = genres.join(', ');
+    return genresString;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function onlyYearFilter(release_date) {
+  return !release_date
+    ? 'Unknown Year'
+    : release_date.split('').slice(0, 4).join('');
+}
+
+// ===================================================
+// function getGenresName(genre_ids, genresList) {
+//   try {
+//     const genreIds = genre_ids.map(id => genresList[id]).join(' , ');
+//     return genreIds;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+
 // instance.on('beforeMove', function (eventData) {
 //   console.log(fetchThemoviedbParams(eventData.page));
 //   return confirm('Go to page ' + eventData.page + '?');
@@ -132,53 +206,3 @@ instance.on('beforeMove', function (eventData) {
 //     </div>
 //   </li>`;
 // }
-
-function createMarkup(
-  { id, poster_path, release_date, title, vote_average, genre_ids },
-  genresList
-) {
-  const genresNames = getGenresName(genresList, genre_ids);
-  return `
-   <li class='movie__card'>
-   <div class='movie__link' data-id=${id}>
-    <img src='https://image.tmdb.org/t/p/w500/${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
-      <h2 class='info-title'>${title}</h2>
-      <p class='info-genre'>${genresNames}<span> | </span>${onlyYearFilter(
-    release_date
-  )}</p>
-      <p class='info-vote'>${makeStarsMarkup(
-        vote_average,
-        'hero__rating-stars'
-      )}</p>
-    </div>
-  </li>`;
-}
-
-// function getGenresName(genre_ids, genresList) {
-//   try {
-//     const genreIds = genre_ids.map(id => genresList[id]).join(' , ');
-//     return genreIds;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-function getGenresName(genresList, ids) {
-  try {
-    const namesOfGenres = Object.values(genresList);
-    const commonArrayOfGenres = namesOfGenres.concat(ids);
-    const uniqueGenres = commonArrayOfGenres.filter(
-      (genre, index, array) => array.indexOf(genre) === index
-    );
-    const genresString = uniqueGenres.join(', ');
-    return genresString;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function onlyYearFilter(release_date) {
-  return !release_date
-    ? 'Unknown Year'
-    : release_date.split('').slice(0, 4).join('');
-}
