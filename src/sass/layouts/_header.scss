@@ -169,6 +169,7 @@
     right: 3px;
   }
 }
+
 //  --------------------------CHANGE THEME ------------------------
 .changeTheme {
   @media screen and (max-width: 767px) {
@@ -179,61 +180,159 @@
     transform: rotate(180deg) translateX(34px);
   }
 }
+
 .white-theme {
   background-color: white;
 }
+
 .white-theme .header__title {
   color: var(--light-theme-color-text2)
 }
+
 .white-theme .weekly-trends_title {
   color: var(--light-theme-color-text)
 }
+
 .white-theme .upcoming-soon_title {
-color: var(--light-theme-color-text)
+  color: var(--light-theme-color-text)
 }
+
 .white-theme .upcoming-soon_film__title {
   color: var(--light-theme-color-text)
 }
+
 .white-theme .upcoming-soon_text {
   color: var(--light-theme-color-text)
 }
+
 .white-theme .release-data__container {
-color: var(--light-theme-color-text)
+  color: var(--light-theme-color-text)
 }
+
 .white-theme .upcoming-soon_votes {
   color: var(--light-theme-color-text);
 }
+
 .white-theme .upcoming-soon__votes {
   background-color: #F8F8F8;
 }
+
 .white-theme .upcoming-soon__vote {
   background-color: #F8F8F8;
 }
+
 .white-theme .upcoming-soon_about {
   color: var(--light-theme-color-text)
 }
+
 .white-theme .upcoming-soon_about__text {
   color: var(--light-theme-color-text2)
 }
+
 .white-theme .upcoming-soon__genr {
   color: var(--light-theme-color-text)
 }
+
 .white-theme .upcoming-soon_popularity {
   color: var(--light-theme-color-text2)
 }
-.white-theme footer {
+
+.white-theme .footer {
   background-color: white;
 }
+
 .white-theme .footer__paragraph {
-  color:#595959;
+  color: #595959;
 }
+
 .white-theme .header__link {
   color: #595959;
 }
+
 .header__change {
   background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
 }
 
 .white-theme--animated {
   transition: background-color 1s ease-in-out;
+}
+
+.white-theme .modal-movie {
+  background-color: WHITE;
+  box-shadow: 1px 1px 14px 4px rgba(0, 0, 0, 0.22);
+
+}
+
+.white-theme .thumb-right__title {
+  color: var(--light-theme-color-text)
+}
+
+.white-theme .thumb-right__name-item {
+  color: var(--light-theme-color-text)
+}
+
+.white-theme .thumb-right__about {
+  color: var(--light-theme-color-text)
+}
+
+.white-theme .thumb-right__overview {
+  color: var(--light-theme-color-text2)
+}
+
+.white-theme .thumb-right__vote {
+  background-color: #F8F8F8;
+}
+
+.white-theme .thumb-right__votes {
+  background-color: #F8F8F8;
+}
+
+.white-theme .thumb-right__delimiter {
+  color: #B7B7B7;
+}
+
+.white-theme .thumb-right__value-item {
+  color: var(--light-theme-color-text)
+}
+
+.white-theme .close--two {
+  color: #282828
+}
+
+.white-theme .btn-close__icon {
+  stroke: black !important;
+}
+
+.white-theme .modal-card__btn-wrap {
+  color: white;
+}
+
+// .white-theme .modal-card__library-btn {
+//   color:#111111;
+//   background: white;
+//   border: red;
+//   transition: none;
+// }
+.white-theme .modal-card__library-btn {
+  color: black;
+  background: white;
+  border-color: orange;
+}
+
+.white-theme .modal-card__library-btn:hover {
+  color: white;
+  background: linear-gradient(#111111, #111111) padding-box,
+    linear-gradient(45deg, #ffc226, #f84119) border-box;
+  border: 1px solid transparent;
+}
+
+.white-theme .upcoming-soon_button:hover {
+  color: #F87719;
+  background: linear-gradient(WHITE, WHITE) padding-box,
+    linear-gradient(45deg, #ffc226, #f84119) border-box;
+  border: 1px solid transparent;
+}
+
+.white-theme .hero__frame {
+  content: url(../images/hero-substract/subtract-white-desktop.png);
 }

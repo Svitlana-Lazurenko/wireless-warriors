@@ -30,9 +30,7 @@ const createCard = async (movie, mediaQuery) => {
   class="btn-close js-btn-close-modal"
   data-modal-close
   arial-label="Close"
->     <svg class="btn-close__icon" width="14" height="14">
-    // <use href="./images/icons.svg#icon-close"></use>
-  </svg>    </button>
+>       <span class="close--two btn-close__icon" width="14" height="14">Х</span>   </button>
 <div class="modal-card js-modal-card">
   <div class="modal-card__thumb-left">
         <img class="modal-card__img" src="https://image.tmdb.org/t/p/w500${
@@ -74,6 +72,46 @@ const createCard = async (movie, mediaQuery) => {
       const modal = createModal(modalContent);
       document.body.appendChild(modal);
 
+      const closeButton = modalContent.querySelector('.js-btn-close-modal');
+      closeButton.addEventListener('click', event => {
+        const modal = closeButton.closest('.modal');
+        modal.remove();
+      });
+      const addLibraryButton = modalContent.querySelector(
+        '.js-add-library-btn'
+      );
+
+      // Добавление в локал сторедж
+      // addLibraryButton.addEventListener('click', event => {
+      //   const movieId = addLibraryButton.dataset.id;
+
+      //   const movieData = {
+      //     id: movieId,
+      //     nameFilm: movie.title,
+      //     rating: movie.vote_average,
+      //     data: movie.release_date,
+      //     img: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+      //   };
+      //   let moviesInStorage =
+      //     JSON.parse(localStorage.getItem('myLibrary:)')) || [];
+
+      //   const movieIndex = moviesInStorage.findIndex(
+      //     movie => movie.id === movieId
+      //   );
+
+      //   if (movieIndex === -1) {
+      //     moviesInStorage.push(movieData);
+      //     localStorage.setItem('myLibrary:)', JSON.stringify(moviesInStorage));
+      //     console.log('Фильм добавлен в библиотеку!');
+      //     addLibraryButton.innerText = 'Remove from library';
+      //   } else {
+      //     moviesInStorage.splice(movieIndex, 1);
+      //     localStorage.setItem('myLibrary:)', JSON.stringify(moviesInStorage));
+      //     console.log('Фильм удалён из библиотеки!');
+      //     addLibraryButton.innerText = 'Add to library';
+      //   }
+      // });
+
       document.addEventListener('keyup', event => {
         if (event.key === 'Escape') {
           modal.remove();
@@ -81,14 +119,6 @@ const createCard = async (movie, mediaQuery) => {
       });
     } catch (error) {
       console.error(error);
-    }
-  });
-
-  document.addEventListener('click', event => {
-    const closeButton = event.target.closest('.js-btn-close-modal');
-    if (closeButton) {
-      const modal = closeButton.closest('.modal');
-      modal.remove();
     }
   });
 
