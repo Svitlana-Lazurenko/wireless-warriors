@@ -45,19 +45,21 @@ function addFilmToMyStorage(film) {
       const array = [createObj(film)];
       save(MY_LIBRARY_KEY, array);
     } else {
-        btn.textContent = 'Remove to library';
         if(currentState.some(({ID}) => ID == createObj(film).ID)) {
-          // const index = load(MY_LIBRARY_KEY).findIndex(({ID}) => ID == createObj(film).ID);
-          // console.log(index);
-          // const updateArrayMyLibrary = load(MY_LIBRARY_KEY).slice(index, 1);
+          btn.textContent = 'Remove to library';
           const updateArrayMyLibrary = load(MY_LIBRARY_KEY).filter(({ID}) => ID != createObj(film).ID);
           console.log(updateArrayMyLibrary);
           localStorage.clear();
           save(MY_LIBRARY_KEY, updateArrayMyLibrary);
-          return;
+          btn.textContent = 'Add to library';
+          if(document.location.href.includes('my-library')) {
+            location.reload();
+          }
         } else {
+          btn.textContent = 'Add to library';
           currentState.push(createObj(film));
           save(MY_LIBRARY_KEY, currentState);
+          btn.textContent = 'Remove to library';
         }
       }
     }
