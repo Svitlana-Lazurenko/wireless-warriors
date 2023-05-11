@@ -47,6 +47,10 @@
     width: 700px;
     height: 400px;
   }
+  &__wrap {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .modal-trailer--light {
@@ -139,8 +143,8 @@
 
 .trailer-img {
   display: block;
-  width: 159px;
-  height: 153px;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
 
   @include tablet {

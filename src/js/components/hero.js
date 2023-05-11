@@ -4,11 +4,7 @@ import { initSwiper } from './slider';
 import { ResizePage } from './resize-page';
 import { changingSizeElement } from './dynamic-resizing';
 import debounce from 'lodash.debounce';
-import { fetchThemoviedbTralier } from '../../js/fetching and rendering/film-trailer';
-import {
-  trailerModalNoData,
-  trailModalVideo,
-} from './create-trailer-modal-markup';
+import { onButtonTrailerClick } from './trailer-modal';
 
 const apiThemoviedb = new ApiThemoviedb();
 const resizePage = new ResizePage(window.innerWidth);
@@ -16,7 +12,6 @@ const resizePage = new ResizePage(window.innerWidth);
 const heroRef = document.querySelector('.hero');
 
 heroRef.addEventListener('click', onButtonTrailerClick);
-
 window.addEventListener(
   'resize',
   debounce(resizePage.handleResize.bind(resizePage), 300)
@@ -58,33 +53,4 @@ function addSliderMarkup(data) {
   );
   changingSizeElement();
   initSwiper();
-}
-
-function onButtonTrailerClick(e) {
-  const element = e.target;
-  if (element.tagName === 'BUTTON') {
-    getTrailerRequest(element.dataset.id);
-  }
-}
-
-async function getTrailerRequest(id) {
-  try {
-    const response = await fetchThemoviedbTralier(id);
-    findingKey(response);
-  } catch (error) {
-    ddMarkupModalTrailer(trailerModalNoData());
-  }
-}
-
-function findingKey(response) {
-  const keyVideo = response.results.find(
-    result => result.name === 'Official Trailer'
-  ).key;
-  addMarkupModalTrailer(trailModalVideo(keyVideo));
-}
-
-function addMarkupModalTrailer(markup) {
-  const modalTrailerRef = document.querySelector('.modal-trailer');
-  console.log(markup);
-  modalTrailerRef.insertAdjacentHTML('beforeend', markup);
 }

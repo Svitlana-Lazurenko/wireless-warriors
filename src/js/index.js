@@ -13,7 +13,7 @@ import * as hero from './components/hero';
 
 import * as loader from './components/loader';
 import * as loadmoreBtn from './components/loadmore-btn';
-import * as modals from './components/modals-open-close';
+
 import * as savedFilms from './fetching and rendering/weekly-trends';
 import * as animateBtnChahgeTheme from './components/change-theme';
 import * as saveRemoveFilmsBtn from './components/save-remove-films-btn';
@@ -25,7 +25,6 @@ import * as filmsBySearch from './fetching and rendering/films-by-search';
 import * as footerModal from './components/modals-open-close';
 import * as filmInfo from './fetching and rendering/film-info';
 // import * as yearsSelect from './components/years-select';
-
 
 // ========= USING LIBRARIES=================================
 

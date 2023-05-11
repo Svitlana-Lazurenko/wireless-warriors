@@ -6,6 +6,7 @@ const modalRefs = {
 
 modalRefs.openModalBtns.forEach(button => {
   button.addEventListener('click', () => {
+    console.log(modalRefs.openModalBtns);
     const modalId = button.dataset.modalOpen;
     const backdrop = document.querySelector(`[data-modal="${modalId}"]`);
     const closeModalBtn = backdrop.querySelector('[data-modal-close]');

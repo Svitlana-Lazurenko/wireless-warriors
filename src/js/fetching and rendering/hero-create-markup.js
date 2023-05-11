@@ -39,7 +39,12 @@ class HeroMarkUp {
                             )}  
                             <p class="hero__description">${overview}</p>
                           </div>
-                          <button class="hero-btn hero__btn-trailer" type="button" data-id="${id}" data-modal-open="modal-2">Watch trailer</button>
+                          <button
+                            class="hero-btn hero__btn-trailer"
+                            type="button"
+                            data-id="${id}"
+                            data-active="modal-2"
+                          >Watch trailer</button>
                         </div>`);
       },
       ''
