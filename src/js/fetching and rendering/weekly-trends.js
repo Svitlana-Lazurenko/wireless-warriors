@@ -31,7 +31,7 @@ const createCard = async (movie, mediaQuery) => {
   data-modal-close
   arial-label="Close"
 >     <svg class="btn-close__icon" width="14" height="14">
-    <use href="icons.adfc4680.svg#icon-close"></use>
+    // <use href="./images/icons.svg#icon-close"></use>
   </svg>    </button>
 <div class="modal-card js-modal-card">
   <div class="modal-card__thumb-left">
@@ -74,7 +74,6 @@ const createCard = async (movie, mediaQuery) => {
       const modal = createModal(modalContent);
       document.body.appendChild(modal);
 
-      // Добавляем обработчик события keyup на документ
       document.addEventListener('keyup', event => {
         if (event.key === 'Escape') {
           modal.remove();

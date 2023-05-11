@@ -233,3 +233,7 @@ color: var(--light-theme-color-text)
 .header__change {
   background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
 }
+
+.white-theme--animated {
+  transition: background-color 1s ease-in-out;
+}

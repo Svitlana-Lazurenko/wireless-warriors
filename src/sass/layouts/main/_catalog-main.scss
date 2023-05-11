@@ -73,7 +73,7 @@ color: getColor('tertiary-text-color-dark-theme');
   border: 1px solid getColor('tertiary-text-color-dark-theme');
   
   
-  color: #fff;
+  color: #d0c00f;
   
   // min-height: 50px;
  
@@ -111,7 +111,8 @@ color: getColor('tertiary-text-color-dark-theme');
       justify-content: center;
       // padding: 10px 142px 10px 20px;
       border: 1px solid #f87719;
-      
+      box-shadow: 1px 1px 14px 4px #ff6b0867;
+      transition: 250ms;
     };
 
  
@@ -153,7 +154,7 @@ color: getColor('tertiary-text-color-dark-theme');
 .button-search{
   width: 40px;
   height: 40px;
-  background: getColor('accent-gradient1-from-color');
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   border-radius: 50%;
   margin-left: 16px;
   
@@ -161,8 +162,8 @@ color: getColor('tertiary-text-color-dark-theme');
   &:hover,
   &:focus{
     background: linear-gradient(141.22deg,#F84119 9.4%,rgba(248,159,25,.68) 91.91%);
-        box-shadow: 1px 1px 14px rgba(1,1,1,.25);
-        transition: 250ms;
+    box-shadow: 1px 1px 14px 4px #ff6b085b;
+     transition: 250ms;
   };
 }
 
@@ -197,16 +198,17 @@ color: getColor('tertiary-text-color-dark-theme');
   }
 }
 .movie__card {
-  
+  position: relative;
+
   max-width: 280px;
   color: getColor('primary-text-color-dark-theme');
-  position: relative;
+ 
   overflow: hidden;
   
   border-radius: 5px;
   
   background: #25759d00;
-  border: 1px solid #325e74;
+  border: 1px solid #325e7400;
   
   transition: box-shadow 500ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -224,8 +226,8 @@ color: getColor('tertiary-text-color-dark-theme');
 }
 .movie__card:hover,
 .movie__card:focus {
-  box-shadow: 0px 1px 14px #f7df0d;
-  border: 1px solid #f7df0d;
+  box-shadow: 1px 1px 14px 4px #ff6b08bc;
+  transition: 250ms;
 }
 
 .movie__link {
@@ -244,6 +246,7 @@ color: getColor('tertiary-text-color-dark-theme');
   display: block;
   margin: 0 auto;
   margin: 0;
+  
 
   @include tablet {
       min-width: 224px;
@@ -255,48 +258,94 @@ color: getColor('tertiary-text-color-dark-theme');
       height: 574px;
   }
 }
-.movie__card-thumb {
-  position: relative;
-  display: flex;
-}
+
 .info {
-  width: 100%;
-  height: 15%;
+  
+ 
+ width: 100%;
+ height: 22%;
   padding: 10px;
-  color: #eee;
+  color: rgb(238, 238, 238);
   align-items: center;
   margin: 0;
   font-size: 14px;
   font-weight: 700;
   display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
   position: absolute;
   /* top: 0; */
   bottom: 0;
   left: 0;
-  background-color: #221e1e73;
+  background-color: #191a173c;
 
+  
 }
 
-.info-title {
+.info__title {
   font-weight: 500;
   font-size: 12px;
   line-height: 1.67;
   text-transform: uppercase;
   color: #FFFFFF;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  @include tablet {
+      font-size: 11px;
+      line-height: 1.5;
+  }
+  @include desktop {
+      margin-bottom: 10px;
+      font-size: 20px;
+      line-height: 1.15;
+  }
+ // font-weight: 500;
+  // font-size: 12px;
+  // line-height: 20px;
+  // text-transform: uppercase;
+  // color: #FFFFFF;
+  // text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.info-genre {
+.info__genre {
   font-weight: 500;
   font-size: 12px;
   line-height: 1.67;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: #B7B7B7;
+          @include tablet {
+                  font-size: 11px;
+                  line-height: 1.5;
+              }
+              @include desktop {
+                  font-size: 20px;
+                  line-height: 1.15;
+              }
+
+
+  // gap: 10px;
+  // display: flex;
+  // font-weight: 500;
+  // font-size: 12px;
+  // line-height: 1.67;
+  // text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  // color: #B7B7B7;
 }
+
+.info-thumb__text{
+  // margin-right: 40px; 
+  // position: absolute;
+  // left: 12;
+  // bottom: 12;
+  @include desktop {
+      // left:20;
+      // bottom: 20;
+  }
+};
 
 .info-thumb__vote{
 display: flex;
 }
+
 
 .title-error{
   color: #fff;
@@ -322,6 +371,17 @@ line-height: 28px;
   }
 
 .catalog__rating-stars {
-  width: 100px;
-  margin-left: 100px;
-}
+  width: 86px;
+  top: 65px;
+  // margin-left: 30px;
+
+  @include tablet {
+    width: 66px;
+
+  };
+
+  @include desktop {
+    width: 106px;
+    
+  };
+};
