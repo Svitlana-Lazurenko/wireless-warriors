@@ -1,4 +1,3 @@
-// // import { createMarkup } from '../storageLibrary/updateMarkup';
 
 // const liEls = document.querySelectorAll('.movie__card');
 
