@@ -5,14 +5,14 @@ import { makeStarsMarkup } from '../components/star-markup';
 import { fetchThemoviedbGenres } from '../fetching and rendering/film-genres';
 import { pagination } from '../pagination';
 console.log(document.location);
-if(document.location.href.includes('catalog.html')) {
+if (document.location.href.includes('catalog.html')) {
   class PostApiService {
     constructor() {
       this.searchQuery = '';
       this.page = 1;
       this.totalResult = 0;
     }
-  
+
     async fetchPost() {
       const OPTIONS = new URLSearchParams({
         api_key: apiKey,
@@ -43,21 +43,21 @@ if(document.location.href.includes('catalog.html')) {
     // decrementPage() {
     //   this.page -= 1;
     // }
-  
+
     resetPage() {
       this.page = 1;
     }
   }
-  
+
   const refs = {
     form: document.getElementById('search-form'),
     pagination: document.getElementById('pagination'),
     gallery: document.querySelector('.gallery__films'),
   };
   const postApiService = new PostApiService();
-  
+
   refs.form.addEventListener('submit', onSearch);
-  
+
   function onSearch(e) {
     e.preventDefault();
     postApiService.query = e.target.searchQuery.value.trim();
@@ -66,7 +66,7 @@ if(document.location.href.includes('catalog.html')) {
     fetchResultsFilms();
     refs.form.reset();
   }
-  
+
   function createMarkup(
     { id, poster_path, title, genre_ids, release_date, vote_average },
     genresList
@@ -127,7 +127,10 @@ if(document.location.href.includes('catalog.html')) {
   }
   function getGenresName(genre_ids, genresList) {
     try {
-      const genreIds = genre_ids.map(id => genresList[id]).join(' , ');
+      const genreIds = genre_ids
+        .slice(0, 2)
+        .map(id => genresList[id])
+        .join(', ');
       return genreIds;
     } catch (error) {
       console.error(error);
