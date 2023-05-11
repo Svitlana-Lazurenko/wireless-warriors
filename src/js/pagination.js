@@ -97,7 +97,6 @@ const instance = new Pagination(pagination, {
 
 function renderMovies(pageOfFilms, genresOfFilms) {
   const films = fetchMovies(pageOfFilms);
-  totalItemsFilms = 80;
   const markup = createMarkup(films, genresOfFilms);
   console.log(fetchMovies(pageOfFilms));
   listOfCards.insertAdjacentHTML('beforeend', markup);
@@ -105,7 +104,6 @@ function renderMovies(pageOfFilms, genresOfFilms) {
 
 function renderMoviesByName(pageOfFilms, nameOfFilms, genresOfFilms) {
   const films = fetchMoviesByName(pageOfFilms, nameOfFilms);
-  totalItemsFilms = 80;
   const markup = createMarkup(films, genresOfFilms);
   console.log(fetchMoviesByName(pageOfFilms, nameOfFilms));
   listOfCards.insertAdjacentHTML('beforeend', markup);
