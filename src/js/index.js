@@ -1,5 +1,5 @@
 import * as tmdbApi from './tmdb-api';
-import * as pagination from './pagination';
+// import * as pagination from './pagination';
 
 import * as mobileMenu from './components/mobile-menu-open-close';
 import * as filmOfTheMonth from './fetching and rendering/film-of-the-month';
@@ -26,7 +26,6 @@ import * as filmsBySearch from './fetching and rendering/films-by-search';
 import * as footerModal from './components/modals-open-close';
 import * as filmInfo from './fetching and rendering/film-info';
 // import * as yearsSelect from './components/years-select';
-
 
 // ========= USING LIBRARIES=================================
 
