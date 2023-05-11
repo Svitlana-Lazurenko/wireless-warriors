@@ -5,6 +5,10 @@ import { ResizePage } from './resize-page';
 import { changingSizeElement } from './dynamic-resizing';
 import debounce from 'lodash.debounce';
 import { fetchThemoviedbTralier } from '../../js/fetching and rendering/film-trailer';
+import {
+  trailerModalNoData,
+  trailModalVideo,
+} from './create-trailer-modal-markup';
 
 const apiThemoviedb = new ApiThemoviedb();
 const resizePage = new ResizePage(window.innerWidth);
@@ -68,7 +72,7 @@ async function getTrailerRequest(id) {
     const response = await fetchThemoviedbTralier(id);
     findingKey(response);
   } catch (error) {
-    // openErrorModal();
+    ddMarkupModalTrailer(trailerModalNoData());
   }
 }
 
@@ -76,21 +80,11 @@ function findingKey(response) {
   const keyVideo = response.results.find(
     result => result.name === 'Official Trailer'
   ).key;
+  addMarkupModalTrailer(trailModalVideo(keyVideo));
 }
 
-// async function test() {
-//   const value = await api.getRequestData();
-//   console.log(value.data.results[2]);
-//   const id = value.data.results[2].id;
-//   console.log(id);
-//   const value2 = await api.getRequestVideos(id);
-
-//   const keyVideo = value2.data.results.find(
-//     result => result.type === 'Trailer' && result.name === 'Official Trailer'
-//   ).key;
-
-//   console.log(keyVideo);
-//   linkRef.href = `https://www.youtube.com/watch?v=${keyVideo}`;
-// }
-
-// test();
+function addMarkupModalTrailer(markup) {
+  const modalTrailerRef = document.querySelector('.modal-trailer');
+  console.log(markup);
+  modalTrailerRef.insertAdjacentHTML('beforeend', markup);
+}
