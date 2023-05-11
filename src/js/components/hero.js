@@ -11,11 +11,14 @@ const resizePage = new ResizePage(window.innerWidth);
 
 const heroRef = document.querySelector('.hero');
 
-heroRef.addEventListener('click', onButtonTrailerClick);
-window.addEventListener(
-  'resize',
-  debounce(resizePage.handleResize.bind(resizePage), 300)
-);
+if(!document.location.href.includes('my-library')) {
+  heroRef.addEventListener('click', onButtonTrailerClick);
+  window.addEventListener(
+    'resize',
+    debounce(resizePage.handleResize.bind(resizePage), 300)
+  );
+}
+
 
 checkIsHero();
 
