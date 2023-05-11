@@ -4,7 +4,8 @@ import { fetchThemoviedbGenres } from './film-genres';
 // import { createPagination } from '../pagination';
 import { makeStarsMarkup } from '../components/star-markup';
 
-const ul = document.querySelector('.gallery__films');
+if (document.location.href.includes('catalog.html')) {
+  const ul = document.querySelector('.gallery__films');
 const img = 'https://image.tmdb.org/t/p/w500/';
 
 async function fetchThemoviedbWeek() {
@@ -101,4 +102,7 @@ function onFetchError(error) {
 
 window.addEventListener('load', loadMoviesWeek);
 
+}
+
 export { fetchThemoviedbWeek };
+

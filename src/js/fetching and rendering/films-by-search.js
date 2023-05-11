@@ -4,7 +4,7 @@ import { BASE_THEMOVIEDB_URL, apiKey } from '../tmdb-api';
 import { makeStarsMarkup } from '../components/star-markup';
 import { fetchThemoviedbGenres } from '../fetching and rendering/film-genres';
 // import { pagination } from '../pagination';
-console.log(document.location);
+
 if (document.location.href.includes('catalog.html')) {
   class PostApiService {
     constructor() {
