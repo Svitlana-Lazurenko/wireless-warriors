@@ -118,6 +118,7 @@ body {
   width: 16px;
   height: 16px;
   fill: var(--color1, #fff);
+  stroke: white;
 }
 
 @media screen and (min-width: 768px) {
@@ -138,6 +139,7 @@ body {
     column-gap: 16px;
   }
 }
+
 @media screen and (min-width: 1280px) {
   .modal-card {
     column-gap: 20px;
@@ -156,6 +158,7 @@ body {
     margin-bottom: 0;
   }
 }
+
 @media screen and (min-width: 1280px) {
   .modal-card__thumb-left {
     max-width: 375px;
@@ -259,7 +262,7 @@ body {
   }
 }
 
-.thumb-right__value-item > span {
+.thumb-right__value-item>span {
   text-transform: capitalize;
 }
 
@@ -375,3 +378,14 @@ body {
 //   border: 1px solid transparent;
 //   background: linear-gradient(#ffffff, #ffffff) padding-box;
 // }
+
+.close--two {
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
+  transform: scaleX(1) scaleY(0.8);
+
+}
+.modal__icon-close {
+  stroke: white;
+}
