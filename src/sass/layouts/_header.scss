@@ -301,6 +301,8 @@
 
 .white-theme .btn-close__icon {
   stroke: black !important;
+  fill: black !important;
+  color: black
 }
 
 .white-theme .modal-card__btn-wrap {
@@ -335,4 +337,23 @@
 
 .white-theme .hero__frame {
   content: url(../images/hero-substract/subtract-white-desktop.png);
+}
+.white-theme .footer__modal {
+  background-color: white;
+}
+.white-theme .team__item {
+  background: #F8F8F8;;
+  border: 1px solid transparent;
+}
+.white-theme .team__student-name {
+  color: black;
+}
+.white-theme .team__student-role {
+  color:#F87719
+}
+.white-theme .modal__icon-close {
+  stroke: black;
+}
+.white-theme .team__student-svg {
+fill:black
 }
