@@ -9,7 +9,7 @@ import * as savedFilms from './fetching and rendering/saved-films';
 // import * as filmCounties from './fetching and rendering/film-countries';
 import * as filmsOfTheWeek from './fetching and rendering/upcoming-this-month';
 
-import * as hero from './components/hero';
+// import * as hero from './components/hero';
 
 import * as loader from './components/loader';
 import * as loadmoreBtn from './components/loadmore-btn';
@@ -17,7 +17,7 @@ import * as loadmoreBtn from './components/loadmore-btn';
 import * as savedFilms from './fetching and rendering/weekly-trends';
 import * as animateBtnChahgeTheme from './components/change-theme';
 import * as saveRemoveFilmsBtn from './components/save-remove-films-btn';
-// import * as scrollUp from './components/scroll-up';
+import * as scrollUp from './components/scroll-up';
 import * as switcherBtn from './components/switcher-btn';
 import * as btn from './storageLibrary/btn';
 import * as updateStorLibrary from './storageLibrary/upadateStorage';

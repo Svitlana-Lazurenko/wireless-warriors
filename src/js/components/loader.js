@@ -29,10 +29,11 @@ targetList.forEach(target => {
 });
 
 //* Потрібно внести наш url, коли буде кістяк, щоб протестувати!
-
-// function makeRequest(url) {
+// const API_URL = "https://api.themoviedb.org/3/movie";
+// const apiKey = 'df4f25ddce476816dc7867d9ac4bd1ea';
+// function makeRequest(API_URL) {
 //     spinner.spin(document.body);
-//     axios.get(url)
+//     axios.get(API_URL)
 //       .then(response => {
 //         spinner.stop();
 //         console.log(response.data);
