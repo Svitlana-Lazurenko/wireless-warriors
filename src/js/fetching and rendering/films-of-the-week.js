@@ -1,14 +1,16 @@
 import { BASE_THEMOVIEDB_URL, apiKey } from '../tmdb-api';
 import axios from 'axios';
 import { fetchThemoviedbGenres } from './film-genres';
-import { createPagination } from '../pagination';
+// import { createPagination } from '../pagination';
 import { makeStarsMarkup } from '../components/star-markup';
 
 const ul = document.querySelector('.gallery__films');
 const img = 'https://image.tmdb.org/t/p/w500/';
 
 async function fetchThemoviedbWeek() {
-  const response = await axios(`${BASE_THEMOVIEDB_URL}/trending/movie/week?api_key=${apiKey}`);
+  const response = await axios(
+    `${BASE_THEMOVIEDB_URL}/trending/movie/week?api_key=${apiKey}`
+  );
   const newCollection = await response.data;
 
   return newCollection;
@@ -38,7 +40,9 @@ async function loadMoviesWeek() {
 }
 
 function onlyYearFilter(release_date) {
-  return !release_date ? 'Unknown Year' : release_date.split('').slice(0, 4).join('');
+  return !release_date
+    ? 'Unknown Year'
+    : release_date.split('').slice(0, 4).join('');
 }
 
 function createMarkup(
