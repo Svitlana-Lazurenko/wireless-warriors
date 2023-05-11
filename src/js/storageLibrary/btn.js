@@ -8,14 +8,14 @@ function fetchThemoviedID(filmID) {
     ).then(response => response.json()).then(data => data);
 }
 
-function createObj ({ id, poster_path, release_date, title, vote_average, genre_ids }) {
+function createObj ({ id, poster_path, release_date, title, vote_average, genres}) {
     return {
         ID : id,
         img : poster_path,
         data : release_date,
         nameFilm : title,
         rating : vote_average,
-        genres : genre_ids,
+        genresFilms : genres,
     }
 }
 
@@ -31,14 +31,15 @@ function getFilmID () {
     if(filmList.nodeName === 'LI' || 'DIV') {
         setTimeout(() => {
             btn = document.querySelector('.modal-card__library-btn');
-            console.log(btn);
             filmID = btn.dataset.id;
 
             fetchThemoviedID(filmID).then((data) => {
-                for(let i = 1; i <= load(MY_LIBRARY_KEY).length; i ++) {
-                    console.log(createObj(data));
+                const arrayMyFilms = load(MY_LIBRARY_KEY);
+                if(arrayMyFilms.some(({ID}) => ID == createObj(data).ID)) {
+                    btn.textContent = 'Remove to library';
                 }
+                
             });
-          }, 100);
+          }, 200);
     }
 }
