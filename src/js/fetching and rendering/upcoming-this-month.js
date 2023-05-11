@@ -13,7 +13,7 @@ if (upcomingSoonDiv) {
         response.data.results[
           Math.floor(Math.random() * response.data.results.length)
         ];
-      const imageUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
+      const imageUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
 
       const newDiv = document.querySelector('.upcoming-soon_title');
       const card = document.createElement('div');
