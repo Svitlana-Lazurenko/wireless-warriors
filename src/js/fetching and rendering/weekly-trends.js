@@ -5,6 +5,7 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const KEY = '61a74e45dda65dc7d6d2b2ec92323e86';
 
 const trendingUrl = `${BASE_URL}/trending/movie/week?api_key=${KEY}`;
+const filmList = document.querySelector('.gallery__films');
 
 const createCard = async (movie, mediaQuery) => {
   const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
@@ -183,14 +184,14 @@ const createCard = async (movie, mediaQuery) => {
   }
 };
 
-const renderCards = async (movies, container, mediaQuery) => {
+const renderCards = async (movies, filmList, mediaQuery) => {
   const numCards = mediaQuery.matches ? 1 : 3;
 
   for (let i = 0; i < numCards; i++) {
     const movie = movies[i];
     const card = await createCard(movie, mediaQuery);
     if (card) {
-      container.appendChild(card);
+      filmList.appendChild(card);
     }
   }
 };
@@ -201,14 +202,14 @@ const init = async () => {
     const movies = response.data.results;
 
     const newDiv = document.querySelector('.weekly-trends_box');
-    const container = document.createElement('ul');
-    newDiv.after(container);
-    container.classList.add('card-container', 'container');
+    // const container = document.createElement('ul');
+    newDiv.after(filmList);
+    // container.classList.add('card-container', 'container');
 
     const mediaQuery = window.matchMedia('(max-width: 767px)');
-    await renderCards(movies, container, mediaQuery);
+    await renderCards(movies, filmList, mediaQuery);
     const weeklyTrendsSection = document.querySelector('.weekly-trends');
-    weeklyTrendsSection.appendChild(container);
+    weeklyTrendsSection.appendChild(filmList);
 
     mediaQuery.addListener(async () => {
       const cards = container.querySelectorAll('.card');
@@ -216,7 +217,7 @@ const init = async () => {
         card.remove();
       });
 
-      await renderCards(movies, container, mediaQuery);
+      await renderCards(movies, filmList, mediaQuery);
     });
   } catch (error) {
     console.error(error);

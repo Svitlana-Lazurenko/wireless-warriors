@@ -48,7 +48,6 @@ function addFilmToMyStorage(film) {
         if(currentState.some(({ID}) => ID == createObj(film).ID)) {
           btn.textContent = 'Remove to library';
           const updateArrayMyLibrary = load(MY_LIBRARY_KEY).filter(({ID}) => ID != createObj(film).ID);
-          console.log(updateArrayMyLibrary);
           localStorage.clear();
           save(MY_LIBRARY_KEY, updateArrayMyLibrary);
           btn.textContent = 'Add to library';

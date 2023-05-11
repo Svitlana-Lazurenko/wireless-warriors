@@ -4,17 +4,8 @@ class ResizePage {
   constructor(screenWidth) {
     this.previousScreenWidth = screenWidth;
     this.currentMode = this.getMode(screenWidth);
-    console.log(this.previousScreenWidth, this.currentMode);
   }
   getMode(screenWidth) {
-    // if (screenWidth < 768) {
-    //   return 'mobile';
-    // } else if (screenWidth < 1280) {
-    //   return 'tablet';
-    // } else {
-    //   return 'desktop';
-    // }
-
     if (screenWidth < 400) {
       return 'small-mobile';
     } else if (screenWidth < 768) {

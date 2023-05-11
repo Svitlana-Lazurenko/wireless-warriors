@@ -26,7 +26,7 @@ if (document.location.href.includes('my-library.html')) {
            </div>
                <div class="info overlay">
                  <div class="info-thumb__text"><h2 class="info__title">${nameFilm}</h2>
-                   <p class="info__genre">${genresFilms}<span> | </span>${onlyYearFilter(
+                   <p class="info__genre">${getGenresName(genresFilms)}<span> | </span>${onlyYearFilter(
        data
      )}</p></div>
                    <div class="info-thumb__vote"><p class="info__vote">${makeStarsMarkup(
@@ -37,14 +37,12 @@ if (document.location.href.includes('my-library.html')) {
                </li>`; 
     }
  
-
-  function getGenresName(genre_ids, genresList) {
-      try {
-        const genreId = genre_ids.map(id => genresList[id]).join(' , ');
-        return genreId;
-      } catch (error) {
-        console.error(error);
-      }
+  function getGenresName(genresFilm) {
+    let genresMovie = [];
+    genresFilm.forEach(({name}) => {
+      genresMovie.push(name);
+    });
+    return genresMovie
   }
 
   function onlyYearFilter(release_date) {
