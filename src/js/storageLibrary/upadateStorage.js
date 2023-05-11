@@ -7,6 +7,7 @@ async function fetchThemoviedID(filmID) {
       `${BASE_THEMOVIEDB_URL}/movie/${filmID}?api_key=${apiKey}&language=en-US`
     );
     const newFilm = await response;
+    // console.log(newFilm.data.genres);
     return newFilm.data;
 }
 
@@ -23,10 +24,8 @@ function getFilmID () {
         setTimeout(() => {
             btn = document.querySelector('.modal-card__library-btn');
             btn.addEventListener('click', LocalStorageLibrary);
-            console.log(btn);
           }, 100);
     }
-    console.log(load(MY_LIBRARY_KEY));
 }
 
 async function LocalStorageLibrary () {
@@ -34,7 +33,6 @@ async function LocalStorageLibrary () {
 
     try {
         const film = await fetchThemoviedID(filmID);
-        console.log(addFilmToMyStorage(film));
         addFilmToMyStorage(film);
     } catch (error) {
         console.error(error);
@@ -47,19 +45,32 @@ function addFilmToMyStorage(film) {
       const array = [createObj(film)];
       save(MY_LIBRARY_KEY, array);
     } else {
-        currentState.push(createObj(film));
-        save(MY_LIBRARY_KEY, currentState);
+        btn.textContent = 'Remove to library';
+        if(currentState.some(({ID}) => ID == createObj(film).ID)) {
+          // const index = load(MY_LIBRARY_KEY).findIndex(({ID}) => ID == createObj(film).ID);
+          // console.log(index);
+          // const updateArrayMyLibrary = load(MY_LIBRARY_KEY).slice(index, 1);
+          const updateArrayMyLibrary = load(MY_LIBRARY_KEY).filter(({ID}) => ID != createObj(film).ID);
+          console.log(updateArrayMyLibrary);
+          localStorage.clear();
+          save(MY_LIBRARY_KEY, updateArrayMyLibrary);
+          return;
+        } else {
+          currentState.push(createObj(film));
+          save(MY_LIBRARY_KEY, currentState);
+        }
       }
     }
+    
 
-function createObj ({ id, poster_path, release_date, title, vote_average, genre_ids }) {
+function createObj ({ id, poster_path, release_date, title, vote_average, genres}) {
     return {
         ID : id,
         img : poster_path,
         data : release_date,
         nameFilm : title,
         rating : vote_average,
-        genres : genre_ids,
+        genresFilms : genres,
     }
 }
 

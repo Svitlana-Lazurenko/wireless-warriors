@@ -4,7 +4,7 @@ import { makeStarsMarkup } from '../components/star-markup';
 if (document.location.href.includes('my-library.html')) {
     const filmList = document.querySelector('.libraryFilms');
 const baseUrl = 'https://image.tmdb.org/t/p/w500/';
-
+console.log(arrayMyFilms);
 let genresList = {};
 
 const markup = arrayMyFilms.reduce(
@@ -15,7 +15,7 @@ const markup = arrayMyFilms.reduce(
 updateMoviesList(markup);
 
 function createMarkup(
-    { ID, img, data, nameFilm, rating, genres }
+    { ID, img, data, nameFilm, rating, genresFilms }
     
   ) {
     // const genreNames = getGenresName(genres, genresList);
@@ -24,7 +24,7 @@ function createMarkup(
      <div class='movie__link' data-id=${ID}>
       <img src='${baseUrl}${img}' alt='${nameFilm}' loading='lazy' class='movie__image' width='395' height='574'/>
         <h2 class='info-title'>${nameFilm}</h2>
-        <p class='info-genre'>${'заглушка'}<span> | </span>${onlyYearFilter(
+        <p class='info-genre'>${genresFilms}<span> | </span>${onlyYearFilter(
             data
     )}</p>
         <p class='info-vote'>${makeStarsMarkup(
