@@ -23,8 +23,10 @@ function getFilmID () {
         setTimeout(() => {
             btn = document.querySelector('.modal-card__library-btn');
             btn.addEventListener('click', LocalStorageLibrary);
-          }, 1000);
+            console.log(btn);
+          }, 100);
     }
+    console.log(load(MY_LIBRARY_KEY));
 }
 
 async function LocalStorageLibrary () {
@@ -32,6 +34,7 @@ async function LocalStorageLibrary () {
 
     try {
         const film = await fetchThemoviedID(filmID);
+        console.log(addFilmToMyStorage(film));
         addFilmToMyStorage(film);
     } catch (error) {
         console.error(error);
@@ -43,7 +46,7 @@ function addFilmToMyStorage(film) {
     if (currentState === undefined) {
       const array = [createObj(film)];
       save(MY_LIBRARY_KEY, array);
-    } else { 
+    } else {
         currentState.push(createObj(film));
         save(MY_LIBRARY_KEY, currentState);
       }
