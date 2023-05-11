@@ -4,12 +4,14 @@ import { initSwiper } from './slider';
 import { ResizePage } from './resize-page';
 import { changingSizeElement } from './dynamic-resizing';
 import debounce from 'lodash.debounce';
+import { onButtonTrailerClick } from './trailer-modal';
 
 const apiThemoviedb = new ApiThemoviedb();
 const resizePage = new ResizePage(window.innerWidth);
 
 const heroRef = document.querySelector('.hero');
 
+heroRef.addEventListener('click', onButtonTrailerClick);
 window.addEventListener(
   'resize',
   debounce(resizePage.handleResize.bind(resizePage), 300)
@@ -52,20 +54,3 @@ function addSliderMarkup(data) {
   changingSizeElement();
   initSwiper();
 }
-
-// async function test() {
-//   const value = await api.getRequestData();
-//   console.log(value.data.results[2]);
-//   const id = value.data.results[2].id;
-//   console.log(id);
-//   const value2 = await api.getRequestVideos(id);
-
-//   const keyVideo = value2.data.results.find(
-//     result => result.type === 'Trailer' && result.name === 'Official Trailer'
-//   ).key;
-
-//   console.log(keyVideo);
-//   linkRef.href = `https://www.youtube.com/watch?v=${keyVideo}`;
-// }
-
-// test();
