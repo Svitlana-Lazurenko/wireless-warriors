@@ -209,7 +209,7 @@ color: getColor('tertiary-text-color-dark-theme');
   
   background: #25759d00;
   border: 1px solid #325e7400;
-  
+ 
   transition: box-shadow 500ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -228,6 +228,8 @@ color: getColor('tertiary-text-color-dark-theme');
 .movie__card:focus {
   box-shadow: 1px 1px 14px 4px #ff6b08bc;
   transition: 250ms;
+  scale: 1.03;
+
 }
 
 .movie__link {
