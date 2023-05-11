@@ -9,7 +9,7 @@ import * as savedFilms from './fetching and rendering/saved-films';
 // import * as filmCounties from './fetching and rendering/film-countries';
 import * as filmsOfTheWeek from './fetching and rendering/upcoming-this-month';
 
-// import * as hero from './components/hero';
+import * as hero from './components/hero';
 
 import * as loader from './components/loader';
 import * as loadmoreBtn from './components/loadmore-btn';
