@@ -4,7 +4,7 @@ import { BASE_THEMOVIEDB_URL, apiKey } from '../tmdb-api';
 import { makeStarsMarkup } from '../components/star-markup';
 import { fetchThemoviedbGenres } from '../fetching and rendering/film-genres';
 // import { pagination } from '../pagination';
-
+console.log(document.location);
 if (document.location.href.includes('catalog.html')) {
   class PostApiService {
     constructor() {
@@ -127,7 +127,10 @@ if (document.location.href.includes('catalog.html')) {
   }
   function getGenresName(genre_ids, genresList) {
     try {
-      const genreIds = genre_ids.map(id => genresList[id]).join(' , ');
+      const genreIds = genre_ids
+        .slice(0, 2)
+        .map(id => genresList[id])
+        .join(', ');
       return genreIds;
     } catch (error) {
       console.error(error);
