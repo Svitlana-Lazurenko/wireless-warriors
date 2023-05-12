@@ -19,21 +19,6 @@ let btn = null;
 let filmID = null;
 
 let myObject = localStorage.getItem('myLibrary:)');
-const searchButton = document.querySelector('.library__search-button');
-const movies = myObject ? JSON.parse(myObject) : [];
-
-if (movies.length > 0) {
-  library.remove();
-  searchButton.remove();
-  // тут по логике нужно рендерить карточки
-} else {
-  library.innerHTML = `<h2 class="title-error">
-    OOPS...<br />
-      We are very sorry!<br />
-      You don’t have any movies at your library.</h2>`;
-
-  return;
-}
 
 filmList.addEventListener('click', getFilmID);
 
