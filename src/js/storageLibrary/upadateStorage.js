@@ -74,4 +74,4 @@ function createObj ({ id, poster_path, release_date, title, vote_average, genres
     }
 }
 
-export { arrayMyFilms };
+export { arrayMyFilms, createObj, fetchThemoviedID, MY_LIBRARY_KEY };
