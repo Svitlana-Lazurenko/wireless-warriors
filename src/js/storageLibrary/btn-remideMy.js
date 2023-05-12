@@ -5,8 +5,8 @@ import { fetchThemoviedID, createObj, MY_LIBRARY_KEY} from './upadateStorage';
 
 if(!document.location.href.includes('catalog.html') && !document.location.href.includes('my-library')) {
     const section = document.querySelector('.remideMy');
-    
-    section.addEventListener('click', addToMyLibrary) 
+    let btn = null;
+    section.addEventListener('click', addToMyLibrary); 
 
     async function addToMyLibrary (e) {
         if(e.target.classList.contains('upcoming-soon_button')) {
@@ -26,6 +26,7 @@ if(!document.location.href.includes('catalog.html') && !document.location.href.i
         if (currentState === undefined) {
             const array = [createObj(film)];
             save(MY_LIBRARY_KEY, array);
+            btn.textContent = 'Remove to library';
         } else {
             if(currentState.some(({ID}) => ID == createObj(film).ID)) {
                 btn.textContent = 'Remove to library';

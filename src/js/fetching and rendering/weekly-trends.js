@@ -212,7 +212,7 @@ const init = async () => {
     weeklyTrendsSection.appendChild(filmList);
 
     mediaQuery.addListener(async () => {
-      const cards = container.querySelectorAll('.card');
+      const cards = filmList.querySelectorAll('.card');
       cards.forEach(card => {
         card.remove();
       });

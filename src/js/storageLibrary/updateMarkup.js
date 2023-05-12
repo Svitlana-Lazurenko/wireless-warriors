@@ -6,26 +6,38 @@ if (document.location.href.includes('my-library.html')) {
   const baseUrl = 'https://image.tmdb.org/t/p/w500/';
   const library = document.querySelector('.library__message');
   const searchButton = document.querySelector('.library__search-button');
-
+  let markup = null;
   let genresList = {};
 
-  const markup = arrayMyFilms.reduce(
+  if(arrayMyFilms !== undefined) {
+  markup = arrayMyFilms.reduce(
       (markup, arrayMyFilms) => markup + createMarkup(arrayMyFilms, genresList),
       ''
   );
+  }
 
-  if (arrayMyFilms.length > 0) {
+  if(arrayMyFilms === undefined) {
+    library.innerHTML = `<h2 class="title-error">
+      OOPS...<br />
+      We are very sorry!<br />
+      You don’t have any movies at your library.</h2>`;
+    
+    return;
+  }
+  
+  if (arrayMyFilms.length > 0 ) {
     library.remove();
     searchButton.remove();
-    // тут по логике нужно рендерить карточки
+    updateMoviesList(markup);
   } else {
     library.innerHTML = `<h2 class="title-error">
       OOPS...<br />
-        We are very sorry!<br />
-        You don’t have any movies at your library.</h2>`;
-  
+      We are very sorry!<br />
+      You don’t have any movies at your library.</h2>`;
+    
     return;
   }
+  
 
   updateMoviesList(markup);
 
