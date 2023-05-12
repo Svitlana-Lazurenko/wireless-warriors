@@ -2,8 +2,6 @@ import axios from 'axios';
 import { BASE_THEMOVIEDB_URL, apiKey } from '../tmdb-api';
 import { save, load } from './storage';
 
-const library = document.querySelector('.library__message');
-
 async function fetchThemoviedID(filmID) {
     const response = await axios(
       `${BASE_THEMOVIEDB_URL}/movie/${filmID}?api_key=${apiKey}&language=en-US`
@@ -17,23 +15,6 @@ const MY_LIBRARY_KEY = 'myLibrary:)';
 const arrayMyFilms = load(MY_LIBRARY_KEY);
 let btn = null;
 let filmID = null;
-
-let myObject = localStorage.getItem('myLibrary:)');
-const searchButton = document.querySelector('.library__search-button');
-const movies = myObject ? JSON.parse(myObject) : [];
-
-if (movies.length > 0) {
-  library.remove();
-  searchButton.remove();
-  // тут по логике нужно рендерить карточки
-} else {
-  library.innerHTML = `<h2 class="title-error">
-    OOPS...<br />
-      We are very sorry!<br />
-      You don’t have any movies at your library.</h2>`;
-
-  return;
-}
 
 filmList.addEventListener('click', getFilmID);
 
