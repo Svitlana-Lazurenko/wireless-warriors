@@ -17,7 +17,7 @@ if (document.location.href.includes('my-library.html')) {
   }
 
   if(arrayMyFilms === undefined) {
-    library.innerHTML = `<h2 class="title-error">
+    library.innerHTML = `<h2 class="title-error ">
       OOPS...<br />
       We are very sorry!<br />
       You don’t have any movies at your library.</h2>`;
@@ -30,7 +30,7 @@ if (document.location.href.includes('my-library.html')) {
     searchButton.remove();
     updateMoviesList(markup);
   } else {
-    library.innerHTML = `<h2 class="title-error">
+    library.innerHTML = `<h2 class="title-error ">
       OOPS...<br />
       We are very sorry!<br />
       You don’t have any movies at your library.</h2>`;
@@ -53,7 +53,7 @@ if (document.location.href.includes('my-library.html')) {
            </div>
                <div class="info overlay">
                  <div class="info-thumb__text"><h2 class="info__title">${nameFilm}</h2>
-                   <p class="info__genre white-theme">${getGenresName(genresFilms)}<span> | </span>${onlyYearFilter(
+                   <p class="info__genre ">${getGenresName(genresFilms)}<span> | </span>${onlyYearFilter(
        data
      )}</p></div>
                    <div class="info-thumb__vote"><p class="info__vote">${makeStarsMarkup(
