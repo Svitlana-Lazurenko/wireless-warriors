@@ -5,7 +5,7 @@ import { fetchThemoviedID, createObj, MY_LIBRARY_KEY} from './upadateStorage';
 
 if(!document.location.href.includes('catalog.html') && !document.location.href.includes('my-library')) {
     const section = document.querySelector('.remideMy');
-
+    let btn = null;
     section.addEventListener('click', addToMyLibrary) 
 
     async function addToMyLibrary (e) {
