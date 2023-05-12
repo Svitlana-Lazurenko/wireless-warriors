@@ -41,7 +41,7 @@ if (document.location.href.includes('my-library.html')) {
            </div>
                <div class="info overlay">
                  <div class="info-thumb__text"><h2 class="info__title">${nameFilm}</h2>
-                   <p class="info__genre">${getGenresName(genresFilms)}<span> | </span>${onlyYearFilter(
+                   <p class="info__genre white-theme">${getGenresName(genresFilms)}<span> | </span>${onlyYearFilter(
        data
      )}</p></div>
                    <div class="info-thumb__vote"><p class="info__vote">${makeStarsMarkup(

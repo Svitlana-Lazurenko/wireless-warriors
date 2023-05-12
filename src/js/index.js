@@ -17,7 +17,7 @@ import * as loadmoreBtn from './components/loadmore-btn';
 import * as savedFilms from './fetching and rendering/weekly-trends';
 import * as animateBtnChahgeTheme from './components/change-theme';
 import * as saveRemoveFilmsBtn from './components/save-remove-films-btn';
-// import * as scrollUp from './components/scroll-up';
+import * as scrollUp from './components/scroll-up';
 import * as switcherBtn from './components/switcher-btn';
 import * as btn from './storageLibrary/btn';
 import * as updateStorLibrary from './storageLibrary/upadateStorage';
