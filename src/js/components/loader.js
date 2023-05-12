@@ -1,4 +1,5 @@
 import { Spinner } from 'spin.js';
+import axios from 'axios';
 
 const opts = {
   lines: 11,
@@ -21,24 +22,20 @@ const opts = {
   position: 'absolute',
 };
 
-const targetList = document.querySelectorAll('#spinner');
+const spinnerTarget = document.getElementById('spinner');
 const spinner = new Spinner(opts);
 
-targetList.forEach(target => {
-  spinner.spin(target);
-});
+function makeRequest(page) {
+  spinner.spin(spinnerTarget);
+  axios.get(`${API_URL}/popular?api_key=${API_KEY}&page=${page}`)
+    .then(response => {
+      spinner.stop();
+      console.log(response.data);
+    })
+    .catch(error => {
+      spinner.stop();
+      console.log(error);
+    });
+}
 
-//* Потрібно внести наш url, коли буде кістяк, щоб протестувати!
 
-// function makeRequest(url) {
-//     spinner.spin(document.body);
-//     axios.get(url)
-//       .then(response => {
-//         spinner.stop();
-//         console.log(response.data);
-//       })
-//       .catch(error => {
-//         spinner.stop();
-//         console.log(error);
-//       });
-//   }
