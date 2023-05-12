@@ -5,12 +5,11 @@ import { save, load } from './storage';
 const library = document.querySelector('.library__message');
 
 async function fetchThemoviedID(filmID) {
-  const response = await axios(
-    `${BASE_THEMOVIEDB_URL}/movie/${filmID}?api_key=${apiKey}&language=en-US`
-  );
-  const newFilm = await response;
-  // console.log(newFilm.data.genres);
-  return newFilm.data;
+    const response = await axios(
+      `${BASE_THEMOVIEDB_URL}/movie/${filmID}?api_key=${apiKey}&language=en-US`
+    );
+    const newFilm = await response;
+    return newFilm.data;
 }
 
 const filmList = document.querySelector('.gallery__films');
@@ -95,4 +94,4 @@ function createObj({ id, poster_path, release_date, title, vote_average, genres 
   };
 }
 
-export { arrayMyFilms };
+export { arrayMyFilms, fetchThemoviedID, createObj, MY_LIBRARY_KEY };
