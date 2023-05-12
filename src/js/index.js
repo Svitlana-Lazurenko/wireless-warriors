@@ -25,7 +25,7 @@ import * as markupCard from './storageLibrary/updateMarkup';
 import * as filmsBySearch from './fetching and rendering/films-by-search';
 import * as footerModal from './components/modals-open-close';
 import * as filmInfo from './fetching and rendering/film-info';
-// import * as remideMy from './storageLibrary/btn-remideMy';
+import * as remideMy from './storageLibrary/btn-remideMy';
 // import * as yearsSelect from './components/years-select';
 
 // ========= USING LIBRARIES=================================
