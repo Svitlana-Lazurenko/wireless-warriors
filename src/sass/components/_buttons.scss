@@ -40,12 +40,15 @@
 
   &:hover,
   &:focus {
+    box-shadow: 1px 1px 14px 4px #ff6b085b;
+    transition: 250ms;
     background: linear-gradient(
       141.22deg,
       getColor('primary-text-color-dark-theme') 9.4%,
       getColor('primary-text-color-dark-theme') 91.91%
     );
     color: getColor('accent-color');
+ 
   }
 
   @include tablet {
@@ -312,3 +315,39 @@
 .white-theme .icon__search {
   fill: var(--light-theme-color-text);
 }
+
+.button__scroll__up {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  background-color: getColor(accent-color);
+  color: var(--light-theme-color-text);
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  transition: bottom 250ms linear;
+
+  @include tablet {
+    padding: 15px;
+    // bottom: 30px;
+    // line-height: 16px;
+  }
+  @include desktop {
+    padding: 20px;
+    // bottom: 40px;
+    // line-height: 28px;
+  }
+}
+
+.button__scroll__up:hover {
+  background-color: getColor(accent-color);
+}
+
+.button__scroll__up--show {
+  bottom: 20px;
+}
+
