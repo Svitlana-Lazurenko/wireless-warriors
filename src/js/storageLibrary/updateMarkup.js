@@ -4,6 +4,8 @@ import { makeStarsMarkup } from '../components/star-markup';
 if (document.location.href.includes('my-library.html')) {
   const filmList = document.querySelector('.libraryFilms');
   const baseUrl = 'https://image.tmdb.org/t/p/w500/';
+  const library = document.querySelector('.library__message');
+  const searchButton = document.querySelector('.library__search-button');
 
   let genresList = {};
 
@@ -11,6 +13,19 @@ if (document.location.href.includes('my-library.html')) {
       (markup, arrayMyFilms) => markup + createMarkup(arrayMyFilms, genresList),
       ''
   );
+
+  if (arrayMyFilms.length > 0) {
+    library.remove();
+    searchButton.remove();
+    // тут по логике нужно рендерить карточки
+  } else {
+    library.innerHTML = `<h2 class="title-error">
+      OOPS...<br />
+        We are very sorry!<br />
+        You don’t have any movies at your library.</h2>`;
+  
+    return;
+  }
 
   updateMoviesList(markup);
 
