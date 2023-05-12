@@ -15,6 +15,12 @@ if (upcomingSoonDiv) {
         ];
       const imageUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
 
+      const button = document.createElement('button');
+          button.type = 'button';
+          button.textContent = 'Remind Me';
+          button.dataset.id = movie.id;
+          button.classList.add('upcoming-soon_button');
+
       const newDiv = document.querySelector('.upcoming-soon_title');
       const card = document.createElement('div');
       card.classList.add('upcoming-soon_box');
@@ -130,10 +136,10 @@ if (upcomingSoonDiv) {
           bgContainer.appendChild(aboutTitle);
           bgContainer.appendChild(aboutText);
 
-          const button = document.createElement('button');
-          button.type = 'button';
-          button.textContent = 'Remind Me';
-          button.classList.add('upcoming-soon_button');
+          // const button = document.createElement('button');
+          // button.type = 'button';
+          // button.textContent = 'Remind Me';
+          // button.classList.add('upcoming-soon_button');
           bgContainer.appendChild(button);
 
           card.appendChild(image);

@@ -7,7 +7,6 @@ async function fetchThemoviedID(filmID) {
       `${BASE_THEMOVIEDB_URL}/movie/${filmID}?api_key=${apiKey}&language=en-US`
     );
     const newFilm = await response;
-    // console.log(newFilm.data.genres);
     return newFilm.data;
 }
 
@@ -75,4 +74,4 @@ function createObj ({ id, poster_path, release_date, title, vote_average, genres
     }
 }
 
-export { arrayMyFilms };
+export { arrayMyFilms, fetchThemoviedID, createObj, MY_LIBRARY_KEY };
