@@ -40,12 +40,15 @@
 
   &:hover,
   &:focus {
+    box-shadow: 1px 1px 14px 4px #ff6b085b;
+    transition: 250ms;
     background: linear-gradient(
       141.22deg,
       getColor('primary-text-color-dark-theme') 9.4%,
       getColor('primary-text-color-dark-theme') 91.91%
     );
     color: getColor('accent-color');
+ 
   }
 
   @include tablet {
