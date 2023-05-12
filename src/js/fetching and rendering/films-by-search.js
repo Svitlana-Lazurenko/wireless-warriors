@@ -79,10 +79,12 @@ if (document.location.href.includes('catalog.html')) {
     { id, poster_path, title, genre_ids, release_date, vote_average },
     genresList
   ) {
+    const baseUrlImg = 'https://image.tmdb.org/t/p/original';
+    const plug = 'https://img2.akspic.ru/previews/9/0/7/9/4/149709/149709-mifologia-vedmak-illustracia-ciri-mificheskoe_sushhestvo-360x640.jpg';
     const genreNames = getGenresName(genre_ids, genresList);
     return `<li class="movie__card">
         <div class='movie__link' data-id=${id}">
-              <img src='https://image.tmdb.org/t/p/original${poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
+              <img src='${poster_path == null ? '' : baseUrlImg}${poster_path == null ? plug : poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
         </div>
             <div class="info overlay">
               <div class="info-thumb__text"><h2 class="info__title">${title}</h2>

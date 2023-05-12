@@ -66,7 +66,6 @@ if(document.location.href.includes('catalog.html') || document.location.href.inc
       event.target.nodeName === 'DIV' ||
       event.target.nodeName === 'IMG'
     ) {
-      console.log('dsaadsasd');
       idMovie = event.target.parentNode.dataset.id;
   
       test.classList.remove('modal-film');
@@ -137,7 +136,6 @@ if(document.location.href.includes('catalog.html') || document.location.href.inc
       voteAverage: vote_average.toFixed(1),
       voteCount: vote_count,
     };
-    console.log(movieInfo);
     return movieInfo;
   }
   
