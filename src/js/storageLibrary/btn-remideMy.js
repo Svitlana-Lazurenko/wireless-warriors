@@ -32,12 +32,12 @@ if(!document.location.href.includes('catalog.html') && !document.location.href.i
                 const updateArrayMyLibrary = load(MY_LIBRARY_KEY).filter(({ID}) => ID != createObj(film).ID);
                 localStorage.clear();
                 save(MY_LIBRARY_KEY, updateArrayMyLibrary);
-                btn.textContent = 'Remide my';
+                btn.textContent = 'Remind my';
             if(document.location.href.includes('my-library')) {
                 location.reload();
             }
             } else {
-                btn.textContent = 'Remide my';
+                btn.textContent = 'Remind my';
                 currentState.push(createObj(film));
                 save(MY_LIBRARY_KEY, currentState);
                 btn.textContent = 'Remove to library';
