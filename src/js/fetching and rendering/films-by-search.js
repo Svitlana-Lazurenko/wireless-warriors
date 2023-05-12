@@ -1,11 +1,18 @@
 import axios from 'axios';
-
 import { BASE_THEMOVIEDB_URL, apiKey } from '../tmdb-api';
 import { makeStarsMarkup } from '../components/star-markup';
 import { fetchThemoviedbGenres } from '../fetching and rendering/film-genres';
-// import { pagination } from '../pagination';
-console.log(document.location);
+
+let name = null;
 if (document.location.href.includes('catalog.html')) {
+  const fetchMoviesByName = async (page, name) => {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=df4f25ddce476816dc7867d9ac4bd1ea&page=${page}&query=${name}&language=en-US`
+    );
+    const moviesByName = await response.json();
+    return moviesByName;
+  };
+  
   class PostApiService {
     constructor() {
       this.searchQuery = '';
@@ -55,12 +62,13 @@ if (document.location.href.includes('catalog.html')) {
     gallery: document.querySelector('.gallery__films'),
   };
   const postApiService = new PostApiService();
-
+  
   refs.form.addEventListener('submit', onSearch);
 
   function onSearch(e) {
     e.preventDefault();
     postApiService.query = e.target.searchQuery.value.trim();
+    name = e.target.searchQuery.value.trim();
     postApiService.resetPage();
     clearCardList();
     fetchResultsFilms();
@@ -146,4 +154,12 @@ if (document.location.href.includes('catalog.html')) {
   function clearCardList() {
     refs.gallery.innerHTML = '';
   }
+  
 }
+
+export { name };
+
+
+
+
+
