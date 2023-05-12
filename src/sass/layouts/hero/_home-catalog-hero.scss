@@ -169,6 +169,16 @@
     bottom: 72px;
     left: 20px;
 
+    &:hover,
+    &:focus{
+      color:#f87719;
+      background: #f8f8f8;
+
+      
+      box-shadow: 1px 1px 14px 4px #ff6b0835;
+       transition: 250ms;
+    };
+
     @include tablet {
       bottom: 100px;
       left: 32px;

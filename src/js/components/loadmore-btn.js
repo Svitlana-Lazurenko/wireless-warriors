@@ -1,27 +1,47 @@
-export default class LoadMoreBtn {
-  constructor({ selector, isHidden = true }) {
-    this.button = this.getButton(selector);
-  }
 
-  getButton(selector) {
-    return document.querySelector(selector);
-  }
+// const liEls = document.querySelectorAll('.movie__card');
 
-  disable() {
-    this.button.disabled = true;
-    this.button.textContent = 'Loading...';
-  }
+// export default class LoadMoreBtn {
+//   constructor({ selector, isHidden = true }) {
+//     this.button = this.getButton(selector);
+//   }
 
-  enable() {
-    this.button.disabled = false;
-    this.button.textContent = 'Load more';
-  }
+//   getButton(selector) {
+//     return document.querySelector('.load-more');
+//   }
 
-  hide() {
-    this.button.classList.add('hidden');
-  }
+//   disable() {
+//     this.button.disabled = true;
+//     this.button.textContent = 'Loading...';
+//   }
 
-  show() {
-    this.button.classList.remove('hidden');
-  }
-}
+//   enable() {
+//     this.button.disabled = false;
+//     this.button.textContent = 'Load more';
+//   }
+
+//   hide() {
+//     this.button.classList.add('hidden');
+//   }
+
+//   show() {
+//     this.button.classList.remove('hidden');
+//   }
+
+//   checkVisibility(liEls) {
+//     if (liEls.length >= 10) {
+//       this.show();
+//     } else if (liEls.length < 10) {
+//       this.hide();
+//     }
+//   }
+// }
+
+// const loadMoreBtn = new LoadMoreBtn({
+//   selector: '.load-more',
+//   isHidden: true,
+// });
+
+// // Після завантаження фільмів на сторінці
+
+// loadMoreBtn.checkVisibility(liEls);
