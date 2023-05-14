@@ -48,7 +48,6 @@
       getColor('primary-text-color-dark-theme') 91.91%
     );
     color: getColor('accent-color');
- 
   }
 
   @include tablet {
@@ -95,7 +94,11 @@
 }
 
 :root {
-  --accent-btn-bg-color: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  --accent-btn-bg-color: linear-gradient(
+    141.22deg,
+    #ffc226 9.4%,
+    #f84119 91.91%
+  );
   --accent-btn-text-color: #111111;
   --modalhover-btn-bg-color: #ffffff;
   --primary-bg-color: #000000;
@@ -351,3 +354,20 @@
   bottom: 20px;
 }
 
+// ===========Pagination styles===================
+
+.tui-page-btn {
+  border-radius: 50px;
+  border-color: transparent;
+  // background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+}
+
+.tui-is-selected {
+  border-radius: 50px;
+  border-color: transparent;
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+}
+
+.moreButton {
+  border: 0px;
+}

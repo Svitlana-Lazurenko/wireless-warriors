@@ -8,20 +8,41 @@ const filmList = document.querySelector('.gallery__films');
 const pagination = new Pagination(document.getElementById('pagination2'), {
   totalItems: 500,
   itemsPerPage: 10,
-  visiblePages: 5,
-  centerAlign: true
+  visiblePages: 3,
+  centerAlign: true,
+  // template: {
+  //   page: '',
+  //   currentPage:
+  //     '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+  //   moveButton:
+  //     '<a href="#" class="tui-page-btn tui-{{type}} custom-class-{{type}}">' +
+  //     '<span class="tui-ico-{{type}}">{{type}}</span>' +
+  //     '</a>',
+  //   disabledMoveButton:
+  //     '<span class="tui-page-btn tui-is-disabled tui-{{type}} custom-class-{{type}}">' +
+  //     '<span class="tui-ico-{{type}}">{{type}}</span>' +
+  //     '</span>',
+  //   moreButton:
+  //     '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip custom-class-{{type}}">' +
+  //     '<span class="tui-ico-ellip">...</span>' +
+  //     '</a>',
+  // },
 });
 
-pagination.on('afterMove', (event) => {
+pagination.on('afterMove', event => {
   const currentPage = event.page;
-  fetch(`https://api.themoviedb.org/3/search/movie?api_key=df4f25ddce476816dc7867d9ac4bd1ea&page=${currentPage}&query=${name}&language=en-US`).then(response => response.json()).then((data) => {
-    let genresList = {};
-    const markup = data.results.reduce(
-      (markup, data) => markup + createMarkup(data, genresList),
-      ''
-    );
-    filmList.innerHTML = markup;
-  });
+  fetch(
+    `https://api.themoviedb.org/3/search/movie?api_key=df4f25ddce476816dc7867d9ac4bd1ea&page=${currentPage}&query=${name}&language=en-US`
+  )
+    .then(response => response.json())
+    .then(data => {
+      let genresList = {};
+      const markup = data.results.reduce(
+        (markup, data) => markup + createMarkup(data, genresList),
+        ''
+      );
+      filmList.innerHTML = markup;
+    });
 });
 
 function createMarkup(
@@ -29,11 +50,14 @@ function createMarkup(
   genresList
 ) {
   const baseUrlImg = 'https://image.tmdb.org/t/p/original';
-  const plug = 'https://img2.akspic.ru/previews/9/0/7/9/4/149709/149709-mifologia-vedmak-illustracia-ciri-mificheskoe_sushhestvo-360x640.jpg';
+  const plug =
+    'https://img2.akspic.ru/previews/9/0/7/9/4/149709/149709-mifologia-vedmak-illustracia-ciri-mificheskoe_sushhestvo-360x640.jpg';
   const genreNames = getGenresName(genre_ids, genresList);
   return `<li class="movie__card">
       <div class='movie__link' data-id=${id}">
-            <img src='${poster_path == null ? '' : baseUrlImg}${poster_path == null ? plug : poster_path}' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
+            <img src='${poster_path == null ? '' : baseUrlImg}${
+    poster_path == null ? plug : poster_path
+  }' alt='${title}' loading='lazy' class='movie__image' width='395' height='574'/>
       </div>
           <div class="info overlay">
             <div class="info-thumb__text"><h2 class="info__title">${title}</h2>
@@ -65,6 +89,3 @@ function onlyYearFilter(release_date) {
     ? 'Unknown Year'
     : release_date.split('').slice(0, 4).join('');
 }
-
-
-
